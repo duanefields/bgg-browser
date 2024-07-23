@@ -89,7 +89,14 @@ const getCollection = async (username: string): Promise<Game[]> => {
   const response = await fetch(
     `${BGG_PROXY}/collection/?username=${username}&stats=1&own=1&version=1&excludesubtype=boardgameexpansion`,
   )
-  const data = (await response.json()) as CollectionResponse
+
+  // Check for errors, the server responds with a 200 OK even if there is an error
+  const json = await response.json()
+  if (json.errors) {
+    throw new Error(json.errors.error.message)
+  }
+
+  const data = json as CollectionResponse
   return data.items.item.map((item) => ({
     objectId: Number(item._objectid),
     name: item.name.__text,

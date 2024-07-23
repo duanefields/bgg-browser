@@ -5,5 +5,5 @@ import App from "./App"
 
 it("Should render the App component", () => {
   render(<App />)
-  expect(screen.getByText("Vite + React")).toBeVisible()
+  expect(screen.getByText("BGG Collection Browser")).toBeVisible()
 })

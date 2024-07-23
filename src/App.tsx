@@ -12,7 +12,7 @@ const App = () => {
         <h1>BGG Collection Browser</h1>
 
         <div className="card">
-          <Collection />
+          <Collection username="pandyandy" />
         </div>
       </>
 

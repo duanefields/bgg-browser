@@ -1,0 +1,458 @@
+{
+  "items": {
+    "item": [
+      {
+        "name": { "_sortindex": "1", "__text": "Dixit" },
+        "yearpublished": "2008",
+        "image": "https://cf.geekdo-images.com/J0PlHArkZDJ57H-brXW2Fw__original/img/jt3kFCHJ3HJ2079dMLwipFZqdQg=/0x0/filters:format(jpeg)/pic6738336.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/J0PlHArkZDJ57H-brXW2Fw__thumb/img/QVwPXskFikQwBQlrdLJBAiRGgdg=/fit-in/200x150/filters:strip_icc()/pic6738336.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "64933" },
+            "average": { "_value": "7.1991" },
+            "bayesaverage": { "_value": "7.08844" },
+            "stddev": { "_value": "1.38549" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "385",
+                  "_bayesaverage": "7.08844"
+                },
+                {
+                  "_type": "family",
+                  "_id": "5498",
+                  "_name": "partygames",
+                  "_friendlyname": "Party Game Rank",
+                  "_value": "25",
+                  "_bayesaverage": "7.08204"
+                }
+              ]
+            },
+            "_value": "N/A"
+          },
+          "_minplayers": "3",
+          "_maxplayers": "8",
+          "_minplaytime": "30",
+          "_maxplaytime": "30",
+          "_playingtime": "30",
+          "_numowned": "95673"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2022-08-11 09:33:42"
+        },
+        "numplays": "0",
+        "_objecttype": "thing",
+        "_objectid": "39856",
+        "_subtype": "boardgame",
+        "_collid": "96706485"
+      },
+      {
+        "name": { "_sortindex": "1", "__text": "Dixit: Journey" },
+        "yearpublished": "2012",
+        "image": "https://cf.geekdo-images.com/HX0lvc-JiPzf7Nrqp_N-Fw__original/img/9qsDO-TCNWxVxNZEbgLX08aYeJc=/0x0/filters:format(jpeg)/pic1387599.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/HX0lvc-JiPzf7Nrqp_N-Fw__thumb/img/iInoc-itpaO_STBI1QVQ0B-WWME=/fit-in/200x150/filters:strip_icc()/pic1387599.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "4600" },
+            "average": { "_value": "7.39502" },
+            "bayesaverage": { "_value": "6.76499" },
+            "stddev": { "_value": "1.32662" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "757",
+                  "_bayesaverage": "6.76499"
+                },
+                {
+                  "_type": "family",
+                  "_id": "5498",
+                  "_name": "partygames",
+                  "_friendlyname": "Party Game Rank",
+                  "_value": "27",
+                  "_bayesaverage": "7.07303"
+                }
+              ]
+            },
+            "_value": "N/A"
+          },
+          "_minplayers": "3",
+          "_maxplayers": "6",
+          "_minplaytime": "30",
+          "_maxplaytime": "30",
+          "_playingtime": "30",
+          "_numowned": "8474"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2022-08-11 09:34:39"
+        },
+        "numplays": "0",
+        "_objecttype": "thing",
+        "_objectid": "121288",
+        "_subtype": "boardgame",
+        "_collid": "96706502"
+      },
+      {
+        "name": { "_sortindex": "1", "__text": "Forbidden Island" },
+        "yearpublished": "2010",
+        "image": "https://cf.geekdo-images.com/JgAkEBUaiHOsOS94iRMs2w__original/img/H5d4I5z_HSpPEu7EAl0DqLt9_pM=/0x0/filters:format(jpeg)/pic646458.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/JgAkEBUaiHOsOS94iRMs2w__thumb/img/5aPR8-KMbgucI_XkPE2PJaMQQsg=/fit-in/200x150/filters:strip_icc()/pic646458.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "51025" },
+            "average": { "_value": "6.75997" },
+            "bayesaverage": { "_value": "6.656" },
+            "stddev": { "_value": "1.21612" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "937",
+                  "_bayesaverage": "6.656"
+                },
+                {
+                  "_type": "family",
+                  "_id": "5499",
+                  "_name": "familygames",
+                  "_friendlyname": "Family Game Rank",
+                  "_value": "317",
+                  "_bayesaverage": "6.64896"
+                }
+              ]
+            },
+            "_value": "N/A"
+          },
+          "_minplayers": "2",
+          "_maxplayers": "4",
+          "_minplaytime": "30",
+          "_maxplaytime": "30",
+          "_playingtime": "30",
+          "_numowned": "92468"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2022-08-19 05:15:33"
+        },
+        "numplays": "0",
+        "_objecttype": "thing",
+        "_objectid": "65244",
+        "_subtype": "boardgame",
+        "_collid": "96944279"
+      },
+      {
+        "name": { "_sortindex": "1", "__text": "Pandemic" },
+        "yearpublished": "2013",
+        "image": "https://cf.geekdo-images.com/PO5gogN4NrTwNhnFGc2arg__original/img/yXBG5Da6QD1qnjD8NCuCc-Q4-1Y=/0x0/filters:format(jpeg)/pic2212955.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/PO5gogN4NrTwNhnFGc2arg__thumb/img/CnYTpNHuBnNBNLdSUeUn-pKJazY=/fit-in/200x150/filters:strip_icc()/pic2212955.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "125990" },
+            "average": { "_value": "7.53483" },
+            "bayesaverage": { "_value": "7.42828" },
+            "stddev": { "_value": "1.33598" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "148",
+                  "_bayesaverage": "7.42828"
+                },
+                {
+                  "_type": "family",
+                  "_id": "5497",
+                  "_name": "strategygames",
+                  "_friendlyname": "Strategy Game Rank",
+                  "_value": "160",
+                  "_bayesaverage": "7.35037"
+                },
+                {
+                  "_type": "family",
+                  "_id": "5499",
+                  "_name": "familygames",
+                  "_friendlyname": "Family Game Rank",
+                  "_value": "31",
+                  "_bayesaverage": "7.4126"
+                }
+              ]
+            },
+            "_value": "9"
+          },
+          "_minplayers": "2",
+          "_maxplayers": "4",
+          "_minplaytime": "45",
+          "_maxplaytime": "45",
+          "_playingtime": "45",
+          "_numowned": "204473"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2019-12-31 01:31:01"
+        },
+        "numplays": "0",
+        "version": {
+          "item": {
+            "thumbnail": "https://cf.geekdo-images.com/PO5gogN4NrTwNhnFGc2arg__thumb/img/CnYTpNHuBnNBNLdSUeUn-pKJazY=/fit-in/200x150/filters:strip_icc()/pic2212955.jpg",
+            "image": "https://cf.geekdo-images.com/PO5gogN4NrTwNhnFGc2arg__original/img/yXBG5Da6QD1qnjD8NCuCc-Q4-1Y=/0x0/filters:format(jpeg)/pic2212955.jpg",
+            "link": [
+              {
+                "_type": "boardgameversion",
+                "_id": "30549",
+                "_value": "Pandemic",
+                "_inbound": "true"
+              },
+              { "_type": "boardgamepublisher", "_id": "538", "_value": "Z-Man Games" },
+              { "_type": "boardgameartist", "_id": "14057", "_value": "Chris Quilliams" },
+              { "_type": "language", "_id": "2184", "_value": "English" }
+            ],
+            "name": { "_type": "primary", "_sortindex": "1", "_value": "English edition 2013" },
+            "yearpublished": { "_value": "2013" },
+            "productcode": { "_value": "ZMG71100 / 05-71100PG2013Q3" },
+            "width": { "_value": "8.75" },
+            "length": { "_value": "12" },
+            "depth": { "_value": "1.8" },
+            "weight": { "_value": "4.89" },
+            "_type": "boardgameversion",
+            "_id": "195312"
+          }
+        },
+        "_objecttype": "thing",
+        "_objectid": "30549",
+        "_subtype": "boardgame",
+        "_collid": "67215851"
+      },
+      {
+        "name": { "_sortindex": "5", "__text": "The Resistance" },
+        "yearpublished": "2009",
+        "image": "https://cf.geekdo-images.com/cAPTkL2BR3snLO71dkH8rw__original/img/_UahoIUTqh39xRqzCc2jwgdYbSA=/0x0/filters:format(jpeg)/pic2576459.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/cAPTkL2BR3snLO71dkH8rw__thumb/img/5lDn1W82rlLXtVG7nPIYR9Orn-4=/fit-in/200x150/filters:strip_icc()/pic2576459.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "40934" },
+            "average": { "_value": "7.2123" },
+            "bayesaverage": { "_value": "7.07093" },
+            "stddev": { "_value": "1.47408" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "398",
+                  "_bayesaverage": "7.07093"
+                },
+                {
+                  "_type": "family",
+                  "_id": "5498",
+                  "_name": "partygames",
+                  "_friendlyname": "Party Game Rank",
+                  "_value": "33",
+                  "_bayesaverage": "7.03311"
+                }
+              ]
+            },
+            "_value": "N/A"
+          },
+          "_minplayers": "5",
+          "_maxplayers": "10",
+          "_minplaytime": "30",
+          "_maxplaytime": "30",
+          "_playingtime": "30",
+          "_numowned": "65171"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2022-08-11 09:36:26"
+        },
+        "numplays": "0",
+        "_objecttype": "thing",
+        "_objectid": "41114",
+        "_subtype": "boardgame",
+        "_collid": "96706548"
+      },
+      {
+        "name": { "_sortindex": "1", "__text": "Skull" },
+        "yearpublished": "2011",
+        "image": "https://cf.geekdo-images.com/OPrd2iXm43dir7BwKAMOuQ__original/img/ygPnbmg8FCpA7jO5gXw38uyNQ10=/0x0/filters:format(jpeg)/pic6097488.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/OPrd2iXm43dir7BwKAMOuQ__thumb/img/yEnb4YWN-Cp41KWTQ2EeNkrqlZI=/fit-in/200x150/filters:strip_icc()/pic6097488.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "23929" },
+            "average": { "_value": "7.19069" },
+            "bayesaverage": { "_value": "7.01992" },
+            "stddev": { "_value": "1.4015" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "441",
+                  "_bayesaverage": "7.01992"
+                },
+                {
+                  "_type": "family",
+                  "_id": "5498",
+                  "_name": "partygames",
+                  "_friendlyname": "Party Game Rank",
+                  "_value": "31",
+                  "_bayesaverage": "7.04453"
+                }
+              ]
+            },
+            "_value": "N/A"
+          },
+          "_minplayers": "3",
+          "_maxplayers": "6",
+          "_minplaytime": "15",
+          "_maxplaytime": "45",
+          "_playingtime": "45",
+          "_numowned": "37806"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2022-08-11 09:39:44"
+        },
+        "numplays": "0",
+        "_objecttype": "thing",
+        "_objectid": "92415",
+        "_subtype": "boardgame",
+        "_collid": "96706617"
+      },
+      {
+        "name": { "_sortindex": "1", "__text": "Tsuro of the Seas" },
+        "yearpublished": "2012",
+        "image": "https://cf.geekdo-images.com/mQgUEukVc97EDZ_YIRxxwg__original/img/BUWEc5GWtNAsUGtPHP8FNT_s_Uo=/0x0/filters:format(jpeg)/pic1301853.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/mQgUEukVc97EDZ_YIRxxwg__thumb/img/PRBd4GvWPitG1UZxu3wvIY0N46o=/fit-in/200x150/filters:strip_icc()/pic1301853.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "6631" },
+            "average": { "_value": "6.51524" },
+            "bayesaverage": { "_value": "6.22832" },
+            "stddev": { "_value": "1.42951" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "1930",
+                  "_bayesaverage": "6.22832"
+                },
+                {
+                  "_type": "family",
+                  "_id": "4666",
+                  "_name": "abstracts",
+                  "_friendlyname": "Abstract Game Rank",
+                  "_value": "215",
+                  "_bayesaverage": "6.15008"
+                },
+                {
+                  "_type": "family",
+                  "_id": "5499",
+                  "_name": "familygames",
+                  "_friendlyname": "Family Game Rank",
+                  "_value": "685",
+                  "_bayesaverage": "6.26616"
+                }
+              ]
+            },
+            "_value": "N/A"
+          },
+          "_minplayers": "2",
+          "_maxplayers": "8",
+          "_minplaytime": "20",
+          "_maxplaytime": "40",
+          "_playingtime": "40",
+          "_numowned": "12516"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2022-08-11 09:35:01"
+        },
+        "numplays": "0",
+        "comment": "Bought this rather than the original because it was reduced to below the price of the original due to a damaged box. Contents perfect. Almost always play it as original.",
+        "_objecttype": "thing",
+        "_objectid": "124172",
+        "_subtype": "boardgame",
+        "_collid": "96706510"
+      }
+    ],
+    "_totalitems": "7",
+    "_termsofuse": "https://boardgamegeek.com/xmlapi/termsofuse",
+    "_pubdate": "Tue, 23 Jul 2024 15:06:11 +0000"
+  }
+}
