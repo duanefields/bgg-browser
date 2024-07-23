@@ -1,0 +1,32 @@
+{
+  "cSpell.words": [
+    "bayesaverage",
+    "boardgame",
+    "boardgameexpansion",
+    "collid",
+    "excludesubtype",
+    "fortrade",
+    "friendlyname",
+    "lastmodified",
+    "maxplayers",
+    "maxplaytime",
+    "minplayers",
+    "minplaytime",
+    "numowned",
+    "numplays",
+    "objecttype",
+    "pandyandy",
+    "playingtime",
+    "preordered",
+    "prevowned",
+    "pubdate",
+    "sortindex",
+    "termsofuse",
+    "totalitems",
+    "usersrated",
+    "wanttobuy",
+    "wanttoplay",
+    "yearpublished"
+  ],
+  "jest.enable": false
+}
