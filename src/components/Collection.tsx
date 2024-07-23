@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import { getCollection } from "../lib/api"
 import GameCell from "./GameCell"
 
-type CollectionProps = {
+interface CollectionProps {
   /** The username of the collection you want to load */
   username: string
 }

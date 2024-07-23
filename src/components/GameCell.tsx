@@ -1,10 +1,10 @@
 import { Game } from "../shared.types"
 
-type GameProps = {
+interface GameCellProps {
   game: Game
 }
 
-const GameCell = ({ game }: GameProps) => {
+const GameCell = ({ game }: GameCellProps) => {
   return (
     <div>
       <h3>{game.name}</h3>
