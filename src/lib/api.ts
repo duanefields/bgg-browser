@@ -1,3 +1,5 @@
+import { Game } from "../shared.types"
+
 /** Root URL of the BGG Proxy Server */
 const BGG_PROXY: string = import.meta.env.VITE_BGG_PROXY
 
@@ -72,21 +74,6 @@ type CollectionResponse = {
   _totalitems: string
   _termsofuse: string
   _pubdate: string
-}
-
-type Game = {
-  objectId: number
-  name: string
-  thumbnail: string
-  minPlayers: number
-  maxPlayers: number
-  minPlaytime: number
-  maxPlaytime: number
-  playtime: number
-  yearPublished: number
-  averageRating: number
-  rank: number
-  numPlays: number
 }
 
 const getCollection = async (username: string): Promise<Game[]> => {

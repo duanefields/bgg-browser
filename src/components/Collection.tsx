@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { getCollection } from "../lib/api"
+import GameCell from "./GameCell"
 
 type CollectionProps = {
   /** The username of the collection you want to load */
@@ -21,7 +22,7 @@ const Collection = ({ username }: CollectionProps) => {
         <div>
           {query.data?.map((game) => (
             <div key={game.objectId}>
-              <h3>{game.name}</h3>
+              <GameCell game={game} />
             </div>
           ))}
         </div>
