@@ -1,0 +1,67 @@
+{
+  "items": {
+    "item": [
+      {
+        "name": { "_sortindex": "1", "__text": "1775: Rebellion" },
+        "yearpublished": "2013",
+        "image": "https://cf.geekdo-images.com/rTKzRG0b8CtQWYqmCC353w__original/img/Qvg98VUzuZQZsRtE4sgn5dDSokE=/0x0/filters:format(jpeg)/pic1386705.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/rTKzRG0b8CtQWYqmCC353w__thumb/img/fivxQMJoJqReqc7c2yghuAFP9Uk=/fit-in/200x150/filters:strip_icc()/pic1386705.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "4296" },
+            "average": { "_value": "7.63245" },
+            "bayesaverage": { "_value": "6.91283" },
+            "stddev": { "_value": "1.23511" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "564",
+                  "_bayesaverage": "6.91283"
+                },
+                {
+                  "_type": "family",
+                  "_id": "4664",
+                  "_name": "wargames",
+                  "_friendlyname": "War Game Rank",
+                  "_value": "47",
+                  "_bayesaverage": "7.39717"
+                }
+              ]
+            },
+            "_value": "9"
+          },
+          "_minplayers": "2",
+          "_maxplayers": "4",
+          "_minplaytime": "60",
+          "_maxplaytime": "120",
+          "_playingtime": "120",
+          "_numowned": "5845"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2016-10-20 14:17:24"
+        },
+        "numplays": "3",
+        "_objecttype": "thing",
+        "_objectid": "128996",
+        "_subtype": "boardgame",
+        "_collid": "34053222"
+      }
+    ],
+    "_totalitems": "225",
+    "_termsofuse": "https://boardgamegeek.com/xmlapi/termsofuse",
+    "_pubdate": "Sun, 21 Jul 2024 20:22:38 +0000"
+  }
+}
