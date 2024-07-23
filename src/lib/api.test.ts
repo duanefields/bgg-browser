@@ -50,7 +50,7 @@ describe("getCollection", () => {
     expect(item.thumbnail).toEqual(
       "https://cf.geekdo-images.com/rTKzRG0b8CtQWYqmCC353w__thumb/img/fivxQMJoJqReqc7c2yghuAFP9Uk=/fit-in/200x150/filters:strip_icc()/pic1386705.jpg",
     )
-    // todo: rank
+    expect(item.rank).toEqual(564)
   })
 
   it("Should return an error for an invalid username", async () => {
