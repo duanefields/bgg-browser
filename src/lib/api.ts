@@ -1,43 +1,5 @@
-/** Root URL of the API Server */
-const SERVER: string = import.meta.env.VITE_SERVER
-
 /** Root URL of the BGG Proxy Server */
 const BGG_PROXY: string = import.meta.env.VITE_BGG_PROXY
-
-/** User type */
-type User = {
-  id: number
-  name: string
-  username: string
-  email: string
-  address: {
-    street: string
-    suite: string
-    city: string
-    zipcode: string
-    geo: {
-      lat: string
-      lng: string
-    }
-  }
-  phone: string
-  website: string
-  company: {
-    name: string
-    catchPhrase: string
-    bs: string
-  }
-}
-
-/**
- * Get user by id
- * @param id the id of the user
- * @returns a promise of the user
- */
-const getUserById = async (id: number): Promise<User> => {
-  const response = await fetch(`${SERVER}/users/${id}`)
-  return await response.json()
-}
 
 type CollectionResponse = {
   items: {
@@ -144,4 +106,4 @@ const getCollection = async (username: string): Promise<Game[]> => {
   }))
 }
 
-export { getUserById, getCollection, SERVER, BGG_PROXY }
+export { getCollection, BGG_PROXY }

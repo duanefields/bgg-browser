@@ -2,17 +2,11 @@ import { http, HttpResponse } from "msw"
 import { setupServer } from "msw/node"
 import { beforeAll, afterAll, afterEach, expect, it, describe } from "vitest"
 
-import { getUserById, SERVER, BGG_PROXY, getCollection } from "./api"
+import { BGG_PROXY, getCollection } from "./api"
 import data1775 from "../test/1775.json"
 import dkf2112 from "../test/dkf2112.json"
 
 const server = setupServer(
-  http.get(`${SERVER}/users/1`, () => {
-    return HttpResponse.json({ name: "Duane Fields", id: 1 })
-  }),
-  http.get(`${SERVER}/users/2`, () => {
-    return HttpResponse.json({ name: "Joe Blow", id: 2 })
-  }),
   http.get(`${BGG_PROXY}/collection`, ({ request }) => {
     const url = new URL(request.url)
     const username = url.searchParams.get("username")
@@ -29,18 +23,6 @@ const server = setupServer(
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
-
-describe("getUserById", () => {
-  it("Should return full JSON response 1", async () => {
-    const user = await getUserById(1)
-    expect(user).toEqual({ name: "Duane Fields", id: 1 })
-  })
-
-  it("Should return full JSON response 2", async () => {
-    const user = await getUserById(2)
-    expect(user).toEqual({ name: "Joe Blow", id: 2 })
-  })
-})
 
 describe("getCollection", () => {
   it("Should parse my entire collection without errors", async () => {
