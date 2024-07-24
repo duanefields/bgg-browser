@@ -20,6 +20,7 @@ export type Game = {
 
 export type User = {
   username: string
+  userId: number
   avatar: string | null
   firstName: string | null
   lastName: string | null

@@ -58,14 +58,15 @@ describe("getUser", () => {
     expect(user.avatar).toEqual("https://cf.geekdo-static.com/avatars/avatar_id95740.jpg")
     expect(user.firstName).toEqual("Duane")
     expect(user.lastName).toEqual("Fields")
+    expect(user.userId).toEqual(673735)
   })
 
-  it("Should return null for a user who has not set their avatar", async () => {
+  it("Should return a null avatar for a user who has not set their avatar", async () => {
     const user = await getUser("AlexvW")
     expect(user.avatar).toBeNull()
   })
 
-  it("Should return null for a user who has not set their name", async () => {
+  it("Should return null names for a user who has not set their names", async () => {
     const user = await getUser("pandyandy")
     expect(user.firstName).toBeNull()
     expect(user.lastName).toBeNull()

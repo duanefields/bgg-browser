@@ -10,7 +10,7 @@ const getUser = async (username: string): Promise<User> => {
   const json = await response.json()
 
   // If the user does not exist, the server responds with a 200 OK and an HTML error page
-  // that is returned as JSON thanks to the proxy server?
+  // that is returned as JSON (thanks to the proxy server?)
   const data = json as UserResponse
   if (!data.user) {
     throw new Error("Invalid username specified")
@@ -22,7 +22,8 @@ const getUser = async (username: string): Promise<User> => {
   const lastName = data.user.lastname._value || null
 
   return {
-    username: username,
+    username: data.user._name,
+    userId: Number(data.user._id),
     avatar: avatar,
     firstName: firstName,
     lastName: lastName,
