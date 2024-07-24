@@ -40,28 +40,22 @@ const GameCell = ({ game }: GameCellProps) => {
       <h3 className={classes.headerArea}>{game.name}</h3>
       <div className={classes.infoArea}>
         <div>
-          <FontAwesomeIcon fixedWidth={true} icon={faUsers} title="Player Count" titleId="1" />{" "}
+          <FontAwesomeIcon fixedWidth icon={faUsers} title="Player Count" titleId="1" />{" "}
           {playerCount}
         </div>
         <div>
-          <FontAwesomeIcon fixedWidth={true} icon={faClock} title="Playtime" titleId="2" />{" "}
-          {playtime} mins
+          <FontAwesomeIcon fixedWidth icon={faClock} title="Playtime" titleId="2" /> {playtime} mins
         </div>
         <div>
-          <FontAwesomeIcon
-            fixedWidth={true}
-            icon={faStar}
-            title="BGG Rating (Your Rating)"
-            titleId="3"
-          />{" "}
+          <FontAwesomeIcon fixedWidth icon={faStar} title="BGG Rating (Your Rating)" titleId="3" />{" "}
           {rating}
         </div>
         <div>
-          <FontAwesomeIcon fixedWidth={true} icon={faDice} title="Number of Plays" titleId="4" />{" "}
+          <FontAwesomeIcon fixedWidth icon={faDice} title="Number of Plays" titleId="4" />{" "}
           {game.numPlays}
         </div>
         <div>
-          <FontAwesomeIcon fixedWidth={true} icon={faRankingStar} title="BGG Rank" titleId="5" />{" "}
+          <FontAwesomeIcon fixedWidth icon={faRankingStar} title="BGG Rank" titleId="5" />{" "}
           {game.rank.toLocaleString()}
         </div>
       </div>
