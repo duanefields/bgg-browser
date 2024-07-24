@@ -2,23 +2,45 @@ import { http, HttpResponse } from "msw"
 import { setupServer } from "msw/node"
 import { beforeAll, afterAll, afterEach, expect, it, describe } from "vitest"
 
-import { BGG_PROXY, getCollection } from "./api"
-import data1775 from "../test/1775.json"
-import dkf2112 from "../test/dkf2112.json"
-import pandyandy from "../test/pandyandy.json"
-import invalidUsername from "../test/invalidUsername.json"
+// sample collection responses
+import singleCollection from "../test/collections/single.json"
+import dkf2112Collection from "../test/collections/dkf2112.json"
+import pandyandyCollection from "../test/collections/pandyandy.json"
+import invalidUsernameCollection from "../test/collections/invalidUsername.json"
+
+// sample user responses
+import dkf2112 from "../test/users/dkf2112.json"
+import pandyandy from "../test/users/pandyandy.json"
+import AlexvW from "../test/users/AlexvW.json"
+import invalidUsername from "../test/users/invalidUsername.json"
+
+import { BGG_PROXY, getCollection, getUser } from "./api"
 
 const server = setupServer(
   http.get(`${BGG_PROXY}/collection`, ({ request }) => {
     const url = new URL(request.url)
     const username = url.searchParams.get("username")
     switch (username) {
-      case "1775":
-        return HttpResponse.json(data1775)
+      case "single":
+        return HttpResponse.json(singleCollection)
+      case "dkf2112":
+        return HttpResponse.json(dkf2112Collection)
+      case "pandyandy":
+        return HttpResponse.json(pandyandyCollection)
+      default:
+        return HttpResponse.json(invalidUsernameCollection)
+    }
+  }),
+  http.get(`${BGG_PROXY}/user`, ({ request }) => {
+    const url = new URL(request.url)
+    const username = url.searchParams.get("name")
+    switch (username) {
       case "dkf2112":
         return HttpResponse.json(dkf2112)
       case "pandyandy":
         return HttpResponse.json(pandyandy)
+      case "AlexvW":
+        return HttpResponse.json(AlexvW)
       default:
         return HttpResponse.json(invalidUsername)
     }
@@ -29,14 +51,39 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
+describe("getUser", () => {
+  it("Should return a user object", async () => {
+    const user = await getUser("dkf2112")
+    expect(user.username).toEqual("dkf2112")
+    expect(user.avatar).toEqual("https://cf.geekdo-static.com/avatars/avatar_id95740.jpg")
+    expect(user.firstName).toEqual("Duane")
+    expect(user.lastName).toEqual("Fields")
+  })
+
+  it("Should return null for a user who has not set their avatar", async () => {
+    const user = await getUser("AlexvW")
+    expect(user.avatar).toBeNull()
+  })
+
+  it("Should return null for a user who has not set their name", async () => {
+    const user = await getUser("pandyandy")
+    expect(user.firstName).toBeNull()
+    expect(user.lastName).toBeNull()
+  })
+
+  it("Should return an error for an invalid username", async () => {
+    await expect(getUser("nonexistent")).rejects.toThrow("Invalid username specified")
+  })
+})
+
 describe("getCollection", () => {
   it("Should parse my entire collection without errors", async () => {
     const collection = await getCollection("dkf2112")
     expect(collection.length).toEqual(225)
   })
 
-  it("Should return a single item for 1775", async () => {
-    const collection = await getCollection("1775")
+  it("Should return a single item for single", async () => {
+    const collection = await getCollection("single")
     expect(collection.length).toEqual(1)
     const item = collection[0]
     expect(item.objectId).toEqual(128996)

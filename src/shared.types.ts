@@ -1,4 +1,4 @@
-type Game = {
+export type Game = {
   objectId: number
   name: string
   thumbnail: string
@@ -14,4 +14,9 @@ type Game = {
   numPlays: number
 }
 
-export type { Game }
+export type User = {
+  username: string
+  avatar: string | null
+  firstName: string | null
+  lastName: string | null
+}

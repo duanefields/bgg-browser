@@ -1,0 +1,21 @@
+{
+  "user": {
+    "firstname": { "_value": "Alex" },
+    "lastname": { "_value": "van Wijngaarden" },
+    "avatarlink": { "_value": "N/A" },
+    "yearregistered": { "_value": "2019" },
+    "lastlogin": { "_value": "2024-07-24" },
+    "stateorprovince": { "_value": "Zuid-Holland" },
+    "country": { "_value": "Netherlands" },
+    "webaddress": { "_value": "" },
+    "xboxaccount": { "_value": "" },
+    "wiiaccount": { "_value": "" },
+    "psnaccount": { "_value": "" },
+    "battlenetaccount": { "_value": "" },
+    "steamaccount": { "_value": "" },
+    "traderating": { "_value": "0" },
+    "_id": "2276991",
+    "_name": "AlexvW",
+    "_termsofuse": "https://boardgamegeek.com/xmlapi/termsofuse"
+  }
+}

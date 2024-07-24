@@ -1,8 +1,33 @@
-import { Game } from "../shared.types"
-import { CollectionResponse, ItemResponse } from "./bgg.types"
+import { Game, User } from "../shared.types"
+import { CollectionResponse, ItemResponse, UserResponse } from "./bgg.types"
 
 /** Root URL of the BGG Proxy Server */
 const BGG_PROXY: string = import.meta.env.VITE_BGG_PROXY
+
+const getUser = async (username: string): Promise<User> => {
+  console.debug(`Fetching user ${username}`)
+  const response = await fetch(`${BGG_PROXY}/user/?name=${username}`)
+  const json = await response.json()
+
+  // If the user does not exist, the server responds with a 200 OK and an HTML error page
+  // that is returned as JSON thanks to the proxy server?
+  const data = json as UserResponse
+  if (!data.user) {
+    throw new Error("Invalid username specified")
+  }
+
+  // Not all users have all their data filled out
+  const avatar = data.user.avatarlink._value != "N/A" ? data.user.avatarlink._value : null
+  const firstName = data.user.firstname._value || null
+  const lastName = data.user.lastname._value || null
+
+  return {
+    username: username,
+    avatar: avatar,
+    firstName: firstName,
+    lastName: lastName,
+  }
+}
 
 const getCollection = async (username: string): Promise<Game[]> => {
   console.debug(`Fetching collection for ${username}`)
@@ -47,4 +72,4 @@ const rankForItem = (item: ItemResponse) => {
   }
 }
 
-export { getCollection, BGG_PROXY }
+export { getCollection, getUser, BGG_PROXY }

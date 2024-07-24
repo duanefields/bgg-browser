@@ -4,8 +4,9 @@ import { http, HttpResponse } from "msw"
 import { setupServer } from "msw/node"
 import { afterAll, afterEach, beforeAll, expect, it } from "vitest"
 import { BGG_PROXY } from "../lib/api"
-import invalidUsername from "../test/invalidUsername.json"
-import pandyandy from "../test/pandyandy.json"
+
+import invalidUsername from "../test/collections/invalidUsername.json"
+import pandyandy from "../test/collections/pandyandy.json"
 
 import Collection from "./Collection"
 

@@ -1,0 +1,21 @@
+{
+  "user": {
+    "firstname": { "_value": "" },
+    "lastname": { "_value": "" },
+    "avatarlink": { "_value": "https://cf.geekdo-static.com/avatars/avatar_id180271.jpg" },
+    "yearregistered": { "_value": "2019" },
+    "lastlogin": { "_value": "2024-07-18" },
+    "stateorprovince": { "_value": "Dorset" },
+    "country": { "_value": "United Kingdom" },
+    "webaddress": { "_value": "" },
+    "xboxaccount": { "_value": "" },
+    "wiiaccount": { "_value": "" },
+    "psnaccount": { "_value": "" },
+    "battlenetaccount": { "_value": "" },
+    "steamaccount": { "_value": "" },
+    "traderating": { "_value": "0" },
+    "_id": "2281873",
+    "_name": "pandyandy",
+    "_termsofuse": "https://boardgamegeek.com/xmlapi/termsofuse"
+  }
+}

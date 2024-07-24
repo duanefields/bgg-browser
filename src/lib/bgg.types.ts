@@ -71,3 +71,25 @@ export type CollectionResponse = {
   _termsofuse: string
   _pubdate: string
 }
+
+export type UserResponse = {
+  user: {
+    firstname: { _value: string }
+    lastname: { _value: string }
+    avatarlink: { _value: string }
+    yearregistered: { _value: string }
+    lastlogin: { _value: string }
+    stateorprovince: { _value: string }
+    country: { _value: string }
+    webaddress: { _value: string }
+    xboxaccount: { _value: string }
+    wiiaccount: { _value: string }
+    psnaccount: { _value: string }
+    battlenetaccount: { _value: string }
+    steamaccount: { _value: string }
+    traderating: { _value: string }
+    _id: string
+    _name: string
+    _termsofuse: string
+  }
+}

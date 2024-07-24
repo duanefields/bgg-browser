@@ -1,0 +1,21 @@
+{
+  "user": {
+    "firstname": { "_value": "Duane" },
+    "lastname": { "_value": "Fields" },
+    "avatarlink": { "_value": "https://cf.geekdo-static.com/avatars/avatar_id95740.jpg" },
+    "yearregistered": { "_value": "2013" },
+    "lastlogin": { "_value": "2024-07-24" },
+    "stateorprovince": { "_value": "Texas" },
+    "country": { "_value": "United States" },
+    "webaddress": { "_value": "" },
+    "xboxaccount": { "_value": "" },
+    "wiiaccount": { "_value": "" },
+    "psnaccount": { "_value": "" },
+    "battlenetaccount": { "_value": "" },
+    "steamaccount": { "_value": "" },
+    "traderating": { "_value": "0" },
+    "_id": "673735",
+    "_name": "dkf2112",
+    "_termsofuse": "https://boardgamegeek.com/xmlapi/termsofuse"
+  }
+}
