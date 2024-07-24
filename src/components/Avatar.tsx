@@ -18,7 +18,7 @@ const Avatar = ({ username }: AvatarProps) => {
       {query.isError && <div>Error: {query.error.message}</div>}
       {query.isSuccess && query.data?.avatar && (
         <div>
-          <img src={query.data?.avatar} alt={username} />
+          <img src={query.data?.avatar} alt={username} width={64} height={64} />
         </div>
       )}
     </div>
