@@ -19,80 +19,374 @@ exports[`Should match snapshot 1`] = `
              games
           </div>
           <div>
-            <div>
-              <h3>
-                Dixit
-              </h3>
+            <div
+              class="_gridContainer_71303f"
+            >
               <img
                 alt="Dixit"
+                class="_thumbnail_71303f"
                 src="https://cf.geekdo-images.com/J0PlHArkZDJ57H-brXW2Fw__thumb/img/QVwPXskFikQwBQlrdLJBAiRGgdg=/fit-in/200x150/filters:strip_icc()/pic6738336.jpg"
               />
+              <h3
+                class="_headerArea_71303f"
+              >
+                Dixit
+              </h3>
+              <div
+                class="_infoArea_71303f"
+              >
+                <div>
+                  Players: 
+                  3
+                  -
+                  8
+                </div>
+                <div>
+                  Playtime: 
+                  30
+                  -
+                  30
+                   minutes
+                </div>
+                <div>
+                  Published: 
+                  2008
+                </div>
+                <div>
+                  Average Rating: 
+                  7.2
+                </div>
+                <div>
+                  My Rating: 
+                  0
+                </div>
+                <div>
+                  Plays: 
+                  0
+                </div>
+                <div>
+                  Rank: 
+                  385
+                </div>
+              </div>
             </div>
           </div>
           <div>
-            <div>
-              <h3>
-                Dixit: Journey
-              </h3>
+            <div
+              class="_gridContainer_71303f"
+            >
               <img
                 alt="Dixit: Journey"
+                class="_thumbnail_71303f"
                 src="https://cf.geekdo-images.com/HX0lvc-JiPzf7Nrqp_N-Fw__thumb/img/iInoc-itpaO_STBI1QVQ0B-WWME=/fit-in/200x150/filters:strip_icc()/pic1387599.jpg"
               />
+              <h3
+                class="_headerArea_71303f"
+              >
+                Dixit: Journey
+              </h3>
+              <div
+                class="_infoArea_71303f"
+              >
+                <div>
+                  Players: 
+                  3
+                  -
+                  6
+                </div>
+                <div>
+                  Playtime: 
+                  30
+                  -
+                  30
+                   minutes
+                </div>
+                <div>
+                  Published: 
+                  2012
+                </div>
+                <div>
+                  Average Rating: 
+                  7.4
+                </div>
+                <div>
+                  My Rating: 
+                  0
+                </div>
+                <div>
+                  Plays: 
+                  0
+                </div>
+                <div>
+                  Rank: 
+                  757
+                </div>
+              </div>
             </div>
           </div>
           <div>
-            <div>
-              <h3>
-                Forbidden Island
-              </h3>
+            <div
+              class="_gridContainer_71303f"
+            >
               <img
                 alt="Forbidden Island"
+                class="_thumbnail_71303f"
                 src="https://cf.geekdo-images.com/JgAkEBUaiHOsOS94iRMs2w__thumb/img/5aPR8-KMbgucI_XkPE2PJaMQQsg=/fit-in/200x150/filters:strip_icc()/pic646458.jpg"
               />
+              <h3
+                class="_headerArea_71303f"
+              >
+                Forbidden Island
+              </h3>
+              <div
+                class="_infoArea_71303f"
+              >
+                <div>
+                  Players: 
+                  2
+                  -
+                  4
+                </div>
+                <div>
+                  Playtime: 
+                  30
+                  -
+                  30
+                   minutes
+                </div>
+                <div>
+                  Published: 
+                  2010
+                </div>
+                <div>
+                  Average Rating: 
+                  6.8
+                </div>
+                <div>
+                  My Rating: 
+                  0
+                </div>
+                <div>
+                  Plays: 
+                  0
+                </div>
+                <div>
+                  Rank: 
+                  937
+                </div>
+              </div>
             </div>
           </div>
           <div>
-            <div>
-              <h3>
-                Pandemic
-              </h3>
+            <div
+              class="_gridContainer_71303f"
+            >
               <img
                 alt="Pandemic"
+                class="_thumbnail_71303f"
                 src="https://cf.geekdo-images.com/PO5gogN4NrTwNhnFGc2arg__thumb/img/CnYTpNHuBnNBNLdSUeUn-pKJazY=/fit-in/200x150/filters:strip_icc()/pic2212955.jpg"
               />
+              <h3
+                class="_headerArea_71303f"
+              >
+                Pandemic
+              </h3>
+              <div
+                class="_infoArea_71303f"
+              >
+                <div>
+                  Players: 
+                  2
+                  -
+                  4
+                </div>
+                <div>
+                  Playtime: 
+                  45
+                  -
+                  45
+                   minutes
+                </div>
+                <div>
+                  Published: 
+                  2013
+                </div>
+                <div>
+                  Average Rating: 
+                  7.5
+                </div>
+                <div>
+                  My Rating: 
+                  9
+                </div>
+                <div>
+                  Plays: 
+                  0
+                </div>
+                <div>
+                  Rank: 
+                  148
+                </div>
+              </div>
             </div>
           </div>
           <div>
-            <div>
-              <h3>
-                The Resistance
-              </h3>
+            <div
+              class="_gridContainer_71303f"
+            >
               <img
                 alt="The Resistance"
+                class="_thumbnail_71303f"
                 src="https://cf.geekdo-images.com/cAPTkL2BR3snLO71dkH8rw__thumb/img/5lDn1W82rlLXtVG7nPIYR9Orn-4=/fit-in/200x150/filters:strip_icc()/pic2576459.jpg"
               />
+              <h3
+                class="_headerArea_71303f"
+              >
+                The Resistance
+              </h3>
+              <div
+                class="_infoArea_71303f"
+              >
+                <div>
+                  Players: 
+                  5
+                  -
+                  10
+                </div>
+                <div>
+                  Playtime: 
+                  30
+                  -
+                  30
+                   minutes
+                </div>
+                <div>
+                  Published: 
+                  2009
+                </div>
+                <div>
+                  Average Rating: 
+                  7.2
+                </div>
+                <div>
+                  My Rating: 
+                  0
+                </div>
+                <div>
+                  Plays: 
+                  0
+                </div>
+                <div>
+                  Rank: 
+                  398
+                </div>
+              </div>
             </div>
           </div>
           <div>
-            <div>
-              <h3>
-                Skull
-              </h3>
+            <div
+              class="_gridContainer_71303f"
+            >
               <img
                 alt="Skull"
+                class="_thumbnail_71303f"
                 src="https://cf.geekdo-images.com/OPrd2iXm43dir7BwKAMOuQ__thumb/img/yEnb4YWN-Cp41KWTQ2EeNkrqlZI=/fit-in/200x150/filters:strip_icc()/pic6097488.jpg"
               />
+              <h3
+                class="_headerArea_71303f"
+              >
+                Skull
+              </h3>
+              <div
+                class="_infoArea_71303f"
+              >
+                <div>
+                  Players: 
+                  3
+                  -
+                  6
+                </div>
+                <div>
+                  Playtime: 
+                  15
+                  -
+                  45
+                   minutes
+                </div>
+                <div>
+                  Published: 
+                  2011
+                </div>
+                <div>
+                  Average Rating: 
+                  7.2
+                </div>
+                <div>
+                  My Rating: 
+                  0
+                </div>
+                <div>
+                  Plays: 
+                  0
+                </div>
+                <div>
+                  Rank: 
+                  441
+                </div>
+              </div>
             </div>
           </div>
           <div>
-            <div>
-              <h3>
-                Tsuro of the Seas
-              </h3>
+            <div
+              class="_gridContainer_71303f"
+            >
               <img
                 alt="Tsuro of the Seas"
+                class="_thumbnail_71303f"
                 src="https://cf.geekdo-images.com/mQgUEukVc97EDZ_YIRxxwg__thumb/img/PRBd4GvWPitG1UZxu3wvIY0N46o=/fit-in/200x150/filters:strip_icc()/pic1301853.jpg"
               />
+              <h3
+                class="_headerArea_71303f"
+              >
+                Tsuro of the Seas
+              </h3>
+              <div
+                class="_infoArea_71303f"
+              >
+                <div>
+                  Players: 
+                  2
+                  -
+                  8
+                </div>
+                <div>
+                  Playtime: 
+                  20
+                  -
+                  40
+                   minutes
+                </div>
+                <div>
+                  Published: 
+                  2012
+                </div>
+                <div>
+                  Average Rating: 
+                  6.5
+                </div>
+                <div>
+                  My Rating: 
+                  0
+                </div>
+                <div>
+                  Plays: 
+                  0
+                </div>
+                <div>
+                  Rank: 
+                  1930
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -114,80 +408,374 @@ exports[`Should match snapshot 1`] = `
            games
         </div>
         <div>
-          <div>
-            <h3>
-              Dixit
-            </h3>
+          <div
+            class="_gridContainer_71303f"
+          >
             <img
               alt="Dixit"
+              class="_thumbnail_71303f"
               src="https://cf.geekdo-images.com/J0PlHArkZDJ57H-brXW2Fw__thumb/img/QVwPXskFikQwBQlrdLJBAiRGgdg=/fit-in/200x150/filters:strip_icc()/pic6738336.jpg"
             />
+            <h3
+              class="_headerArea_71303f"
+            >
+              Dixit
+            </h3>
+            <div
+              class="_infoArea_71303f"
+            >
+              <div>
+                Players: 
+                3
+                -
+                8
+              </div>
+              <div>
+                Playtime: 
+                30
+                -
+                30
+                 minutes
+              </div>
+              <div>
+                Published: 
+                2008
+              </div>
+              <div>
+                Average Rating: 
+                7.2
+              </div>
+              <div>
+                My Rating: 
+                0
+              </div>
+              <div>
+                Plays: 
+                0
+              </div>
+              <div>
+                Rank: 
+                385
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <div>
-            <h3>
-              Dixit: Journey
-            </h3>
+          <div
+            class="_gridContainer_71303f"
+          >
             <img
               alt="Dixit: Journey"
+              class="_thumbnail_71303f"
               src="https://cf.geekdo-images.com/HX0lvc-JiPzf7Nrqp_N-Fw__thumb/img/iInoc-itpaO_STBI1QVQ0B-WWME=/fit-in/200x150/filters:strip_icc()/pic1387599.jpg"
             />
+            <h3
+              class="_headerArea_71303f"
+            >
+              Dixit: Journey
+            </h3>
+            <div
+              class="_infoArea_71303f"
+            >
+              <div>
+                Players: 
+                3
+                -
+                6
+              </div>
+              <div>
+                Playtime: 
+                30
+                -
+                30
+                 minutes
+              </div>
+              <div>
+                Published: 
+                2012
+              </div>
+              <div>
+                Average Rating: 
+                7.4
+              </div>
+              <div>
+                My Rating: 
+                0
+              </div>
+              <div>
+                Plays: 
+                0
+              </div>
+              <div>
+                Rank: 
+                757
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <div>
-            <h3>
-              Forbidden Island
-            </h3>
+          <div
+            class="_gridContainer_71303f"
+          >
             <img
               alt="Forbidden Island"
+              class="_thumbnail_71303f"
               src="https://cf.geekdo-images.com/JgAkEBUaiHOsOS94iRMs2w__thumb/img/5aPR8-KMbgucI_XkPE2PJaMQQsg=/fit-in/200x150/filters:strip_icc()/pic646458.jpg"
             />
+            <h3
+              class="_headerArea_71303f"
+            >
+              Forbidden Island
+            </h3>
+            <div
+              class="_infoArea_71303f"
+            >
+              <div>
+                Players: 
+                2
+                -
+                4
+              </div>
+              <div>
+                Playtime: 
+                30
+                -
+                30
+                 minutes
+              </div>
+              <div>
+                Published: 
+                2010
+              </div>
+              <div>
+                Average Rating: 
+                6.8
+              </div>
+              <div>
+                My Rating: 
+                0
+              </div>
+              <div>
+                Plays: 
+                0
+              </div>
+              <div>
+                Rank: 
+                937
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <div>
-            <h3>
-              Pandemic
-            </h3>
+          <div
+            class="_gridContainer_71303f"
+          >
             <img
               alt="Pandemic"
+              class="_thumbnail_71303f"
               src="https://cf.geekdo-images.com/PO5gogN4NrTwNhnFGc2arg__thumb/img/CnYTpNHuBnNBNLdSUeUn-pKJazY=/fit-in/200x150/filters:strip_icc()/pic2212955.jpg"
             />
+            <h3
+              class="_headerArea_71303f"
+            >
+              Pandemic
+            </h3>
+            <div
+              class="_infoArea_71303f"
+            >
+              <div>
+                Players: 
+                2
+                -
+                4
+              </div>
+              <div>
+                Playtime: 
+                45
+                -
+                45
+                 minutes
+              </div>
+              <div>
+                Published: 
+                2013
+              </div>
+              <div>
+                Average Rating: 
+                7.5
+              </div>
+              <div>
+                My Rating: 
+                9
+              </div>
+              <div>
+                Plays: 
+                0
+              </div>
+              <div>
+                Rank: 
+                148
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <div>
-            <h3>
-              The Resistance
-            </h3>
+          <div
+            class="_gridContainer_71303f"
+          >
             <img
               alt="The Resistance"
+              class="_thumbnail_71303f"
               src="https://cf.geekdo-images.com/cAPTkL2BR3snLO71dkH8rw__thumb/img/5lDn1W82rlLXtVG7nPIYR9Orn-4=/fit-in/200x150/filters:strip_icc()/pic2576459.jpg"
             />
+            <h3
+              class="_headerArea_71303f"
+            >
+              The Resistance
+            </h3>
+            <div
+              class="_infoArea_71303f"
+            >
+              <div>
+                Players: 
+                5
+                -
+                10
+              </div>
+              <div>
+                Playtime: 
+                30
+                -
+                30
+                 minutes
+              </div>
+              <div>
+                Published: 
+                2009
+              </div>
+              <div>
+                Average Rating: 
+                7.2
+              </div>
+              <div>
+                My Rating: 
+                0
+              </div>
+              <div>
+                Plays: 
+                0
+              </div>
+              <div>
+                Rank: 
+                398
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <div>
-            <h3>
-              Skull
-            </h3>
+          <div
+            class="_gridContainer_71303f"
+          >
             <img
               alt="Skull"
+              class="_thumbnail_71303f"
               src="https://cf.geekdo-images.com/OPrd2iXm43dir7BwKAMOuQ__thumb/img/yEnb4YWN-Cp41KWTQ2EeNkrqlZI=/fit-in/200x150/filters:strip_icc()/pic6097488.jpg"
             />
+            <h3
+              class="_headerArea_71303f"
+            >
+              Skull
+            </h3>
+            <div
+              class="_infoArea_71303f"
+            >
+              <div>
+                Players: 
+                3
+                -
+                6
+              </div>
+              <div>
+                Playtime: 
+                15
+                -
+                45
+                 minutes
+              </div>
+              <div>
+                Published: 
+                2011
+              </div>
+              <div>
+                Average Rating: 
+                7.2
+              </div>
+              <div>
+                My Rating: 
+                0
+              </div>
+              <div>
+                Plays: 
+                0
+              </div>
+              <div>
+                Rank: 
+                441
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <div>
-            <h3>
-              Tsuro of the Seas
-            </h3>
+          <div
+            class="_gridContainer_71303f"
+          >
             <img
               alt="Tsuro of the Seas"
+              class="_thumbnail_71303f"
               src="https://cf.geekdo-images.com/mQgUEukVc97EDZ_YIRxxwg__thumb/img/PRBd4GvWPitG1UZxu3wvIY0N46o=/fit-in/200x150/filters:strip_icc()/pic1301853.jpg"
             />
+            <h3
+              class="_headerArea_71303f"
+            >
+              Tsuro of the Seas
+            </h3>
+            <div
+              class="_infoArea_71303f"
+            >
+              <div>
+                Players: 
+                2
+                -
+                8
+              </div>
+              <div>
+                Playtime: 
+                20
+                -
+                40
+                 minutes
+              </div>
+              <div>
+                Published: 
+                2012
+              </div>
+              <div>
+                Average Rating: 
+                6.5
+              </div>
+              <div>
+                My Rating: 
+                0
+              </div>
+              <div>
+                Plays: 
+                0
+              </div>
+              <div>
+                Rank: 
+                1930
+              </div>
+            </div>
           </div>
         </div>
       </div>

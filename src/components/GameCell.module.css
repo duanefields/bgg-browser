@@ -1,0 +1,32 @@
+.headerArea {
+  grid-area: header;
+  margin: 0;
+}
+
+.thumbnail {
+  grid-area: thumbnail;
+  object-fit: scale-down;
+  height: 89px !important;
+  margin: auto;
+}
+
+.description {
+  grid-area: description;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-areas:
+    "thumbnail header"
+    "thumbnail description";
+  grid-template-columns: 100px 1fr;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.infoArea {
+  font-size: smaller;
+}
