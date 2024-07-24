@@ -24,8 +24,7 @@ const GameCell = ({ game }: GameCellProps) => {
   }
 
   const onClick = (game: Game) => {
-    const win = window.open(game.url, "_blank")
-    win?.focus()
+    window.open(game.url, "_blank")
   }
 
   return (
