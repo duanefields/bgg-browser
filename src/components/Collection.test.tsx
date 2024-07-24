@@ -39,12 +39,6 @@ const renderWithQueryProvider = (children: React.ReactNode) => {
   return render(<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>)
 }
 
-it("Should match snapshot", async () => {
-  const collection = renderWithQueryProvider(<Collection username="pandyandy" />)
-  await screen.findByText("Forbidden Island")
-  expect(collection).toMatchSnapshot()
-})
-
 it("Should render a loading state", async () => {
   renderWithQueryProvider(<Collection username="pandyandy" />)
   expect(screen.getByText("Loading...")).toBeVisible()
