@@ -77,6 +77,7 @@ type CollectionResponse = {
 }
 
 const getCollection = async (username: string): Promise<Game[]> => {
+  console.debug(`Fetching collection for ${username}`)
   const response = await fetch(
     `${BGG_PROXY}/collection/?username=${username}&stats=1&own=1&version=1&excludesubtype=boardgameexpansion`,
   )

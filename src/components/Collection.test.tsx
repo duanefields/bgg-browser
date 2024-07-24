@@ -26,15 +26,15 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-})
-
+// wrap the component in a fresh QueryClientProvider to isolate the tests
 const renderWithQueryProvider = (children: React.ReactNode) => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  })
   return render(<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>)
 }
 
@@ -71,4 +71,10 @@ it("Should render a filtered collection", async () => {
   expect(await screen.findByText("Showing 2 of 7 games")).toBeVisible()
   expect(screen.getByText("Dixit")).toBeVisible()
   expect(screen.getByText("Dixit: Journey")).toBeVisible()
+})
+
+it("Should fuzzy match when searching by name", async () => {
+  renderWithQueryProvider(<Collection username="pandyandy" searchText="turo" />)
+  expect(await screen.findByText("Showing 1 of 7 games")).toBeVisible()
+  expect(screen.getByText("Tsuro of the Seas")).toBeVisible()
 })
