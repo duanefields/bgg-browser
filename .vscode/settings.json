@@ -30,6 +30,7 @@
     "usersrated",
     "wanttobuy",
     "wanttoplay",
+    "wargames",
     "yearpublished"
   ],
   "jest.enable": false
