@@ -27,6 +27,9 @@ const Collection = ({ username, searchText }: CollectionProps) => {
       {query.isError && <div>Error: {query.error.message}</div>}
       {query.isSuccess && (
         <div>
+          <div>
+            Showing {results?.length} of {games?.length} games
+          </div>
           {results?.map((game) => (
             <div key={game.objectId}>
               <GameCell game={game} />

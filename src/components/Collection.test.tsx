@@ -38,6 +38,12 @@ const renderWithQueryProvider = (children: React.ReactNode) => {
   return render(<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>)
 }
 
+it("Should match snapshot", async () => {
+  const collection = renderWithQueryProvider(<Collection username="pandyandy" />)
+  await screen.findByText("Forbidden Island")
+  expect(collection).toMatchSnapshot()
+})
+
 it("Should render a loading state", async () => {
   renderWithQueryProvider(<Collection username="pandyandy" />)
   expect(screen.getByText("Loading...")).toBeVisible()
@@ -48,13 +54,21 @@ it("Should render an error state", async () => {
   expect(await screen.findByText("Error: Invalid username specified")).toBeVisible()
 })
 
-it("Should render the collection", async () => {
+it("Should render the full collection", async () => {
   renderWithQueryProvider(<Collection username="pandyandy" />)
-  expect(await screen.findByText("Forbidden Island")).toBeVisible()
+  expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
+  expect(screen.getByText("Forbidden Island")).toBeVisible()
+  expect(screen.getByText("Dixit")).toBeVisible()
+  expect(screen.getByText("Dixit: Journey")).toBeVisible()
+  expect(screen.getByText("Pandemic")).toBeVisible()
+  expect(screen.getByText("The Resistance")).toBeVisible()
+  expect(screen.getByText("Skull")).toBeVisible()
+  expect(screen.getByText("Tsuro of the Seas")).toBeVisible()
 })
 
-it("Should match snapshot", async () => {
-  const collection = renderWithQueryProvider(<Collection username="pandyandy" />)
-  await screen.findByText("Forbidden Island")
-  expect(collection).toMatchSnapshot()
+it("Should render a filtered collection", async () => {
+  renderWithQueryProvider(<Collection username="pandyandy" searchText="dixit" />)
+  expect(await screen.findByText("Showing 2 of 7 games")).toBeVisible()
+  expect(screen.getByText("Dixit")).toBeVisible()
+  expect(screen.getByText("Dixit: Journey")).toBeVisible()
 })

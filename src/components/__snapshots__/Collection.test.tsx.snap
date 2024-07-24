@@ -12,6 +12,13 @@ exports[`Should match snapshot 1`] = `
         </h2>
         <div>
           <div>
+            Showing 
+            7
+             of 
+            7
+             games
+          </div>
+          <div>
             <div>
               <h3>
                 Dixit
@@ -99,6 +106,13 @@ exports[`Should match snapshot 1`] = `
         's Collection
       </h2>
       <div>
+        <div>
+          Showing 
+          7
+           of 
+          7
+           games
+        </div>
         <div>
           <div>
             <h3>
