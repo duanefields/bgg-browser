@@ -9,6 +9,7 @@ type Game = {
   playtime: number
   yearPublished: number
   averageRating: number
+  myRating: number
   rank: number
   numPlays: number
 }

@@ -48,6 +48,7 @@ type ItemResponse = {
         rank: RankResponse[] | { _value: string }
         _value: string
       }
+      _value: string
     }
   }
   status: {
@@ -100,6 +101,7 @@ const getCollection = async (username: string): Promise<Game[]> => {
     playtime: Number(item.stats._playingtime),
     yearPublished: Number(item.yearpublished),
     averageRating: Number(Number(item.stats.rating.average._value).toFixed(1)),
+    myRating: Number(item.stats.rating._value) || 0,
     rank: Number(rankForItem(item)),
     numPlays: Number(item.numplays),
   }))
