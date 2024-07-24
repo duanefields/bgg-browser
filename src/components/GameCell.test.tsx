@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import { expect, it } from "vitest"
+import { expect, it, vi } from "vitest"
 import { Game } from "../shared.types"
 
 import GameCell from "./GameCell"
@@ -19,6 +19,7 @@ const game: Game = {
   objectId: 1,
   collectionId: 2,
   yearPublished: 2010,
+  url: "https://example.com/ForbiddenIsland",
 }
 
 const game2: Game = {
@@ -36,6 +37,7 @@ const game2: Game = {
   objectId: 1,
   collectionId: 2,
   yearPublished: 2010,
+  url: "https://example.com/ForbiddenIsland",
 }
 
 it("Should match snapshot", () => {
@@ -96,4 +98,13 @@ it("Should render the rank", () => {
 it("Should render the rank as a localized string", () => {
   render(<GameCell game={game2} />)
   expect(screen.getByText("1,007")).toBeVisible()
+})
+
+it("Should open the game URL in a new tab", () => {
+  const winOpen = window.open
+  window.open = vi.fn()
+  render(<GameCell game={game} />)
+  screen.getByText("Forbidden Island").click()
+  expect(window.open).toHaveBeenCalledWith("https://example.com/ForbiddenIsland", "_blank")
+  window.open = winOpen
 })
