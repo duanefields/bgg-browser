@@ -12,39 +12,81 @@ exports[`Should match snapshot 1`] = `
         </h2>
         <div>
           <div>
-            <h3>
-              Dixit
-            </h3>
+            <div>
+              <h3>
+                Dixit
+              </h3>
+              <img
+                alt="Dixit"
+                src="https://cf.geekdo-images.com/J0PlHArkZDJ57H-brXW2Fw__thumb/img/QVwPXskFikQwBQlrdLJBAiRGgdg=/fit-in/200x150/filters:strip_icc()/pic6738336.jpg"
+              />
+            </div>
           </div>
           <div>
-            <h3>
-              Dixit: Journey
-            </h3>
+            <div>
+              <h3>
+                Dixit: Journey
+              </h3>
+              <img
+                alt="Dixit: Journey"
+                src="https://cf.geekdo-images.com/HX0lvc-JiPzf7Nrqp_N-Fw__thumb/img/iInoc-itpaO_STBI1QVQ0B-WWME=/fit-in/200x150/filters:strip_icc()/pic1387599.jpg"
+              />
+            </div>
           </div>
           <div>
-            <h3>
-              Forbidden Island
-            </h3>
+            <div>
+              <h3>
+                Forbidden Island
+              </h3>
+              <img
+                alt="Forbidden Island"
+                src="https://cf.geekdo-images.com/JgAkEBUaiHOsOS94iRMs2w__thumb/img/5aPR8-KMbgucI_XkPE2PJaMQQsg=/fit-in/200x150/filters:strip_icc()/pic646458.jpg"
+              />
+            </div>
           </div>
           <div>
-            <h3>
-              Pandemic
-            </h3>
+            <div>
+              <h3>
+                Pandemic
+              </h3>
+              <img
+                alt="Pandemic"
+                src="https://cf.geekdo-images.com/PO5gogN4NrTwNhnFGc2arg__thumb/img/CnYTpNHuBnNBNLdSUeUn-pKJazY=/fit-in/200x150/filters:strip_icc()/pic2212955.jpg"
+              />
+            </div>
           </div>
           <div>
-            <h3>
-              The Resistance
-            </h3>
+            <div>
+              <h3>
+                The Resistance
+              </h3>
+              <img
+                alt="The Resistance"
+                src="https://cf.geekdo-images.com/cAPTkL2BR3snLO71dkH8rw__thumb/img/5lDn1W82rlLXtVG7nPIYR9Orn-4=/fit-in/200x150/filters:strip_icc()/pic2576459.jpg"
+              />
+            </div>
           </div>
           <div>
-            <h3>
-              Skull
-            </h3>
+            <div>
+              <h3>
+                Skull
+              </h3>
+              <img
+                alt="Skull"
+                src="https://cf.geekdo-images.com/OPrd2iXm43dir7BwKAMOuQ__thumb/img/yEnb4YWN-Cp41KWTQ2EeNkrqlZI=/fit-in/200x150/filters:strip_icc()/pic6097488.jpg"
+              />
+            </div>
           </div>
           <div>
-            <h3>
-              Tsuro of the Seas
-            </h3>
+            <div>
+              <h3>
+                Tsuro of the Seas
+              </h3>
+              <img
+                alt="Tsuro of the Seas"
+                src="https://cf.geekdo-images.com/mQgUEukVc97EDZ_YIRxxwg__thumb/img/PRBd4GvWPitG1UZxu3wvIY0N46o=/fit-in/200x150/filters:strip_icc()/pic1301853.jpg"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -58,39 +100,81 @@ exports[`Should match snapshot 1`] = `
       </h2>
       <div>
         <div>
-          <h3>
-            Dixit
-          </h3>
+          <div>
+            <h3>
+              Dixit
+            </h3>
+            <img
+              alt="Dixit"
+              src="https://cf.geekdo-images.com/J0PlHArkZDJ57H-brXW2Fw__thumb/img/QVwPXskFikQwBQlrdLJBAiRGgdg=/fit-in/200x150/filters:strip_icc()/pic6738336.jpg"
+            />
+          </div>
         </div>
         <div>
-          <h3>
-            Dixit: Journey
-          </h3>
+          <div>
+            <h3>
+              Dixit: Journey
+            </h3>
+            <img
+              alt="Dixit: Journey"
+              src="https://cf.geekdo-images.com/HX0lvc-JiPzf7Nrqp_N-Fw__thumb/img/iInoc-itpaO_STBI1QVQ0B-WWME=/fit-in/200x150/filters:strip_icc()/pic1387599.jpg"
+            />
+          </div>
         </div>
         <div>
-          <h3>
-            Forbidden Island
-          </h3>
+          <div>
+            <h3>
+              Forbidden Island
+            </h3>
+            <img
+              alt="Forbidden Island"
+              src="https://cf.geekdo-images.com/JgAkEBUaiHOsOS94iRMs2w__thumb/img/5aPR8-KMbgucI_XkPE2PJaMQQsg=/fit-in/200x150/filters:strip_icc()/pic646458.jpg"
+            />
+          </div>
         </div>
         <div>
-          <h3>
-            Pandemic
-          </h3>
+          <div>
+            <h3>
+              Pandemic
+            </h3>
+            <img
+              alt="Pandemic"
+              src="https://cf.geekdo-images.com/PO5gogN4NrTwNhnFGc2arg__thumb/img/CnYTpNHuBnNBNLdSUeUn-pKJazY=/fit-in/200x150/filters:strip_icc()/pic2212955.jpg"
+            />
+          </div>
         </div>
         <div>
-          <h3>
-            The Resistance
-          </h3>
+          <div>
+            <h3>
+              The Resistance
+            </h3>
+            <img
+              alt="The Resistance"
+              src="https://cf.geekdo-images.com/cAPTkL2BR3snLO71dkH8rw__thumb/img/5lDn1W82rlLXtVG7nPIYR9Orn-4=/fit-in/200x150/filters:strip_icc()/pic2576459.jpg"
+            />
+          </div>
         </div>
         <div>
-          <h3>
-            Skull
-          </h3>
+          <div>
+            <h3>
+              Skull
+            </h3>
+            <img
+              alt="Skull"
+              src="https://cf.geekdo-images.com/OPrd2iXm43dir7BwKAMOuQ__thumb/img/yEnb4YWN-Cp41KWTQ2EeNkrqlZI=/fit-in/200x150/filters:strip_icc()/pic6097488.jpg"
+            />
+          </div>
         </div>
         <div>
-          <h3>
-            Tsuro of the Seas
-          </h3>
+          <div>
+            <h3>
+              Tsuro of the Seas
+            </h3>
+            <img
+              alt="Tsuro of the Seas"
+              src="https://cf.geekdo-images.com/mQgUEukVc97EDZ_YIRxxwg__thumb/img/PRBd4GvWPitG1UZxu3wvIY0N46o=/fit-in/200x150/filters:strip_icc()/pic1301853.jpg"
+            />
+          </div>
         </div>
       </div>
     </div>
