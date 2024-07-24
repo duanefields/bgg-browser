@@ -1,10 +1,14 @@
 import { render, screen } from "@testing-library/react"
-import { expect, it, vi } from "vitest"
+import { afterEach, expect, it, vi } from "vitest"
 import userEvent from "@testing-library/user-event"
 
 import SearchBox from "./SearchBox"
 
 const onChange = vi.fn(() => {})
+
+afterEach(() => {
+  onChange.mockReset()
+})
 
 it("Should match snapshot", () => {
   const search = render(<SearchBox searchText="test" onChange={onChange} />)
