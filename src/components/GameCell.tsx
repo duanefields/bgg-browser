@@ -13,6 +13,11 @@ const GameCell = ({ game }: GameCellProps) => {
     playtime = `${game.playtime}`
   }
 
+  let playerCount = `${game.minPlayers}-${game.maxPlayers}`
+  if (game.minPlayers === game.maxPlayers) {
+    playerCount = `${game.minPlayers}`
+  }
+
   let rating = `${game.averageRating} (${game.myRating})`
   if (game.myRating === 0) {
     rating = `${game.averageRating}`
@@ -24,7 +29,7 @@ const GameCell = ({ game }: GameCellProps) => {
       <h3 className={classes.headerArea}>{game.name}</h3>
       <div className={classes.infoArea}>
         <div>
-          <FontAwesomeIcon icon={faUsers} /> {game.minPlayers}-{game.maxPlayers}
+          <FontAwesomeIcon icon={faUsers} /> {playerCount}
         </div>
         <div>
           <FontAwesomeIcon icon={faClock} /> {playtime} mins
@@ -36,7 +41,7 @@ const GameCell = ({ game }: GameCellProps) => {
           <FontAwesomeIcon icon={faDice} /> {game.numPlays}
         </div>
         <div>
-          <FontAwesomeIcon icon={faRankingStar} /> {game.rank}
+          <FontAwesomeIcon icon={faRankingStar} /> {game.rank.toLocaleString()}
         </div>
       </div>
     </div>

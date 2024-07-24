@@ -6,6 +6,7 @@ import SearchBox from "./components/SearchBox"
 import { useState } from "react"
 import useDebounce from "./hooks/useDebounce"
 import classes from "./App.module.css"
+import Avatar from "./components/Avatar"
 
 const queryClient = new QueryClient()
 
@@ -19,12 +20,13 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <>
+        <Avatar username="dkf2112" />
         <div className={classes.header}>
           <h1>BGG Collection Browser</h1>
           <SearchBox searchText={searchText} onChange={onSearchTextChange} />
         </div>
 
-        <Collection username="pandyandy" searchText={debouncedSearchText} />
+        <Collection username="dkf2112" searchText={debouncedSearchText} />
       </>
 
       <ReactQueryDevtools initialIsOpen={false} />

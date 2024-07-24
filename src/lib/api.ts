@@ -44,6 +44,7 @@ const getCollection = async (username: string): Promise<Game[]> => {
   const data = json as CollectionResponse
   return data.items.item.map((item) => ({
     objectId: Number(item._objectid),
+    collectionId: Number(item._collid),
     name: item.name.__text,
     thumbnail: item.thumbnail,
     minPlayers: Number(item.stats._minplayers),

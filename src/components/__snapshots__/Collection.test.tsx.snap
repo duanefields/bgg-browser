@@ -52,9 +52,7 @@ exports[`Should match snapshot 1`] = `
                     />
                   </svg>
                    
-                  3
-                  -
-                  8
+                  3-8
                 </div>
                 <div>
                   <svg
@@ -170,9 +168,7 @@ exports[`Should match snapshot 1`] = `
                     />
                   </svg>
                    
-                  3
-                  -
-                  6
+                  3-6
                 </div>
                 <div>
                   <svg
@@ -288,9 +284,7 @@ exports[`Should match snapshot 1`] = `
                     />
                   </svg>
                    
-                  2
-                  -
-                  4
+                  2-4
                 </div>
                 <div>
                   <svg
@@ -406,9 +400,7 @@ exports[`Should match snapshot 1`] = `
                     />
                   </svg>
                    
-                  2
-                  -
-                  4
+                  2-4
                 </div>
                 <div>
                   <svg
@@ -524,9 +516,7 @@ exports[`Should match snapshot 1`] = `
                     />
                   </svg>
                    
-                  5
-                  -
-                  10
+                  5-10
                 </div>
                 <div>
                   <svg
@@ -642,9 +632,7 @@ exports[`Should match snapshot 1`] = `
                     />
                   </svg>
                    
-                  3
-                  -
-                  6
+                  3-6
                 </div>
                 <div>
                   <svg
@@ -760,9 +748,7 @@ exports[`Should match snapshot 1`] = `
                     />
                   </svg>
                    
-                  2
-                  -
-                  8
+                  2-8
                 </div>
                 <div>
                   <svg
@@ -839,7 +825,7 @@ exports[`Should match snapshot 1`] = `
                     />
                   </svg>
                    
-                  1930
+                  1,930
                 </div>
               </div>
             </div>
@@ -896,9 +882,7 @@ exports[`Should match snapshot 1`] = `
                   />
                 </svg>
                  
-                3
-                -
-                8
+                3-8
               </div>
               <div>
                 <svg
@@ -1014,9 +998,7 @@ exports[`Should match snapshot 1`] = `
                   />
                 </svg>
                  
-                3
-                -
-                6
+                3-6
               </div>
               <div>
                 <svg
@@ -1132,9 +1114,7 @@ exports[`Should match snapshot 1`] = `
                   />
                 </svg>
                  
-                2
-                -
-                4
+                2-4
               </div>
               <div>
                 <svg
@@ -1250,9 +1230,7 @@ exports[`Should match snapshot 1`] = `
                   />
                 </svg>
                  
-                2
-                -
-                4
+                2-4
               </div>
               <div>
                 <svg
@@ -1368,9 +1346,7 @@ exports[`Should match snapshot 1`] = `
                   />
                 </svg>
                  
-                5
-                -
-                10
+                5-10
               </div>
               <div>
                 <svg
@@ -1486,9 +1462,7 @@ exports[`Should match snapshot 1`] = `
                   />
                 </svg>
                  
-                3
-                -
-                6
+                3-6
               </div>
               <div>
                 <svg
@@ -1604,9 +1578,7 @@ exports[`Should match snapshot 1`] = `
                   />
                 </svg>
                  
-                2
-                -
-                8
+                2-8
               </div>
               <div>
                 <svg
@@ -1683,7 +1655,7 @@ exports[`Should match snapshot 1`] = `
                   />
                 </svg>
                  
-                1930
+                1,930
               </div>
             </div>
           </div>

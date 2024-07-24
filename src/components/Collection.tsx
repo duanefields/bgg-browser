@@ -45,7 +45,7 @@ const Collection = ({ username, searchText }: CollectionProps) => {
             Showing {results.length} of {games.length} games
           </div>
           {results?.map((game) => (
-            <div key={game.objectId}>
+            <div key={game.collectionId}>
               <GameCell game={game} />
             </div>
           ))}

@@ -17,6 +17,7 @@ const game: Game = {
   numPlays: 10,
   rank: 100,
   objectId: 1,
+  collectionId: 2,
   yearPublished: 2010,
 }
 
@@ -24,15 +25,16 @@ const game2: Game = {
   name: "Forbidden Island",
   thumbnail: "https://example.com/forbidden-island.jpg",
   minPlayers: 2,
-  maxPlayers: 4,
+  maxPlayers: 2,
   minPlaytime: 30,
   maxPlaytime: 30,
   playtime: 45,
   averageRating: 6.8,
   myRating: 0,
   numPlays: 10,
-  rank: 100,
+  rank: 1007,
   objectId: 1,
+  collectionId: 2,
   yearPublished: 2010,
 }
 
@@ -54,6 +56,11 @@ it("Should render the thumbnail", () => {
 it("Should render the player count", () => {
   render(<GameCell game={game} />)
   expect(screen.getByText("2-4")).toBeVisible()
+})
+
+it("Should render the player count if min and max are the same", () => {
+  render(<GameCell game={game2} />)
+  expect(screen.getByText("2")).toBeVisible()
 })
 
 it("Should render the playtime as range", () => {
@@ -84,4 +91,9 @@ it("Should render the number of plays", () => {
 it("Should render the rank", () => {
   render(<GameCell game={game} />)
   expect(screen.getByText("100")).toBeVisible()
+})
+
+it("Should render the rank as a localized string", () => {
+  render(<GameCell game={game2} />)
+  expect(screen.getByText("1,007")).toBeVisible()
 })

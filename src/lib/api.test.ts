@@ -87,6 +87,7 @@ describe("getCollection", () => {
     expect(collection.length).toEqual(1)
     const item = collection[0]
     expect(item.objectId).toEqual(128996)
+    expect(item.collectionId).toEqual(34053222)
     expect(item.name).toEqual("1775: Rebellion")
     expect(item.yearPublished).toEqual(2013)
     expect(item.minPlayers).toEqual(2)
@@ -110,7 +111,7 @@ describe("getCollection", () => {
 
   it("Should return 0 for myRating if the user has not rated the game", async () => {
     const collection = await getCollection("pandyandy")
-    const game = collection.find((item) => item.objectId === 41114)
+    const game = collection.find((item) => item.collectionId === 96706548)
     expect(game!.myRating).toEqual(0)
   })
 })

@@ -6,7 +6,8 @@
 .thumbnail {
   grid-area: thumbnail;
   object-fit: scale-down;
-  height: 89px !important;
+  width: 90px;
+  height: 90px;
   margin: auto;
 }
 

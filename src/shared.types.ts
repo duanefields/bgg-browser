@@ -1,5 +1,8 @@
 export type Game = {
+  /** The product ID, not guaranteed to be unique to the collection */
   objectId: number
+  /** A unique ID for the item within the collection */
+  collectionId: number
   name: string
   thumbnail: string
   minPlayers: number

@@ -38,9 +38,7 @@ exports[`Should match snapshot 1`] = `
               />
             </svg>
              
-            2
-            -
-            4
+            2-4
           </div>
           <div>
             <svg
@@ -157,9 +155,7 @@ exports[`Should match snapshot 1`] = `
             />
           </svg>
            
-          2
-          -
-          4
+          2-4
         </div>
         <div>
           <svg
