@@ -9,6 +9,7 @@ import classes from "./App.module.css"
 import Avatar from "./components/Avatar"
 
 const queryClient = new QueryClient()
+const username = "dkf2112"
 
 const App = () => {
   const [searchText, setSearchText] = useState("")
@@ -20,13 +21,13 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <>
-        <Avatar username="dkf2112" />
+        <Avatar username={username} />
         <div className={classes.header}>
           <h1>BGG Collection Browser</h1>
           <SearchBox searchText={searchText} onChange={onSearchTextChange} />
         </div>
 
-        <Collection username="dkf2112" searchText={debouncedSearchText} />
+        <Collection username={username} searchText={debouncedSearchText} />
       </>
 
       <ReactQueryDevtools initialIsOpen={false} />
