@@ -25,23 +25,30 @@ const GameCell = ({ game }: GameCellProps) => {
 
   return (
     <div className={classes.gridContainer}>
-      <img className={classes.thumbnail} src={game.thumbnail} alt={game.name} />
+      <img
+        className={classes.thumbnail}
+        src={game.thumbnail}
+        alt={game.name}
+        height={90}
+        width={90}
+      />
       <h3 className={classes.headerArea}>{game.name}</h3>
       <div className={classes.infoArea}>
         <div>
-          <FontAwesomeIcon icon={faUsers} /> {playerCount}
+          <FontAwesomeIcon icon={faUsers} title="Player Count" titleId="1" /> {playerCount}
         </div>
         <div>
-          <FontAwesomeIcon icon={faClock} /> {playtime} mins
+          <FontAwesomeIcon icon={faClock} title="Playtime" titleId="2" /> {playtime} mins
         </div>
         <div>
-          <FontAwesomeIcon icon={faStar} /> {rating}
+          <FontAwesomeIcon icon={faStar} title="BGG Rating (Your Rating)" titleId="3" /> {rating}
         </div>
         <div>
-          <FontAwesomeIcon icon={faDice} /> {game.numPlays}
+          <FontAwesomeIcon icon={faDice} title="Number of Plays" titleId="4" /> {game.numPlays}
         </div>
         <div>
-          <FontAwesomeIcon icon={faRankingStar} /> {game.rank.toLocaleString()}
+          <FontAwesomeIcon icon={faRankingStar} title="BGG Rank" titleId="5" />{" "}
+          {game.rank.toLocaleString()}
         </div>
       </div>
     </div>
