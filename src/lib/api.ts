@@ -57,6 +57,7 @@ const getCollection = async (username: string): Promise<Game[]> => {
     myRating: Number(item.stats.rating._value) || 0,
     rank: Number(rankForItem(item)),
     numPlays: Number(item.numplays),
+    url: `https://boardgamegeek.com/${item._subtype}/${item._objectid}/`,
   }))
 }
 

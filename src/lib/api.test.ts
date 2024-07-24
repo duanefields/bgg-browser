@@ -103,6 +103,7 @@ describe("getCollection", () => {
     )
     expect(item.rank).toEqual(564)
     expect(item.myRating).toEqual(9)
+    expect(item.url).toEqual("https://boardgamegeek.com/boardgame/128996/")
   })
 
   it("Should return an error for an invalid username", async () => {

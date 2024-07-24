@@ -15,6 +15,7 @@ export type Game = {
   myRating: number
   rank: number
   numPlays: number
+  url: string
 }
 
 export type User = {

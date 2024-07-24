@@ -23,8 +23,13 @@ const GameCell = ({ game }: GameCellProps) => {
     rating = `${game.averageRating}`
   }
 
+  const onClick = (game: Game) => {
+    const win = window.open(game.url, "_blank")
+    win?.focus()
+  }
+
   return (
-    <div className={classes.gridContainer}>
+    <div className={classes.gridContainer} onClick={() => onClick(game)}>
       <img
         className={classes.thumbnail}
         src={game.thumbnail}
