@@ -1,4 +1,4 @@
-import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material"
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material"
 import { useState } from "react"
 import { SelectChangeEvent } from "@mui/material/Select"
 import { SortOrder } from "../shared.types"
