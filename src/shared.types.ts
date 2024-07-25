@@ -25,3 +25,5 @@ export type User = {
   firstName: string | null
   lastName: string | null
 }
+
+export type SortOrder = "name" | "rating" | "myRating" | "plays" | "rank" | "random"

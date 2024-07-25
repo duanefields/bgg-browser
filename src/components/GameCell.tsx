@@ -28,7 +28,7 @@ const GameCell = ({ game }: GameCellProps) => {
   }
 
   return (
-    <div className={classes.gridContainer} onClick={() => onClick(game)}>
+    <div data-testid="game" className={classes.gridContainer} onClick={() => onClick(game)}>
       <img
         className={classes.thumbnail}
         src={game.thumbnail}

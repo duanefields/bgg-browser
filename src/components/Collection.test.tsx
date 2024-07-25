@@ -40,17 +40,17 @@ const renderWithQueryProvider = (children: React.ReactNode) => {
 }
 
 it("Should render a loading state", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" />)
+  renderWithQueryProvider(<Collection username="pandyandy" sort="name" />)
   expect(screen.getByText("Loading...")).toBeVisible()
 })
 
 it("Should render an error state", async () => {
-  renderWithQueryProvider(<Collection username="nonexistent" />)
+  renderWithQueryProvider(<Collection username="nonexistent" sort="name" />)
   expect(await screen.findByText("Error: Invalid username specified")).toBeVisible()
 })
 
 it("Should render the full collection", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" />)
+  renderWithQueryProvider(<Collection username="pandyandy" sort="name" />)
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   expect(screen.getByText("Forbidden Island")).toBeVisible()
   expect(screen.getByText("Dixit")).toBeVisible()
@@ -62,14 +62,28 @@ it("Should render the full collection", async () => {
 })
 
 it("Should render a filtered collection", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" searchText="dixit" />)
+  renderWithQueryProvider(<Collection username="pandyandy" searchText="dixit" sort="name" />)
   expect(await screen.findByText("Showing 2 of 7 games")).toBeVisible()
   expect(screen.getByText("Dixit")).toBeVisible()
   expect(screen.getByText("Dixit: Journey")).toBeVisible()
 })
 
 it("Should fuzzy match when searching by name", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" searchText="turo" />)
+  renderWithQueryProvider(<Collection username="pandyandy" searchText="turo" sort="name" />)
   expect(await screen.findByText("Showing 1 of 7 games")).toBeVisible()
   expect(screen.getByText("Tsuro of the Seas")).toBeVisible()
+})
+
+// Spot check, all sort comparator functions are tested in isolation
+it("Should render a sorted collection", async () => {
+  renderWithQueryProvider(<Collection username="pandyandy" sort="rating" />)
+  expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
+  const games = screen.getAllByTestId("game")
+  expect(games[0]).toHaveTextContent("Pandemic")
+  expect(games[1]).toHaveTextContent("Dixit: Journey")
+  expect(games[2]).toHaveTextContent("Dixit")
+  expect(games[3]).toHaveTextContent("The Resistance")
+  expect(games[4]).toHaveTextContent("Skull")
+  expect(games[5]).toHaveTextContent("Forbidden Island")
+  expect(games[6]).toHaveTextContent("Tsuro of the Seas")
 })
