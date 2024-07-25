@@ -2,9 +2,9 @@ import { Game, User } from "../shared.types"
 import { CollectionResponse, ItemResponse, UserResponse } from "./bgg.types"
 
 /** Root URL of the BGG Proxy Server */
-const BGG_PROXY: string = import.meta.env.VITE_BGG_PROXY
+export const BGG_PROXY: string = import.meta.env.VITE_BGG_PROXY
 
-const getUser = async (username: string): Promise<User> => {
+export const getUser = async (username: string): Promise<User> => {
   console.debug(`Fetching user ${username}`)
   const response = await fetch(`${BGG_PROXY}/user/?name=${username}`)
   const json = await response.json()
@@ -30,7 +30,7 @@ const getUser = async (username: string): Promise<User> => {
   }
 }
 
-const getCollection = async (username: string): Promise<Game[]> => {
+export const getCollection = async (username: string): Promise<Game[]> => {
   console.debug(`Fetching collection for ${username}`)
   const response = await fetch(
     `${BGG_PROXY}/collection/?username=${username}&stats=1&own=1&version=1&excludesubtype=boardgameexpansion`,
@@ -74,5 +74,3 @@ const rankForItem = (item: ItemResponse) => {
     return item.stats.rating.ranks.rank._value
   }
 }
-
-export { getCollection, getUser, BGG_PROXY }
