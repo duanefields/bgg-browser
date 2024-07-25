@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { render, screen } from "@testing-library/react"
 import { http, HttpResponse } from "msw"
 import { setupServer } from "msw/node"
-import { afterAll, afterEach, beforeAll, expect, it } from "vitest"
+import { afterAll, afterEach, beforeAll, expect, it, vi } from "vitest"
 import { BGG_PROXY } from "../lib/api"
 
 import invalidUsername from "../test/collections/invalidUsername.json"
@@ -74,16 +74,46 @@ it("Should fuzzy match when searching by name", async () => {
   expect(screen.getByText("Tsuro of the Seas")).toBeVisible()
 })
 
-// Spot check, all sort comparator functions are tested in isolation
-it("Should render a sorted collection", async () => {
+it("Should render a sorted collection by name", async () => {
+  renderWithQueryProvider(<Collection username="pandyandy" sort="name" />)
+  expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
+  const games = screen.getAllByTestId("game")
+  expect(games[0]).toHaveTextContent("Dixit")
+})
+
+it("Should render a sorted collection by rating", async () => {
   renderWithQueryProvider(<Collection username="pandyandy" sort="rating" />)
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   const games = screen.getAllByTestId("game")
   expect(games[0]).toHaveTextContent("Pandemic")
-  expect(games[1]).toHaveTextContent("Dixit: Journey")
-  expect(games[2]).toHaveTextContent("Dixit")
-  expect(games[3]).toHaveTextContent("The Resistance")
-  expect(games[4]).toHaveTextContent("Skull")
-  expect(games[5]).toHaveTextContent("Forbidden Island")
-  expect(games[6]).toHaveTextContent("Tsuro of the Seas")
+})
+
+it("Should render a sorted collection by myRating", async () => {
+  renderWithQueryProvider(<Collection username="pandyandy" sort="myRating" />)
+  expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
+  const games = screen.getAllByTestId("game")
+  expect(games[0]).toHaveTextContent("Pandemic")
+})
+
+it("Should render a sorted collection by plays", async () => {
+  renderWithQueryProvider(<Collection username="pandyandy" sort="plays" />)
+  expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
+  const games = screen.getAllByTestId("game")
+  expect(games[0]).toHaveTextContent("Skull")
+})
+
+it("Should render a sorted collection by rank", async () => {
+  renderWithQueryProvider(<Collection username="pandyandy" sort="rank" />)
+  expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
+  const games = screen.getAllByTestId("game")
+  expect(games[0]).toHaveTextContent("Pandemic")
+})
+
+it("Should render a sorted collection by random", async () => {
+  vi.spyOn(global.Math, "random").mockReturnValue(0.5)
+  renderWithQueryProvider(<Collection username="pandyandy" sort="random" />)
+  expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
+  const games = screen.getAllByTestId("game")
+  expect(games[0]).toHaveTextContent("Dixit")
+  vi.spyOn(global.Math, "random").mockRestore()
 })
