@@ -19,7 +19,7 @@ const GameCell = ({ game }: GameCellProps) => {
   }
 
   let rating = `${game.averageRating} (${game.myRating})`
-  if (game.myRating === 0) {
+  if (game.myRating === null) {
     rating = `${game.averageRating}`
   }
 
@@ -51,11 +51,11 @@ const GameCell = ({ game }: GameCellProps) => {
         </div>
         <div>
           <FontAwesomeIcon fixedWidth icon={faDice} title="Number of Plays" titleId="4" />{" "}
-          {game.numPlays}
+          {game.numPlays.toLocaleString()}
         </div>
         <div>
           <FontAwesomeIcon fixedWidth icon={faRankingStar} title="BGG Rank" titleId="5" />{" "}
-          {game.rank.toLocaleString()}
+          {game.rank?.toLocaleString()}
         </div>
       </div>
     </div>

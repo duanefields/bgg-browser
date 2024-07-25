@@ -111,9 +111,15 @@ describe("getCollection", () => {
     await expect(getCollection("nonexistent")).rejects.toThrow("Invalid username specified")
   })
 
-  it("Should return 0 for myRating if the user has not rated the game", async () => {
+  it("Should return null for myRating if the user has not rated the game", async () => {
     const collection = await getCollection("pandyandy")
     const game = collection.find((item) => item.collectionId === 96706548)
-    expect(game!.myRating).toEqual(0)
+    expect(game!.myRating).toBeNull()
+  })
+
+  it("Should return null for ranking if the game is not ranked", async () => {
+    const collection = await getCollection("dkf2112")
+    const game = collection.find((item) => item.collectionId === 42625873)
+    expect(game!.rank).toBeNull()
   })
 })

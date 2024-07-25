@@ -12,8 +12,8 @@ export type Game = {
   playtime: number
   yearPublished: number
   averageRating: number
-  myRating: number
-  rank: number
+  myRating: number | null
+  rank: number | null
   numPlays: number
   url: string
 }

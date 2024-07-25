@@ -14,8 +14,8 @@ const game: Game = {
   playtime: 45,
   averageRating: 6.8,
   myRating: 8,
-  numPlays: 10,
-  rank: 100,
+  numPlays: 1001,
+  rank: 1007,
   objectId: 1,
   collectionId: 2,
   yearPublished: 2010,
@@ -31,9 +31,9 @@ const game2: Game = {
   maxPlaytime: 30,
   playtime: 45,
   averageRating: 6.8,
-  myRating: 0,
+  myRating: null,
   numPlays: 10,
-  rank: 1007,
+  rank: null,
   objectId: 1,
   collectionId: 2,
   yearPublished: 2010,
@@ -85,18 +85,13 @@ it("Should render the average rating only if no user rating", () => {
   expect(screen.getByText("6.8")).toBeVisible()
 })
 
-it("Should render the number of plays", () => {
+it("Should render the number of plays as a localized string", () => {
   render(<GameCell game={game} />)
-  expect(screen.getByText("10")).toBeVisible()
-})
-
-it("Should render the rank", () => {
-  render(<GameCell game={game} />)
-  expect(screen.getByText("100")).toBeVisible()
+  expect(screen.getByText("1,001")).toBeVisible()
 })
 
 it("Should render the rank as a localized string", () => {
-  render(<GameCell game={game2} />)
+  render(<GameCell game={game} />)
   expect(screen.getByText("1,007")).toBeVisible()
 })
 
@@ -107,4 +102,12 @@ it("Should open the game URL in a new tab", () => {
   screen.getByText("Forbidden Island").click()
   expect(window.open).toHaveBeenCalledWith("https://example.com/ForbiddenIsland", "_blank")
   window.open = winOpen
+})
+
+it("Should render no text for the ranking if none is present", async () => {
+  render(<GameCell game={game2} />)
+  const element = await screen.findByTitle("BGG Rank")
+  expect(element.parentElement?.tagName).toBe("svg")
+  expect(element.parentElement?.parentElement?.tagName).toBe("DIV")
+  expect(element.parentElement?.parentElement?.textContent?.trim()).toEqual("BGG Rank")
 })

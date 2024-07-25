@@ -137,7 +137,7 @@ exports[`Should match snapshot 1`] = `
               />
             </svg>
              
-            100
+            1,007
           </div>
         </div>
       </div>
@@ -276,7 +276,7 @@ exports[`Should match snapshot 1`] = `
             />
           </svg>
            
-          100
+          1,007
         </div>
       </div>
     </div>
