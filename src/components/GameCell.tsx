@@ -8,9 +8,14 @@ interface GameCellProps {
 }
 
 const GameCell = ({ game }: GameCellProps) => {
-  let playtime = `${game.minPlaytime}-${game.maxPlaytime}`
+  let playtime = `${game.minPlaytime}-${game.maxPlaytime} mins`
   if (game.minPlaytime === game.maxPlaytime) {
-    playtime = `${game.playtime}`
+    playtime = `${game.playtime || game.minPlaytime} mins`
+  }
+
+  // handle null values of playtime that are uncommon
+  if (game.minPlaytime === null && game.maxPlaytime === null && game.playtime === null) {
+    playtime = ""
   }
 
   let playerCount = `${game.minPlayers}-${game.maxPlayers}`
@@ -43,7 +48,7 @@ const GameCell = ({ game }: GameCellProps) => {
           {playerCount}
         </div>
         <div>
-          <FontAwesomeIcon fixedWidth icon={faClock} title="Playtime" titleId="2" /> {playtime} mins
+          <FontAwesomeIcon fixedWidth icon={faClock} title="Playtime" titleId="2" /> {playtime}
         </div>
         <div>
           <FontAwesomeIcon fixedWidth icon={faStar} title="BGG Rating (Your Rating)" titleId="3" />{" "}

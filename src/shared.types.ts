@@ -7,9 +7,9 @@ export type Game = {
   thumbnail: string
   minPlayers: number
   maxPlayers: number
-  minPlaytime: number
-  maxPlaytime: number
-  playtime: number
+  minPlaytime: number | null
+  maxPlaytime: number | null
+  playtime: number | null
   yearPublished: number
   averageRating: number
   myRating: number | null

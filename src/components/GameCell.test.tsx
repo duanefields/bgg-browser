@@ -40,6 +40,24 @@ const game2: Game = {
   url: "https://example.com/ForbiddenIsland",
 }
 
+const game3: Game = {
+  name: "Forbidden Island",
+  thumbnail: "https://example.com/forbidden-island.jpg",
+  minPlayers: 2,
+  maxPlayers: 2,
+  minPlaytime: null,
+  maxPlaytime: null,
+  playtime: null,
+  averageRating: 6.8,
+  myRating: null,
+  numPlays: 10,
+  rank: null,
+  objectId: 1,
+  collectionId: 2,
+  yearPublished: 2010,
+  url: "https://example.com/ForbiddenIsland",
+}
+
 it("Should match snapshot", () => {
   const cell = render(<GameCell game={game} />)
   expect(cell).toMatchSnapshot()
@@ -52,7 +70,9 @@ it("Should render the game name", () => {
 
 it("Should render the thumbnail", () => {
   render(<GameCell game={game} />)
-  expect(screen.getByAltText("Forbidden Island")).toBeVisible()
+  const image = screen.getByAltText("Forbidden Island")
+  expect(image).toHaveAttribute("src", "https://example.com/forbidden-island.jpg")
+  expect(image).toBeVisible()
 })
 
 it("Should render the player count", () => {
@@ -110,4 +130,12 @@ it("Should render no text for the ranking if none is present", async () => {
   expect(element.parentElement?.tagName).toBe("svg")
   expect(element.parentElement?.parentElement?.tagName).toBe("DIV")
   expect(element.parentElement?.parentElement?.textContent?.trim()).toEqual("BGG Rank")
+})
+
+it("Should render no text for the playtime if none is present", async () => {
+  render(<GameCell game={game3} />)
+  const element = await screen.findByTitle("Playtime")
+  expect(element.parentElement?.tagName).toBe("svg")
+  expect(element.parentElement?.parentElement?.tagName).toBe("DIV")
+  expect(element.parentElement?.parentElement?.textContent?.trim()).toEqual("Playtime")
 })

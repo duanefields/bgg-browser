@@ -6,6 +6,7 @@ import { beforeAll, afterAll, afterEach, expect, it, describe } from "vitest"
 import singleCollection from "../test/collections/single.json"
 import dkf2112Collection from "../test/collections/dkf2112.json"
 import pandyandyCollection from "../test/collections/pandyandy.json"
+import oddballsCollection from "../test/collections/oddballs.json"
 import invalidUsernameCollection from "../test/collections/invalidUsername.json"
 
 // sample user responses
@@ -27,6 +28,8 @@ const server = setupServer(
         return HttpResponse.json(dkf2112Collection)
       case "pandyandy":
         return HttpResponse.json(pandyandyCollection)
+      case "oddballs":
+        return HttpResponse.json(oddballsCollection)
       default:
         return HttpResponse.json(invalidUsernameCollection)
     }
@@ -121,5 +124,20 @@ describe("getCollection", () => {
     const collection = await getCollection("dkf2112")
     const game = collection.find((item) => item.collectionId === 42625873)
     expect(game!.rank).toBeNull()
+  })
+
+  it("Should return 1 for players if the game has no players", async () => {
+    const collection = await getCollection("oddballs")
+    const game = collection.find((item) => item.collectionId === 315063)
+    expect(game!.minPlayers).toEqual(1)
+    expect(game!.maxPlayers).toEqual(1)
+  })
+
+  it("Should return null for playtimes if it has no playtimes", async () => {
+    const collection = await getCollection("oddballs")
+    const game = collection.find((item) => item.collectionId === 315063)
+    expect(game!.minPlaytime).toBeNull()
+    expect(game!.maxPlaytime).toBeNull()
+    expect(game!.playtime).toBeNull()
   })
 })

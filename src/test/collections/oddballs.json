@@ -1,0 +1,284 @@
+{
+  "items": {
+    "item": [
+      {
+        "name": { "_sortindex": "1", "__text": "Stapel" },
+        "originalname": "Dutch Mountains",
+        "image": "https://cf.geekdo-images.com/xxOXcB9nzBOT8QESBqtNIg__original/img/yoPFLdLGbXC3w1bNTw5oNRsR4zk=/0x0/filters:format(jpeg)/pic7781109.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/xxOXcB9nzBOT8QESBqtNIg__thumb/img/B0vgspW6hu-UpgoIiVzPu0l9jM8=/fit-in/200x150/filters:strip_icc()/pic7781109.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "24" },
+            "average": { "_value": "5.1875" },
+            "bayesaverage": { "_value": "0" },
+            "stddev": { "_value": "1.14394" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "Not Ranked",
+                  "_bayesaverage": "Not Ranked"
+                },
+                {
+                  "_type": "family",
+                  "_id": "4666",
+                  "_name": "abstracts",
+                  "_friendlyname": "Abstract Game Rank",
+                  "_value": "Not Ranked",
+                  "_bayesaverage": "Not Ranked"
+                }
+              ]
+            },
+            "_value": "N/A"
+          },
+          "_minplayers": "2",
+          "_maxplayers": "2",
+          "_numowned": "97"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2023-10-02 12:01:37"
+        },
+        "numplays": "0",
+        "version": {
+          "item": {
+            "thumbnail": "https://cf.geekdo-images.com/xxOXcB9nzBOT8QESBqtNIg__thumb/img/B0vgspW6hu-UpgoIiVzPu0l9jM8=/fit-in/200x150/filters:strip_icc()/pic7781109.jpg",
+            "image": "https://cf.geekdo-images.com/xxOXcB9nzBOT8QESBqtNIg__original/img/yoPFLdLGbXC3w1bNTw5oNRsR4zk=/0x0/filters:format(jpeg)/pic7781109.jpg",
+            "link": [
+              {
+                "_type": "boardgameversion",
+                "_id": "749",
+                "_value": "Dutch Mountains",
+                "_inbound": "true"
+              },
+              { "_type": "boardgamepublisher", "_id": "77", "_value": "Cwali" },
+              { "_type": "language", "_id": "2183", "_value": "Dutch" }
+            ],
+            "name": { "_type": "primary", "_sortindex": "1", "_value": "First wooden edition" },
+            "yearpublished": { "_value": "0" },
+            "productcode": { "_value": "" },
+            "width": { "_value": "0" },
+            "length": { "_value": "0" },
+            "depth": { "_value": "0" },
+            "weight": { "_value": "0" },
+            "_type": "boardgameversion",
+            "_id": "110532"
+          }
+        },
+        "_objecttype": "thing",
+        "_objectid": "749",
+        "_subtype": "boardgame",
+        "_collid": "110793122"
+      },
+      {
+        "name": { "_sortindex": "1", "__text": "Steam Wars" },
+        "yearpublished": "2015",
+        "image": "https://cf.geekdo-images.com/pg-0p9FssJfJ92ZvmF7h0w__original/img/d26g0_KkY58IMr3iZ_b3FfEjtus=/0x0/filters:format(jpeg)/pic2561614.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/pg-0p9FssJfJ92ZvmF7h0w__thumb/img/S7Myua165oBnDVuw0sjEM_dgY4w=/fit-in/200x150/filters:strip_icc()/pic2561614.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "3" },
+            "average": { "_value": "6.5" },
+            "bayesaverage": { "_value": "0" },
+            "stddev": { "_value": "0.408248" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": {
+                "_type": "subtype",
+                "_id": "1",
+                "_name": "boardgame",
+                "_friendlyname": "Board Game Rank",
+                "_value": "Not Ranked",
+                "_bayesaverage": "Not Ranked"
+              }
+            },
+            "_value": "N/A"
+          },
+          "_minplayers": "2",
+          "_maxplayers": "2",
+          "_minplaytime": "30",
+          "_playingtime": "30",
+          "_numowned": "10"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "1",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2015-11-28 10:31:43"
+        },
+        "numplays": "0",
+        "version": {
+          "item": {
+            "thumbnail": "https://cf.geekdo-images.com/pg-0p9FssJfJ92ZvmF7h0w__thumb/img/S7Myua165oBnDVuw0sjEM_dgY4w=/fit-in/200x150/filters:strip_icc()/pic2561614.jpg",
+            "image": "https://cf.geekdo-images.com/pg-0p9FssJfJ92ZvmF7h0w__original/img/d26g0_KkY58IMr3iZ_b3FfEjtus=/0x0/filters:format(jpeg)/pic2561614.jpg",
+            "link": [
+              {
+                "_type": "boardgameversion",
+                "_id": "179403",
+                "_value": "Steam Wars",
+                "_inbound": "true"
+              },
+              {
+                "_type": "boardgamepublisher",
+                "_id": "29994",
+                "_value": "ãŸã‘ã®ã“æ”»é˜² (Takenokokobo)"
+              },
+              {
+                "_type": "boardgameartist",
+                "_id": "83432",
+                "_value": "æˆ¦é—˜å“¡ãƒ‡ã‚£ãƒ¼ (Sentoin D)"
+              },
+              { "_type": "language", "_id": "2194", "_value": "Japanese" }
+            ],
+            "name": { "_type": "primary", "_sortindex": "1", "_value": "Japanese first edition" },
+            "yearpublished": { "_value": "2015" },
+            "productcode": { "_value": "" },
+            "width": { "_value": "8.50394" },
+            "length": { "_value": "6.06299" },
+            "depth": { "_value": "1.5748" },
+            "weight": { "_value": "0.881849" },
+            "_type": "boardgameversion",
+            "_id": "276812"
+          }
+        },
+        "_objecttype": "thing",
+        "_objectid": "179403",
+        "_subtype": "boardgame",
+        "_collid": "31554154"
+      },
+      {
+        "name": { "_sortindex": "1", "__text": "Outside the Scope of BGG" },
+        "image": "https://cf.geekdo-images.com/mWd3fATtGyOieHNJH8oOfQ__original/img/d1HR1xmASgYCwNb2J3wNBRPhLbo=/0x0/filters:format(jpeg)/pic193671.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/mWd3fATtGyOieHNJH8oOfQ__thumb/img/07d8NKLGI_OluR4AONkmo7XbIUg=/fit-in/200x150/filters:strip_icc()/pic193671.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "654" },
+            "average": { "_value": "6.74151" },
+            "bayesaverage": { "_value": "5.78774" },
+            "stddev": { "_value": "2.35672" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "4523",
+                  "_bayesaverage": "5.78774"
+                },
+                {
+                  "_type": "family",
+                  "_id": "4664",
+                  "_name": "wargames",
+                  "_friendlyname": "War Game Rank",
+                  "_value": "1022",
+                  "_bayesaverage": "6.13322"
+                },
+                {
+                  "_type": "family",
+                  "_id": "5499",
+                  "_name": "familygames",
+                  "_friendlyname": "Family Game Rank",
+                  "_value": "1363",
+                  "_bayesaverage": "5.87254"
+                }
+              ]
+            },
+            "_value": "N/A"
+          },
+          "_numowned": "3484"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2002-05-05 13:44:53"
+        },
+        "numplays": "0",
+        "_objecttype": "thing",
+        "_objectid": "23953",
+        "_subtype": "boardgame",
+        "_collid": "315063"
+      },
+      {
+        "name": { "_sortindex": "1", "__text": "Hoyle's Games" },
+        "yearpublished": "1742",
+        "image": "https://cf.geekdo-images.com/HpNNLP9_LsRyAfrDdxJyOw__original/img/Oh0dlsbWohdM74LyrYvb3Tr5wwE=/0x0/filters:format(jpeg)/pic65113.jpg",
+        "thumbnail": "https://cf.geekdo-images.com/HpNNLP9_LsRyAfrDdxJyOw__thumb/img/FCYNRvOwRkyAQ1rToX8KNiMoe_4=/fit-in/200x150/filters:strip_icc()/pic65113.jpg",
+        "stats": {
+          "rating": {
+            "usersrated": { "_value": "77" },
+            "average": { "_value": "6.56039" },
+            "bayesaverage": { "_value": "5.53724" },
+            "stddev": { "_value": "1.87458" },
+            "median": { "_value": "0" },
+            "ranks": {
+              "rank": [
+                {
+                  "_type": "subtype",
+                  "_id": "1",
+                  "_name": "boardgame",
+                  "_friendlyname": "Board Game Rank",
+                  "_value": "13671",
+                  "_bayesaverage": "5.53724"
+                },
+                {
+                  "_type": "family",
+                  "_id": "4666",
+                  "_name": "abstracts",
+                  "_friendlyname": "Abstract Game Rank",
+                  "_value": "671",
+                  "_bayesaverage": "5.65582"
+                }
+              ]
+            },
+            "_value": "N/A"
+          },
+          "_minplayers": "1",
+          "_numowned": "181"
+        },
+        "status": {
+          "_own": "1",
+          "_prevowned": "0",
+          "_fortrade": "0",
+          "_want": "0",
+          "_wanttoplay": "0",
+          "_wanttobuy": "0",
+          "_wishlist": "0",
+          "_preordered": "0",
+          "_lastmodified": "2005-06-05 14:27:19"
+        },
+        "numplays": "0",
+        "_objecttype": "thing",
+        "_objectid": "15678",
+        "_subtype": "boardgame",
+        "_collid": "2260813"
+      }
+    ],
+    "_totalitems": "4",
+    "_termsofuse": "https://boardgamegeek.com/xmlapi/termsofuse",
+    "_pubdate": "Fri, 26 Jul 2024 15:27:42 +0000"
+  }
+}

@@ -18,10 +18,10 @@ export type ItemResponse = {
   thumbnail: string
   stats: {
     _minplayers: string
-    _maxplayers: string
-    _minplaytime: string
-    _maxplaytime: string
-    _playingtime: string
+    _maxplayers?: string
+    _minplaytime?: string
+    _maxplaytime?: string
+    _playingtime?: string
     _numowned: string
     rating: {
       usersrated: {

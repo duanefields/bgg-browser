@@ -68,8 +68,7 @@ exports[`Should match snapshot 1`] = `
               />
             </svg>
              
-            30-45
-             mins
+            30-45 mins
           </div>
           <div>
             <svg
@@ -208,8 +207,7 @@ exports[`Should match snapshot 1`] = `
             />
           </svg>
            
-          30-45
-           mins
+          30-45 mins
         </div>
         <div>
           <svg

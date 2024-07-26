@@ -72,7 +72,7 @@ const Collection = ({ username, searchText, sort }: CollectionProps) => {
       {query.isSuccess && (
         <div>
           <div>
-            Showing {results.length} of {games.length} games
+            Showing {results.length.toLocaleString()} of {games.length.toLocaleString()} games
           </div>
           {results?.map((game) => (
             <div key={game.collectionId}>
