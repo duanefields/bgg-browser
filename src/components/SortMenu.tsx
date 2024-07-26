@@ -11,7 +11,7 @@ interface SortMenuProps {
 const SortMenu = ({ onChange, sort }: SortMenuProps) => {
   const [sortOrder, setSortOrder] = useState(sort)
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event: SelectChangeEvent<SortOrder>) => {
     setSortOrder(event.target.value as SortOrder)
     onChange(event.target.value as SortOrder)
   }
@@ -19,7 +19,7 @@ const SortMenu = ({ onChange, sort }: SortMenuProps) => {
   return (
     <FormControl sx={{ m: 1, minWidth: 130, maxWidth: 130 }} size="small">
       <InputLabel id="sort-label">Sort By</InputLabel>
-      <Select
+      <Select<SortOrder>
         labelId="sort-label"
         id="sort"
         value={sortOrder}

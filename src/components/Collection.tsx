@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import Fuse from "fuse.js"
 import { useMemo } from "react"
 import { getCollection } from "../lib/api"
-import { Game, SortOrder } from "../shared.types"
+import { Game, PlayerCount, SortOrder } from "../shared.types"
 import GameCell from "./GameCell"
 import {
   titleComparator,
@@ -19,9 +19,10 @@ interface CollectionProps {
   /** The search text to filter the collection */
   searchText?: string
   sort: SortOrder
+  players: PlayerCount
 }
 
-const Collection = ({ username, searchText, sort }: CollectionProps) => {
+const Collection = ({ username, searchText, sort, players }: CollectionProps) => {
   const query = useQuery({
     queryKey: ["collection", username],
     queryFn: () => getCollection(username),
@@ -37,10 +38,20 @@ const Collection = ({ username, searchText, sort }: CollectionProps) => {
     return new Fuse<Game>(games, { keys: ["name"], threshold: 0.3 })
   }, [games])
 
-  // filter the list
+  // filter the list by the fuzzy search text
   let results = games
   if (searchText) {
     results = index.search(searchText).map((result) => result.item)
+  }
+
+  // filter the list by the number of players
+  if (players > 0) {
+    results = results.filter((game) => {
+      // if the min or max players is 0, then the game supports any number of players
+      if (game.minPlayers === 0 || game.maxPlayers === 0) return true
+      // otherwise, check if the player count is within the min/max range
+      return players >= game.minPlayers && players <= game.maxPlayers
+    })
   }
 
   // sort the list by the selected sort order

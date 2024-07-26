@@ -12,14 +12,16 @@ import Collection from "./components/Collection"
 import SearchBox from "./components/SearchBox"
 import SortMenu from "./components/SortMenu"
 import useDebounce from "./hooks/useDebounce"
-import { SortOrder } from "./shared.types"
+import { PlayerCount, SortOrder } from "./shared.types"
+import PlayersMenu from "./components/PlayersMenu"
 
 const queryClient = new QueryClient()
 const username = "dkf2112"
 
 const App = () => {
   const [searchText, setSearchText] = useState("")
-  const [sort, setSort] = useState("name")
+  const [sort, setSort] = useState<SortOrder>("name")
+  const [players, setPlayers] = useState<PlayerCount>(0)
 
   const onSearchTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value)
@@ -30,19 +32,29 @@ const App = () => {
     setSort(value)
   }
 
+  const onPlayerChange = (value: PlayerCount) => {
+    setPlayers(value)
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <>
         <Avatar username={username} />
 
         <SortMenu sort={sort as SortOrder} onChange={onSortChange} />
+        <PlayersMenu players={players as PlayerCount} onChange={onPlayerChange} />
 
         <div className={classes.header}>
           <h1>BGG Collection Browser</h1>
           <SearchBox searchText={searchText} onChange={onSearchTextChange} />
         </div>
 
-        <Collection username={username} searchText={debouncedSearchText} sort={sort as SortOrder} />
+        <Collection
+          username={username}
+          searchText={debouncedSearchText}
+          sort={sort as SortOrder}
+          players={players as PlayerCount}
+        />
       </>
 
       <ReactQueryDevtools initialIsOpen={false} />
