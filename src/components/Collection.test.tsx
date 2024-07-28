@@ -50,7 +50,7 @@ it("Should render an error state", async () => {
 })
 
 it("Should render the full collection", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" sort="name" />)
+  renderWithQueryProvider(<Collection username="pandyandy" sort="name" players={0} />)
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   expect(screen.getByText("Forbidden Island")).toBeVisible()
   expect(screen.getByText("Dixit")).toBeVisible()
