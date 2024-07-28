@@ -121,3 +121,11 @@ it("Should render a sorted collection by random", async () => {
   expect(games[0]).toHaveTextContent("Dixit")
   vi.spyOn(Math, "random").mockRestore()
 })
+
+it("Should render a collection filtered by player count", async () => {
+  renderWithQueryProvider(<Collection username="pandyandy" sort="rank" players={10} />)
+  expect(await screen.findByText("Showing 1 of 7 games")).toBeVisible()
+  const games = screen.getAllByTestId("game")
+  expect(games.length).toBe(1)
+  expect(games[0]).toHaveTextContent("The Resistance")
+})
