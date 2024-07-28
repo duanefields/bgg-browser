@@ -12,16 +12,18 @@ import Collection from "./components/Collection"
 import SearchBox from "./components/SearchBox"
 import SortMenu from "./components/SortMenu"
 import useDebounce from "./hooks/useDebounce"
-import { PlayerCount, SortOrder } from "./shared.types"
+import { PlayerCount, Playtime, SortOrder } from "./shared.types"
 import PlayersMenu from "./components/PlayersMenu"
+import PlaytimeMenu from "./components/PlaytimeMenu"
 
 const queryClient = new QueryClient()
-const username = "dkf2112"
+const username = "pandyandy"
 
 const App = () => {
   const [searchText, setSearchText] = useState("")
   const [sort, setSort] = useState<SortOrder>("name")
   const [players, setPlayers] = useState<PlayerCount>(0)
+  const [playtime, setPlaytime] = useState<Playtime>(0)
 
   const onSearchTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value)
@@ -36,6 +38,10 @@ const App = () => {
     setPlayers(value)
   }
 
+  const onPlaytimeChange = (value: Playtime) => {
+    setPlaytime(value)
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <>
@@ -43,6 +49,7 @@ const App = () => {
 
         <SortMenu sort={sort as SortOrder} onChange={onSortChange} />
         <PlayersMenu players={players as PlayerCount} onChange={onPlayerChange} />
+        <PlaytimeMenu playtime={playtime as Playtime} onChange={onPlaytimeChange} />
 
         <div className={classes.header}>
           <h1>BGG Collection Browser</h1>
@@ -54,6 +61,7 @@ const App = () => {
           searchText={debouncedSearchText}
           sort={sort as SortOrder}
           players={players as PlayerCount}
+          playtime={playtime as Playtime}
         />
       </>
 

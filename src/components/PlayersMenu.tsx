@@ -16,7 +16,7 @@ const PlayersMenu = ({ onChange, players }: PlayersMenuProps) => {
     onChange(event.target.value as PlayerCount)
   }
 
-  const options = []
+  const options: React.ReactNode[] = []
   for (let i = 2; i <= 12; i++) {
     options.push(
       <MenuItem key={i} value={i}>
@@ -35,13 +35,13 @@ const PlayersMenu = ({ onChange, players }: PlayersMenuProps) => {
         label="Players"
         onChange={handleChange}
       >
-        <MenuItem key={0} value={"0"}>
+        <MenuItem key={0} value={0}>
           Any
         </MenuItem>
         <MenuItem key={1} value={1}>
           1 Player
         </MenuItem>
-        ,{options}
+        {options}
       </Select>
     </FormControl>
   )

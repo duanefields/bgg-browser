@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import Fuse from "fuse.js"
 import { useMemo } from "react"
 import { getCollection } from "../lib/api"
-import { Game, PlayerCount, SortOrder } from "../shared.types"
+import { Game, PlayerCount, Playtime, SortOrder } from "../shared.types"
 import GameCell from "./GameCell"
 import {
   titleComparator,
@@ -20,9 +20,10 @@ interface CollectionProps {
   searchText?: string
   sort: SortOrder
   players: PlayerCount
+  playtime: Playtime
 }
 
-const Collection = ({ username, searchText, sort, players }: CollectionProps) => {
+const Collection = ({ username, searchText, sort, players, playtime }: CollectionProps) => {
   const query = useQuery({
     queryKey: ["collection", username],
     queryFn: () => getCollection(username),
@@ -51,6 +52,16 @@ const Collection = ({ username, searchText, sort, players }: CollectionProps) =>
       if (game.minPlayers === 0 || game.maxPlayers === 0) return true
       // otherwise, check if the player count is within the min/max range
       return players >= game.minPlayers && players <= game.maxPlayers
+    })
+  }
+
+  // filter by the playtime
+  if (playtime > 0) {
+    results = results.filter((game) => {
+      // if the max playtime is 0 or null, assume the game supports any playtime
+      if (game.maxPlaytime === 0 || game.maxPlaytime === null) return true
+      // otherwise, check if the playtime is less than or equal to the max playtime
+      return playtime >= game.maxPlaytime
     })
   }
 
