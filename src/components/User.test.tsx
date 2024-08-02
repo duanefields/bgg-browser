@@ -3,7 +3,7 @@ import { http, HttpResponse } from "msw"
 import { setupServer } from "msw/node"
 import { afterAll, afterEach, beforeAll, expect, it } from "vitest"
 import { BGG_PROXY } from "../lib/api"
-import { renderWithProviders } from "../lib/testUtils"
+import { renderWithQueryProvider } from "../lib/testUtils"
 
 import pandyandy from "../test/collections/pandyandy.json"
 import pandyandyAvatar from "../test/users/pandyandy.json"
@@ -34,7 +34,7 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 it("Should render the User component at all", async () => {
-  renderWithProviders(<User username="pandyandy" />)
+  renderWithQueryProvider(<User username="pandyandy" />)
   expect(screen.getByText("BGG Collection Browser")).toBeVisible()
   expect(await screen.findByText("pandyandy's Collection")).toBeVisible()
 })

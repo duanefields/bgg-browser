@@ -35,8 +35,11 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
 
   // build the search index
   const index = useMemo(() => {
-    console.debug(`Building search index for ${games.length} games`)
-    return new Fuse<Game>(games, { keys: ["name"], threshold: 0.3 })
+    console.debug(`Indexing ${games.length} games`)
+    console.time("index")
+    const fuse = new Fuse<Game>(games, { keys: ["name"], threshold: 0.3 })
+    console.timeEnd("index")
+    return fuse
   }, [games])
 
   // filter the list by the fuzzy search text
@@ -66,7 +69,8 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
   }
 
   // sort the list by the selected sort order
-  console.debug("Sorting by", sort)
+  console.debug(`Sorting ${results.length} games by ${sort}`)
+  console.time("sort")
   if (sort === "random") {
     results = shuffle(results)
   } else {
@@ -85,6 +89,7 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
       }
     })
   }
+  console.timeEnd("sort")
 
   return (
     <div>
