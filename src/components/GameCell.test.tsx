@@ -59,8 +59,8 @@ const game3: Game = {
 }
 
 it("Should match snapshot", () => {
-  const cell = render(<GameCell game={game} />)
-  expect(cell).toMatchSnapshot()
+  const view = render(<GameCell game={game} />)
+  expect(view).toMatchSnapshot()
 })
 
 it("Should render the game name", () => {
@@ -126,16 +126,12 @@ it("Should open the game URL in a new tab", () => {
 
 it("Should render no text for the ranking if none is present", async () => {
   render(<GameCell game={game2} />)
-  const element = await screen.findByTitle("BGG Rank")
-  expect(element.parentElement?.tagName).toBe("svg")
-  expect(element.parentElement?.parentElement?.tagName).toBe("DIV")
-  expect(element.parentElement?.parentElement?.textContent?.trim()).toEqual("BGG Rank")
+  const element = await screen.findByTestId("rank")
+  expect(element.textContent?.trim()).toEqual("BGG Rank")
 })
 
 it("Should render no text for the playtime if none is present", async () => {
   render(<GameCell game={game3} />)
-  const element = await screen.findByTitle("Playtime")
-  expect(element.parentElement?.tagName).toBe("svg")
-  expect(element.parentElement?.parentElement?.tagName).toBe("DIV")
-  expect(element.parentElement?.parentElement?.textContent?.trim()).toEqual("Playtime")
+  const element = await screen.findByTestId("playtime")
+  expect(element.textContent?.trim()).toEqual("Playtime")
 })

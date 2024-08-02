@@ -55,16 +55,16 @@ it("Should render the user's avatar image if they have one", async () => {
 
 it("Should render a default user icon if they don't have an avatar", async () => {
   renderWithQueryProvider(<Avatar username="AlexvW" />)
-  const avatarElement = await screen.findByTitle("AlexvW")
-  expect(avatarElement.parentElement?.tagName).toBe("svg")
-  expect(avatarElement.parentElement).toHaveAttribute("data-icon", "user")
-  expect(avatarElement.parentElement).toBeVisible()
+  const avatarElement = await screen.findByRole("img")
+  expect(avatarElement.tagName).toBe("svg")
+  expect(avatarElement).toHaveAttribute("data-icon", "user")
+  expect(avatarElement).toBeVisible()
 })
 
 it("Should render a default user icon for an invalid username", async () => {
   renderWithQueryProvider(<Avatar username="invalidUsername" />)
-  const avatarElement = await screen.findByTitle("invalidUsername")
-  expect(avatarElement.parentElement?.tagName).toBe("svg")
-  expect(avatarElement.parentElement).toHaveAttribute("data-icon", "user")
-  expect(avatarElement.parentElement).toBeVisible()
+  const avatarElement = await screen.findByRole("img")
+  expect(avatarElement.tagName).toBe("svg")
+  expect(avatarElement).toHaveAttribute("data-icon", "user")
+  expect(avatarElement).toBeVisible()
 })

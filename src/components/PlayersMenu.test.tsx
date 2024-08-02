@@ -4,8 +4,8 @@ import PlayersMenu from "./PlayersMenu"
 
 it("Should match snapshot", () => {
   const onChange = vi.fn()
-  const cell = render(<PlayersMenu players={3} onChange={onChange} />)
-  expect(cell).toMatchSnapshot()
+  const view = render(<PlayersMenu players={3} onChange={onChange} />)
+  expect(view).toMatchSnapshot()
 })
 
 it("Should render the label and the sort order", () => {
@@ -17,9 +17,9 @@ it("Should render the label and the sort order", () => {
 
 it("Should call the onChange function when the sort order changes", async () => {
   const onChange = vi.fn()
-  const players = render(<PlayersMenu players={3} onChange={onChange} />)
-  fireEvent.mouseDown(players.getByRole("combobox"))
-  const listbox = within(players.getByRole("listbox"))
+  render(<PlayersMenu players={3} onChange={onChange} />)
+  fireEvent.mouseDown(screen.getByRole("combobox"))
+  const listbox = within(screen.getByRole("listbox"))
   fireEvent.click(listbox.getByText("2 Players"))
   expect(onChange).toHaveBeenCalledWith(2)
 })

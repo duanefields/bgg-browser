@@ -4,8 +4,8 @@ import SortMenu from "./SortMenu"
 
 it("Should match snapshot", () => {
   const onChange = vi.fn()
-  const cell = render(<SortMenu sort="rating" onChange={onChange} />)
-  expect(cell).toMatchSnapshot()
+  const view = render(<SortMenu sort="rating" onChange={onChange} />)
+  expect(view).toMatchSnapshot()
 })
 
 it("Should render the label and the sort order", () => {
@@ -17,9 +17,9 @@ it("Should render the label and the sort order", () => {
 
 it("Should call the onChange function when the sort order changes", async () => {
   const onChange = vi.fn()
-  const sort = render(<SortMenu sort="rating" onChange={onChange} />)
-  fireEvent.mouseDown(sort.getByRole("combobox"))
-  const listbox = within(sort.getByRole("listbox"))
+  render(<SortMenu sort="rating" onChange={onChange} />)
+  fireEvent.mouseDown(screen.getByRole("combobox"))
+  const listbox = within(screen.getByRole("listbox"))
   fireEvent.click(listbox.getByText("Name"))
   expect(onChange).toHaveBeenCalledWith("name")
 })

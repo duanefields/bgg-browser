@@ -11,8 +11,8 @@ afterEach(() => {
 })
 
 it("Should match snapshot", () => {
-  const search = render(<SearchBox searchText="test" onChange={onChange} />)
-  expect(search).toMatchSnapshot()
+  const view = render(<SearchBox searchText="test" onChange={onChange} />)
+  expect(view).toMatchSnapshot()
 })
 
 it("Should match display search text", () => {

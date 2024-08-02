@@ -43,22 +43,22 @@ const GameCell = ({ game }: GameCellProps) => {
       />
       <h3 className={classes.headerArea}>{game.name}</h3>
       <div className={classes.infoArea}>
-        <div>
+        <div data-testid="playerCount">
           <FontAwesomeIcon fixedWidth icon={faUsers} title="Player Count" titleId="1" />{" "}
           {playerCount}
         </div>
-        <div>
+        <div data-testid="playtime">
           <FontAwesomeIcon fixedWidth icon={faClock} title="Playtime" titleId="2" /> {playtime}
         </div>
-        <div>
+        <div data-testid="rating">
           <FontAwesomeIcon fixedWidth icon={faStar} title="BGG Rating (Your Rating)" titleId="3" />{" "}
           {rating}
         </div>
-        <div>
+        <div data-testid="plays">
           <FontAwesomeIcon fixedWidth icon={faDice} title="Number of Plays" titleId="4" />{" "}
           {game.numPlays.toLocaleString()}
         </div>
-        <div>
+        <div data-testid="rank">
           <FontAwesomeIcon fixedWidth icon={faRankingStar} title="BGG Rank" titleId="5" />{" "}
           {game.rank?.toLocaleString()}
         </div>

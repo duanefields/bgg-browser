@@ -4,8 +4,8 @@ import PlaytimeMenu from "./PlaytimeMenu"
 
 it("Should match snapshot", () => {
   const onChange = vi.fn()
-  const cell = render(<PlaytimeMenu playtime={30} onChange={onChange} />)
-  expect(cell).toMatchSnapshot()
+  const view = render(<PlaytimeMenu playtime={30} onChange={onChange} />)
+  expect(view).toMatchSnapshot()
 })
 
 it("Should render the label and the sort order", () => {
@@ -17,9 +17,9 @@ it("Should render the label and the sort order", () => {
 
 it("Should call the onChange function when the sort order changes", async () => {
   const onChange = vi.fn()
-  const playtime = render(<PlaytimeMenu playtime={30} onChange={onChange} />)
-  fireEvent.mouseDown(playtime.getByRole("combobox"))
-  const listbox = within(playtime.getByRole("listbox"))
+  render(<PlaytimeMenu playtime={30} onChange={onChange} />)
+  fireEvent.mouseDown(screen.getByRole("combobox"))
+  const listbox = within(screen.getByRole("listbox"))
   fireEvent.click(listbox.getByText("60m"))
   expect(onChange).toHaveBeenCalledWith(60)
 })
