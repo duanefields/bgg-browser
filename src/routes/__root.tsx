@@ -15,7 +15,13 @@ const TanStackRouterDevtools =
         })),
       )
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 10,
+    },
+  },
+})
 
 const Root = () => (
   <QueryClientProvider client={queryClient}>
