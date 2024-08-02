@@ -17,9 +17,9 @@ it("Should render the label and the sort order", () => {
 
 it("Should call the onChange function when the sort order changes", async () => {
   const onChange = vi.fn()
-  const sort = render(<PlayersMenu players={3} onChange={onChange} />)
-  fireEvent.mouseDown(sort.getByRole("combobox"))
-  const listbox = within(sort.getByRole("listbox"))
+  const players = render(<PlayersMenu players={3} onChange={onChange} />)
+  fireEvent.mouseDown(players.getByRole("combobox"))
+  const listbox = within(players.getByRole("listbox"))
   fireEvent.click(listbox.getByText("2 Players"))
   expect(onChange).toHaveBeenCalledWith(2)
 })
