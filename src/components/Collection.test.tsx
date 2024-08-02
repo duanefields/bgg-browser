@@ -29,7 +29,7 @@ afterAll(() => server.close())
 
 it("Should render a loading state", async () => {
   renderWithProviders(<Collection username="pandyandy" sort="name" players={0} playtime={0} />)
-  expect(screen.getByText("Loading...")).toBeVisible()
+  expect(await screen.findByText("Loading...")).toBeVisible()
 })
 
 it("Should render an error state", async () => {
