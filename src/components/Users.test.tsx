@@ -1,12 +1,13 @@
 import { screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { http, HttpResponse } from "msw"
 import { setupServer } from "msw/node"
 import { afterAll, afterEach, beforeAll, expect, it } from "vitest"
 import { BGG_PROXY } from "../lib/api"
 import { renderWithProviders } from "../lib/testUtils"
 
-import pandyandy from "../test/users/pandyandy.json"
 import dkf2112 from "../test/users/dkf2112.json"
+import pandyandy from "../test/users/pandyandy.json"
 
 import Users from "./Users"
 
@@ -41,4 +42,16 @@ it("Should render the users with avatars and links", async () => {
   // make sure the Avatar component is rendering the image
   expect((await screen.findByAltText("pandyandy")).tagName).toBe("IMG")
   expect((await screen.findByAltText("dkf2112")).tagName).toBe("IMG")
+})
+
+// this test is mostly useless because I've been unable to test the navigation
+// by mocking the useNavigate hook or the window.location object
+it("Should call navigate to the new user on form submission", async () => {
+  renderWithProviders(<Users usernames={["pandyandy"]} />)
+  const input = await screen.findByRole("textbox")
+  await userEvent.type(input, "dkf2112")
+  const button = await screen.findByRole("button")
+  await userEvent.click(button)
+  // navigation is not supported in jsdom
+  // expect(window.location.pathname).toBe("/user/dkf2112")
 })
