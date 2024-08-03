@@ -31,6 +31,7 @@ const SortMenu = ({ onChange, sort }: SortMenuProps) => {
         <MenuItem value="myRating">My Rating</MenuItem>
         <MenuItem value="plays">Plays</MenuItem>
         <MenuItem value="rank">BGG Rank</MenuItem>
+        <MenuItem value="playtime">Playtime</MenuItem>
         <MenuItem value="random">Random</MenuItem>
       </Select>
     </FormControl>

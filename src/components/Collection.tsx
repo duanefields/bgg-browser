@@ -10,6 +10,7 @@ import {
   myRatingComparator,
   playsComparator,
   rankComparator,
+  playtimeComparator,
 } from "../lib/comparators"
 import { shuffle } from "../lib/utils"
 
@@ -90,6 +91,8 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
           return playsComparator(a, b)
         case "rank":
           return rankComparator(a, b)
+        case "playtime":
+          return playtimeComparator(a, b)
       }
     })
   }

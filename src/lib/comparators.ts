@@ -29,3 +29,8 @@ export const rankComparator = (a: Game, b: Game) => {
     titleComparator(a, b)
   )
 }
+
+/** sort by playtime ascending, then by title */
+export const playtimeComparator = (a: Game, b: Game) => {
+  return (a.maxPlaytime || 0) - (b.maxPlaytime || 0) || titleComparator(a, b)
+}
