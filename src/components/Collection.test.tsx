@@ -24,17 +24,6 @@ const server = setupServer(
         return HttpResponse.json(invalidUsername)
     }
   }),
-
-  // simulate a retry request that returns accepted before returning the collection
-  http.get(`${BGG_PROXY}/collection`, function* ({ request }) {
-    const url = new URL(request.url)
-    const username = url.searchParams.get("username")
-    if (username === "accepted") {
-      yield HttpResponse.json(accepted, { status: 202 })
-      yield HttpResponse.json(pandyandy)
-      throw new Error("Unexpected retry")
-    }
-  }),
 )
 
 beforeAll(() => server.listen())
@@ -176,7 +165,18 @@ it("Should render the collection count as a localized string", async () => {
 })
 
 it("Should retry fetching the collection on accepted error", async () => {
-  renderWithQueryProvider(<Collection username="accepted" sort="name" players={0} playtime={0} />)
+  // prepend a handler to the server that will return an invalid user error
+  server.use(
+    http.get(
+      `${BGG_PROXY}/collection`,
+      () => {
+        return HttpResponse.json(accepted, { status: 202 })
+      },
+      { once: true },
+    ),
+  )
+
+  renderWithQueryProvider(<Collection username="pandyandy" sort="name" players={0} playtime={0} />)
   expect(await screen.findByText("Showing 7 of 7 games", {}, { timeout: 2000 })).toBeVisible()
 })
 

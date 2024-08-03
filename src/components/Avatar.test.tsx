@@ -1,13 +1,13 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { render, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
 import { http, HttpResponse } from "msw"
 import { setupServer } from "msw/node"
 import { afterAll, afterEach, beforeAll, expect, it } from "vitest"
 import { BGG_PROXY } from "../lib/api"
+import { renderWithQueryProvider } from "../lib/testUtils"
 
+import AlexvW from "../test/users/AlexvW.json"
 import invalidUsername from "../test/users/invalidUsername.json"
 import pandyandy from "../test/users/pandyandy.json"
-import AlexvW from "../test/users/AlexvW.json"
 
 import Avatar from "./Avatar"
 
@@ -20,7 +20,7 @@ const server = setupServer(
         return HttpResponse.json(pandyandy)
       case "AlexvW":
         return HttpResponse.json(AlexvW)
-      default:
+      case "invalidUsername":
         return HttpResponse.json(invalidUsername)
     }
   }),
@@ -29,18 +29,6 @@ const server = setupServer(
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
-
-// wrap the component in a fresh QueryClientProvider to isolate the tests
-const renderWithQueryProvider = (children: React.ReactNode) => {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        retry: false,
-      },
-    },
-  })
-  return render(<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>)
-}
 
 it("Should render the user's avatar image if they have one", async () => {
   renderWithQueryProvider(<Avatar username="pandyandy" />)
@@ -67,4 +55,21 @@ it("Should render a default user icon for an invalid username", async () => {
   expect(avatarElement.tagName).toBe("svg")
   expect(avatarElement).toHaveAttribute("data-icon", "user")
   expect(avatarElement).toBeVisible()
+})
+
+it("Should not retry the user fetch on invalid user error", async () => {
+  // prepend a handler to the server that will return an invalid user error
+  server.use(
+    http.get(
+      `${BGG_PROXY}/user`,
+      () => {
+        return HttpResponse.json(invalidUsername)
+      },
+      { once: true },
+    ),
+  )
+
+  renderWithQueryProvider(<Avatar username="pandyandy" />)
+  // use `queryBy` to avoid throwing an error with `getBy`
+  expect(screen.queryByAltText("invalidUsername")).not.toBeInTheDocument()
 })
