@@ -57,7 +57,7 @@ it("Should render a default user icon for an invalid username", async () => {
   expect(avatarElement).toBeVisible()
 })
 
-it("Should not retry the user fetch on invalid user error", async () => {
+it("Should not retry the user fetch on invalid user error", () => {
   // prepend a handler to the server that will return an invalid user error
   server.use(
     http.get(
@@ -71,5 +71,5 @@ it("Should not retry the user fetch on invalid user error", async () => {
 
   renderWithQueryProvider(<Avatar username="pandyandy" />)
   // use `queryBy` to avoid throwing an error with `getBy`
-  expect(screen.queryByAltText("invalidUsername")).not.toBeInTheDocument()
+  expect(screen.queryByAltText("pandyandy")).not.toBeInTheDocument()
 })
