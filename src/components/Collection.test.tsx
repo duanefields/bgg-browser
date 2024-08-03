@@ -8,6 +8,7 @@ import * as api from "../lib/api"
 
 import invalidUsername from "../test/collections/invalidUsername.json"
 import pandyandy from "../test/collections/pandyandy.json"
+import accepted from "../test/collections/accepted.json"
 
 import Collection from "./Collection"
 import { Game } from "../shared.types"
@@ -19,8 +20,19 @@ const server = setupServer(
     switch (username) {
       case "pandyandy":
         return HttpResponse.json(pandyandy)
-      default:
+      case "invalidUser":
         return HttpResponse.json(invalidUsername)
+    }
+  }),
+
+  // simulate a retry request that returns accepted before returning the collection
+  http.get(`${BGG_PROXY}/collection`, function* ({ request }) {
+    const url = new URL(request.url)
+    const username = url.searchParams.get("username")
+    if (username === "accepted") {
+      yield HttpResponse.json(accepted, { status: 202 })
+      yield HttpResponse.json(pandyandy)
+      throw new Error("Unexpected retry")
     }
   }),
 )
@@ -36,7 +48,7 @@ it("Should render a loading state", async () => {
 
 it("Should render an error state", async () => {
   renderWithQueryProvider(
-    <Collection username="nonexistent" sort="name" players={0} playtime={0} />,
+    <Collection username="invalidUser" sort="name" players={0} playtime={0} />,
   )
   expect(await screen.findByText("Error: Invalid username specified")).toBeVisible()
 })
@@ -156,10 +168,21 @@ it("Should render the collection count as a localized string", async () => {
   }))
 
   const spy = vi.spyOn(api, "getCollection").mockResolvedValue(games)
-
   renderWithQueryProvider(<Collection username="pandyandy" sort="name" players={0} playtime={0} />)
   expect(await spy).toHaveBeenCalledOnce()
   expect(await spy).toHaveResolvedWith(games)
   expect(await screen.findByText("Showing 1,001 of 1,001 games")).toBeVisible()
   vi.restoreAllMocks()
+})
+
+it("Should retry fetching the collection on accepted error", async () => {
+  renderWithQueryProvider(<Collection username="accepted" sort="name" players={0} playtime={0} />)
+  expect(await screen.findByText("Showing 7 of 7 games", {}, { timeout: 2000 })).toBeVisible()
+})
+
+it("Should not retry fetching the collection on invalid user error", async () => {
+  renderWithQueryProvider(
+    <Collection username="invalidUser" sort="name" players={0} playtime={0} />,
+  )
+  expect(await screen.findByText("Error: Invalid username specified")).toBeVisible()
 })

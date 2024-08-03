@@ -13,6 +13,10 @@ const Avatar = ({ username }: AvatarProps) => {
   const query = useQuery({
     queryKey: ["user", username],
     queryFn: () => getUser(username),
+    retry: (failureCount, error) => {
+      console.debug(`Error #${failureCount} fetching user:`, error.message)
+      return error.message !== "Invalid username specified"
+    },
   })
 
   // if the user doesn't have an avatar or there is an error, render a default icon

@@ -27,9 +27,13 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
   const query = useQuery({
     queryKey: ["collection", username],
     queryFn: () => getCollection(username),
+    retry: (failureCount, error) => {
+      console.debug(`Error #${failureCount} fetching collection:`, error.message)
+      return error.message === "Collection is being processed, try again later"
+    },
   })
 
-  // todo: is this a hacky way to handle undefined games?
+  // todo: is this the best way to handle undefined games?
   const emptyGames: Game[] = []
   const games = query.data || emptyGames
 

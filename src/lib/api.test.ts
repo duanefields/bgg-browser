@@ -8,6 +8,7 @@ import dkf2112Collection from "../test/collections/dkf2112.json"
 import pandyandyCollection from "../test/collections/pandyandy.json"
 import oddballsCollection from "../test/collections/oddballs.json"
 import invalidUsernameCollection from "../test/collections/invalidUsername.json"
+import accepted from "../test/collections/accepted.json"
 
 // sample user responses
 import dkf2112 from "../test/users/dkf2112.json"
@@ -30,10 +31,13 @@ const server = setupServer(
         return HttpResponse.json(pandyandyCollection)
       case "oddballs":
         return HttpResponse.json(oddballsCollection)
+      case "accepted":
+        return HttpResponse.json(accepted, { status: 202 })
       default:
-        return HttpResponse.json(invalidUsernameCollection)
+        return HttpResponse.json(invalidUsernameCollection, { status: 200 })
     }
   }),
+
   http.get(`${BGG_PROXY}/user`, ({ request }) => {
     const url = new URL(request.url)
     const username = url.searchParams.get("name")
@@ -139,5 +143,11 @@ describe("getCollection", () => {
     expect(game!.minPlaytime).toBeNull()
     expect(game!.maxPlaytime).toBeNull()
     expect(game!.playtime).toBeNull()
+  })
+
+  it("Should throw an error on 202 Accepted responses", async () => {
+    await expect(getCollection("accepted")).rejects.toThrow(
+      "Collection is being processed, try again later",
+    )
   })
 })

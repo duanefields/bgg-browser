@@ -42,6 +42,11 @@ export const getCollection = async (username: string): Promise<Game[]> => {
     throw new Error(json.errors.error.message)
   }
 
+  // The server responds with a 202 Accepted if the collection is being processed
+  if (response.status === 202) {
+    throw new Error("Collection is being processed, try again later")
+  }
+
   const data = json as CollectionResponse
   return data.items.item.map((item) => ({
     objectId: Number(item._objectid),
@@ -62,7 +67,7 @@ export const getCollection = async (username: string): Promise<Game[]> => {
   }))
 }
 
-// Helper function to get the rank for an item
+// Helper function to get the rank for an item, because the data is inconsistent
 // If the rank is an array, find the rank for boardgames, otherwise return the rank
 // Some items are ranked in more than one category, for example wargames or family games
 const rankForItem = (item: ItemResponse) => {
