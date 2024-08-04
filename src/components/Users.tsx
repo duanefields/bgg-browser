@@ -29,7 +29,12 @@ const Users = ({ usernames }: UsersProps) => {
           placeholder="BGG Username"
           variant="standard"
           onChange={(event) => setUsername(event.target.value)}
-          inputProps={{ "data-1p-ignore": true, autoCorrect: "off", autoCapitalize: "off" }}
+          inputProps={{
+            "data-1p-ignore": true,
+            "data-lpignore": true,
+            autoCorrect: "off",
+            autoCapitalize: "off",
+          }}
         />
         <Button type="submit" variant="contained">
           Browse Collection
