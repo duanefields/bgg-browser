@@ -36,9 +36,13 @@ export const getCollection = async (username: string): Promise<Game[]> => {
     `${BGG_PROXY}/collection/?username=${username}&stats=1&own=1&version=1&excludesubtype=boardgameexpansion`,
   )
 
-  // Check for errors, the server responds with a 200 OK even if there is an error
+  // todo: make this fetching type safe
+  // Check for invalid user, the server responds with a 200 OK even if there is an error
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const json = await response.json()
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   if (json.errors) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
     throw new Error(json.errors.error.message)
   }
 
