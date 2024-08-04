@@ -44,7 +44,7 @@ it("Should render the users with avatars and links, sorted by name", async () =>
   expect((await screen.findByAltText("dkf2112")).tagName).toBe("IMG")
 })
 
-// this test is mostly useless because I've been unable to test the navigation
+// todo: this test is mostly useless because I've been unable to test the navigation
 // by mocking the useNavigate hook or the window.location object
 it("Should call navigate to the new user on form submission", async () => {
   renderWithProviders(<Users usernames={["pandyandy"]} />)
@@ -54,4 +54,13 @@ it("Should call navigate to the new user on form submission", async () => {
   await userEvent.click(button)
   // navigation is not supported in jsdom
   // expect(window.location.pathname).toBe("/user/dkf2112")
+})
+
+it("Should disable autocomplete and autocorrect on the input field", async () => {
+  renderWithProviders(<Users usernames={["pandyandy"]} />)
+  const input = await screen.findByRole("textbox")
+  expect(input).toHaveAttribute("data-1p-ignore", "true")
+  expect(input).toHaveAttribute("data-lpignore", "true")
+  expect(input).toHaveAttribute("autoCorrect", "off")
+  expect(input).toHaveAttribute("autoCapitalize", "off")
 })
