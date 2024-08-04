@@ -13,13 +13,13 @@ const Users = ({ usernames }: UsersProps) => {
 
   const handleSubmission = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    // todo: update the local storage MRU user list, if it is a valid user
+    // todo: update the local storage LRU user list, if it is a valid user
     void navigate({ to: "/user/$username", params: { username } })
   }
 
   return (
     <>
-      {usernames.map((username) => (
+      {usernames.sort().map((username) => (
         <UserRow key={username} username={username} />
       ))}
 
