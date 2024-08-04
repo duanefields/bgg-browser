@@ -13,7 +13,6 @@ const Users = ({ usernames }: UsersProps) => {
 
   const handleSubmission = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    // todo: update the local storage LRU user list, if it is a valid user
     void navigate({ to: "/user/$username", params: { username } })
   }
 

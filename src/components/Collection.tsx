@@ -18,9 +18,12 @@ interface CollectionProps {
   /** The username of the collection you want to load */
   username: string
   /** The search text to filter the collection */
-  searchText?: string
+  searchText: string
+  /** The sort order to apply to the collection */
   sort: SortOrder
+  /** The minimum number of players to filter the collection */
   players: PlayerCount
+  /** The maximum playtime to filter the collection */
   playtime: Playtime
 }
 
