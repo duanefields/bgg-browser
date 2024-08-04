@@ -10,7 +10,7 @@ interface GameCellProps {
 const GameCell = ({ game }: GameCellProps) => {
   let playtime = `${game.minPlaytime}-${game.maxPlaytime} mins`
   if (game.minPlaytime === game.maxPlaytime) {
-    playtime = `${game.playtime || game.minPlaytime} mins`
+    playtime = `${game.playtime ?? game.minPlaytime} mins`
   }
 
   // handle null values of playtime that are uncommon

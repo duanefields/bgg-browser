@@ -14,7 +14,7 @@ export const ratingComparator = (a: Game, b: Game) => {
 
 /** sort by myRating descending, then by title */
 export const myRatingComparator = (a: Game, b: Game) => {
-  return (b.myRating || 0) - (a.myRating || 0) || titleComparator(a, b)
+  return (b.myRating ?? 0) - (a.myRating ?? 0) || titleComparator(a, b)
 }
 
 /** sort by numPlays descending, then by title */
@@ -25,12 +25,12 @@ export const playsComparator = (a: Game, b: Game) => {
 /** sort by rank ascending, then by title (though rank should be unique) */
 export const rankComparator = (a: Game, b: Game) => {
   return (
-    (a.rank || Number.MAX_SAFE_INTEGER) - (b.rank || Number.MAX_SAFE_INTEGER) ||
+    (a.rank ?? Number.MAX_SAFE_INTEGER) - (b.rank ?? Number.MAX_SAFE_INTEGER) ||
     titleComparator(a, b)
   )
 }
 
 /** sort by playtime ascending, then by title */
 export const playtimeComparator = (a: Game, b: Game) => {
-  return (a.maxPlaytime || 0) - (b.maxPlaytime || 0) || titleComparator(a, b)
+  return (a.maxPlaytime ?? 0) - (b.maxPlaytime ?? 0) || titleComparator(a, b)
 }

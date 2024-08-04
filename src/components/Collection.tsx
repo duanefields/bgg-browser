@@ -36,7 +36,7 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
 
   // todo: is this the best way to handle undefined games?
   const emptyGames: Game[] = []
-  const games = query.data || emptyGames
+  const games = query.data ?? emptyGames
 
   // build the search index
   const index = useMemo(() => {
@@ -100,7 +100,7 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
 
   return (
     <div>
-      <h2>{username}'s Collection</h2>
+      <h2>{username}&apos;s Collection</h2>
       {query.isLoading && <div>Loading...</div>}
       {query.isError && <div>Error: {query.error.message}</div>}
       {query.isSuccess && (

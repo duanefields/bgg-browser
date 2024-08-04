@@ -2,12 +2,12 @@ import { Game, User } from "../shared.types"
 import { CollectionResponse, ItemResponse, UserResponse } from "./bgg.types"
 
 /** Root URL of the BGG Proxy Server */
-export const BGG_PROXY: string = import.meta.env.VITE_BGG_PROXY
+export const BGG_PROXY: string = import.meta.env.VITE_BGG_PROXY as string
 
 export const getUser = async (username: string): Promise<User> => {
   console.debug(`Fetching user ${username}`)
   const response = await fetch(`${BGG_PROXY}/user/?name=${username}`)
-  const json = await response.json()
+  const json = (await response.json()) as object
 
   // If the user does not exist, the server responds with a 200 OK and an HTML error page
   // that is returned as JSON (thanks to the proxy server?)

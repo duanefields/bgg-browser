@@ -40,9 +40,9 @@ const User = ({ username }: UserProps) => {
     <>
       <Avatar username={username} />
 
-      <SortMenu sort={sort as SortOrder} onChange={onSortChange} />
-      <PlayersMenu players={players as PlayerCount} onChange={onPlayerChange} />
-      <PlaytimeMenu playtime={playtime as Playtime} onChange={onPlaytimeChange} />
+      <SortMenu sort={sort} onChange={onSortChange} />
+      <PlayersMenu players={players} onChange={onPlayerChange} />
+      <PlaytimeMenu playtime={playtime} onChange={onPlaytimeChange} />
 
       <div className={classes.header}>
         <h1>BGG Collection Browser</h1>
@@ -52,9 +52,9 @@ const User = ({ username }: UserProps) => {
       <Collection
         username={username}
         searchText={debouncedSearchText}
-        sort={sort as SortOrder}
-        players={players as PlayerCount}
-        playtime={playtime as Playtime}
+        sort={sort}
+        players={players}
+        playtime={playtime}
       />
     </>
   )

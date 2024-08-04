@@ -14,7 +14,7 @@ const Users = ({ usernames }: UsersProps) => {
   const handleSubmission = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     // todo: update the local storage MRU user list, if it is a valid user
-    navigate({ to: "/user/$username", params: { username } })
+    void navigate({ to: "/user/$username", params: { username } })
   }
 
   return (

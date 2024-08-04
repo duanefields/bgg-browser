@@ -1,4 +1,4 @@
-export type Game = {
+export interface Game {
   /** The product ID, not guaranteed to be unique to the collection */
   objectId: number
   /** A unique ID for the item within the collection */
@@ -18,7 +18,7 @@ export type Game = {
   url: string
 }
 
-export type User = {
+export interface User {
   username: string
   userId: number
   avatar: string | null

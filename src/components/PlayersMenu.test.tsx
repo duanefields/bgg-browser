@@ -15,7 +15,7 @@ it("Should render the label and the sort order", () => {
   expect(screen.getByText("3 Players")).toBeVisible()
 })
 
-it("Should call the onChange function when the sort order changes", async () => {
+it("Should call the onChange function when the sort order changes", () => {
   const onChange = vi.fn()
   render(<PlayersMenu players={3} onChange={onChange} />)
   fireEvent.mouseDown(screen.getByRole("combobox"))

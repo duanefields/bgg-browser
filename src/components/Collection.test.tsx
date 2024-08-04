@@ -158,9 +158,9 @@ it("Should render the collection count as a localized string", async () => {
 
   const spy = vi.spyOn(api, "getCollection").mockResolvedValue(games)
   renderWithQueryProvider(<Collection username="pandyandy" sort="name" players={0} playtime={0} />)
-  expect(await spy).toHaveBeenCalledOnce()
-  expect(await spy).toHaveResolvedWith(games)
   expect(await screen.findByText("Showing 1,001 of 1,001 games")).toBeVisible()
+  expect(spy).toHaveBeenCalledOnce()
+  expect(spy).toHaveResolvedWith(games)
   vi.restoreAllMocks()
 })
 

@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event"
 
 import SearchBox from "./SearchBox"
 
-const onChange = vi.fn(() => {})
+const onChange = vi.fn()
 
 afterEach(() => {
   onChange.mockReset()
