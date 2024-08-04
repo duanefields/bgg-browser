@@ -65,7 +65,7 @@ export interface ItemResponse {
 
 export interface CollectionResponse {
   items: {
-    item: ItemResponse[]
+    item?: ItemResponse[]
   }
   _totalitems: string
   _termsofuse: string

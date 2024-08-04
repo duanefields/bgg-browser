@@ -52,6 +52,12 @@ export const getCollection = async (username: string): Promise<Game[]> => {
   }
 
   const data = json as CollectionResponse
+
+  // If the user has no games in their collection
+  if (!data.items.item) {
+    return []
+  }
+
   return data.items.item.map((item) => ({
     objectId: Number(item._objectid),
     collectionId: Number(item._collid),

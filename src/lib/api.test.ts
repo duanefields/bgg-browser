@@ -8,7 +8,8 @@ import dkf2112Collection from "../test/collections/dkf2112.json"
 import pandyandyCollection from "../test/collections/pandyandy.json"
 import oddballsCollection from "../test/collections/oddballs.json"
 import invalidUsernameCollection from "../test/collections/invalidUsername.json"
-import accepted from "../test/collections/accepted.json"
+import acceptedCollection from "../test/collections/accepted.json"
+import tommyCollection from "../test/collections/tommy.json"
 
 // sample user responses
 import dkf2112 from "../test/users/dkf2112.json"
@@ -32,7 +33,9 @@ const server = setupServer(
       case "oddballs":
         return HttpResponse.json(oddballsCollection)
       case "accepted":
-        return HttpResponse.json(accepted, { status: 202 })
+        return HttpResponse.json(acceptedCollection, { status: 202 })
+      case "tommy":
+        return HttpResponse.json(tommyCollection)
       default:
         return HttpResponse.json(invalidUsernameCollection, { status: 200 })
     }
@@ -149,5 +152,10 @@ describe("getCollection", () => {
     await expect(getCollection("accepted")).rejects.toThrow(
       "Collection is being processed, try again later",
     )
+  })
+
+  it("Should return an empty array for a user with no games in their collection", async () => {
+    const collection = await getCollection("tommy")
+    expect(collection).toEqual([])
   })
 })
