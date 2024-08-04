@@ -5,6 +5,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
     "plugin:react-hooks/recommended",
     "plugin:testing-library/react",
     "plugin:react/recommended",
