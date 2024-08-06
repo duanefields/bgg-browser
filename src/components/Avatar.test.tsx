@@ -8,6 +8,7 @@ import { renderWithQueryProvider } from "../lib/testUtils"
 import AlexvW from "../test/users/AlexvW.json"
 import invalidUsername from "../test/users/invalidUsername.json"
 import pandyandy from "../test/users/pandyandy.json"
+import dkf2112 from "../test/users/dkf2112.json"
 
 import Avatar from "./Avatar"
 
@@ -20,6 +21,8 @@ const server = setupServer(
         return HttpResponse.json(pandyandy)
       case "AlexvW":
         return HttpResponse.json(AlexvW)
+      case "dkf2112":
+        return HttpResponse.json(dkf2112)
       case "invalidUsername":
         return HttpResponse.json(invalidUsername)
     }
@@ -29,6 +32,12 @@ const server = setupServer(
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
+
+it("Should match snapshot", async () => {
+  const view = renderWithQueryProvider(<Avatar username="dkf2112" />)
+  await screen.findByTitle("Duane Fields")
+  expect(view).toMatchSnapshot()
+})
 
 it("Should render the user's avatar image if they have one", async () => {
   renderWithQueryProvider(<Avatar username="pandyandy" />)
@@ -80,4 +89,22 @@ it("Should not retry the user fetch on invalid user error", () => {
   renderWithQueryProvider(<Avatar username="pandyandy" />)
   // use `queryBy` to avoid throwing an error with `getBy`
   expect(screen.queryByAltText("pandyandy")).not.toBeInTheDocument()
+})
+
+it("Should render the user's name as the title on the icon if they have it set", async () => {
+  renderWithQueryProvider(<Avatar username="AlexvW" />)
+  const avatarElement = await screen.findByTitle("Alex van Wijngaarden")
+  expect(avatarElement).toBeInTheDocument()
+})
+
+it("Should render the user's name as the title on the image if they have it set", async () => {
+  renderWithQueryProvider(<Avatar username="dkf2112" />)
+  const avatarElement = await screen.findByTitle("Duane Fields")
+  expect(avatarElement).toBeInTheDocument()
+})
+
+it("Should render the username as the title on the icon if the user has no name set", async () => {
+  renderWithQueryProvider(<Avatar username="pandyandy" />)
+  const avatarElement = await screen.findByTitle("pandyandy")
+  expect(avatarElement).toBeInTheDocument()
 })

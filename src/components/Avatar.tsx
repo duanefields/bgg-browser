@@ -19,6 +19,12 @@ const Avatar = ({ username }: AvatarProps) => {
     },
   })
 
+  // not everyone has there name set, so use the username as a fallback
+  let title = username
+  if (query.isSuccess && query.data?.firstName && query.data?.lastName) {
+    title = `${query.data.firstName} ${query.data.lastName}`
+  }
+
   // if the user doesn't have an avatar or there is an error, render a default icon
   if ((query.isSuccess && query.data?.avatar === null) || query.isError || query.isLoading) {
     return (
@@ -27,7 +33,7 @@ const Avatar = ({ username }: AvatarProps) => {
         width={64}
         height={64}
         size="4x"
-        title={username}
+        title={title}
         titleId="1000" // this is to ensure snapshots are consistent
         className={classes.avatar}
       />
@@ -41,7 +47,7 @@ const Avatar = ({ username }: AvatarProps) => {
           className={classes.avatar}
           src={query.data?.avatar}
           alt={username}
-          title={username}
+          title={title}
           width={64}
           height={64}
         />
