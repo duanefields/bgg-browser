@@ -2,6 +2,7 @@ import React, { Suspense } from "react"
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import NavBar from "../components/NavBar"
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
@@ -25,15 +26,7 @@ const queryClient = new QueryClient({
 
 const Root = () => (
   <QueryClientProvider client={queryClient}>
-    <div className="p-2 flex gap-2">
-      <Link to="/" className="[&.active]:font-bold">
-        Home
-      </Link>
-      {" | "}
-      <Link to="/about" className="[&.active]:font-bold">
-        About
-      </Link>
-    </div>
+    <NavBar />
     <hr />
     <Outlet />
     <Suspense>
