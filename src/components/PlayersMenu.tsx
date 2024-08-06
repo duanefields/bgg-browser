@@ -1,6 +1,5 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material"
+import { MenuItem, TextField } from "@mui/material"
 import { useState } from "react"
-import { SelectChangeEvent } from "@mui/material/Select"
 import { PlayerCount } from "../shared.types"
 
 interface PlayersMenuProps {
@@ -9,11 +8,11 @@ interface PlayersMenuProps {
 }
 
 const PlayersMenu = ({ onChange, players }: PlayersMenuProps) => {
-  const [playerCount, setPlayerCount] = useState(players)
+  const [playerCount, setPlayerCount] = useState<PlayerCount>(players)
 
-  const handleChange = (event: SelectChangeEvent<PlayerCount>) => {
-    setPlayerCount(event.target.value as PlayerCount)
-    onChange(event.target.value as PlayerCount)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPlayerCount(Number(event.target.value) as PlayerCount)
+    onChange(Number(event.target.value) as PlayerCount)
   }
 
   const options: React.ReactNode[] = []
@@ -26,24 +25,22 @@ const PlayersMenu = ({ onChange, players }: PlayersMenuProps) => {
   }
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 130, maxWidth: 130 }} size="small">
-      <InputLabel id="players-label">Players</InputLabel>
-      <Select<PlayerCount>
-        labelId="players-label"
-        id="players"
-        value={playerCount}
-        label="Players"
-        onChange={handleChange}
-      >
-        <MenuItem key={0} value={0}>
-          Any
-        </MenuItem>
-        <MenuItem key={1} value={1}>
-          1 Player
-        </MenuItem>
-        {options}
-      </Select>
-    </FormControl>
+    <TextField
+      sx={{ m: 1, minWidth: 130, maxWidth: 130 }}
+      select
+      value={playerCount}
+      label="Players"
+      onChange={handleChange}
+      size="small"
+    >
+      <MenuItem key={0} value={0}>
+        Any
+      </MenuItem>
+      <MenuItem key={1} value={1}>
+        1 Player
+      </MenuItem>
+      {options}
+    </TextField>
   )
 }
 

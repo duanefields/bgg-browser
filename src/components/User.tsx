@@ -38,11 +38,13 @@ const User = ({ username }: UserProps) => {
 
   return (
     <>
-      <Avatar username={username} />
+      <div className={classes.toolbar}>
+        <Avatar username={username} />
 
-      <SortMenu sort={sort} onChange={onSortChange} />
-      <PlayersMenu players={players} onChange={onPlayerChange} />
-      <PlaytimeMenu playtime={playtime} onChange={onPlaytimeChange} />
+        <SortMenu sort={sort} onChange={onSortChange} />
+        <PlayersMenu players={players} onChange={onPlayerChange} />
+        <PlaytimeMenu playtime={playtime} onChange={onPlaytimeChange} />
+      </div>
 
       <div className={classes.header}>
         <h1>BGG Collection Browser</h1>
