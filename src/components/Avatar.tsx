@@ -7,9 +7,10 @@ import classes from "./Avatar.module.css"
 interface AvatarProps {
   /** The username of the avatar you want to load */
   username: string
+  size?: number
 }
 
-const Avatar = ({ username }: AvatarProps) => {
+const Avatar = ({ username, size = 40 }: AvatarProps) => {
   const query = useQuery({
     queryKey: ["user", username],
     queryFn: () => getUser(username),
@@ -30,12 +31,12 @@ const Avatar = ({ username }: AvatarProps) => {
     return (
       <FontAwesomeIcon
         icon={faUser}
-        width={64}
-        height={64}
-        size="4x"
+        width={size}
+        height={size}
         title={title}
         titleId="1000" // this is to ensure snapshots are consistent
         className={classes.avatar}
+        style={{ fontSize: size }}
       />
     )
   }
@@ -48,8 +49,8 @@ const Avatar = ({ username }: AvatarProps) => {
           src={query.data?.avatar}
           alt={username}
           title={title}
-          width={64}
-          height={64}
+          width={size}
+          height={size}
         />
       )}
     </div>

@@ -83,7 +83,7 @@ const UserRow = ({ username }: UserRowProps) => {
   return (
     <div data-testid="user">
       <Link to="/user/$username" params={{ username }}>
-        <Avatar username={username} />
+        <Avatar username={username} size={64} />
         {username}
       </Link>
     </div>

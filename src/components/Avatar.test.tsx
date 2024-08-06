@@ -33,9 +33,15 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-it("Should match snapshot", async () => {
-  const view = renderWithQueryProvider(<Avatar username="dkf2112" />)
+it("Should match snapshot for image", async () => {
+  const view = renderWithQueryProvider(<Avatar username="dkf2112" size={64} />)
   await screen.findByTitle("Duane Fields")
+  expect(view).toMatchSnapshot()
+})
+
+it("Should match snapshot for icon", async () => {
+  const view = renderWithQueryProvider(<Avatar username="AlexvW" size={64} />)
+  await screen.findByRole("img")
   expect(view).toMatchSnapshot()
 })
 
@@ -107,4 +113,21 @@ it("Should render the username as the title on the icon if the user has no name 
   renderWithQueryProvider(<Avatar username="pandyandy" />)
   const avatarElement = await screen.findByTitle("pandyandy")
   expect(avatarElement).toBeInTheDocument()
+})
+
+it("Should render the user's avatar image at the specified size", async () => {
+  renderWithQueryProvider(<Avatar username="pandyandy" size={40} />)
+  const avatarElement = await screen.findByAltText("pandyandy")
+  expect(avatarElement.tagName).toBe("IMG")
+  expect(avatarElement).toHaveAttribute("height", "40")
+  expect(avatarElement).toHaveAttribute("width", "40")
+})
+
+it("Should render the user's avatar icon at the specified size", async () => {
+  renderWithQueryProvider(<Avatar username="AlexvW" size={40} />)
+  const avatarElement = screen.getByRole("img")
+  expect(avatarElement.tagName).toBe("svg")
+  expect(avatarElement).toHaveAttribute("height", "40")
+  expect(avatarElement).toHaveAttribute("width", "40")
+  expect(avatarElement).toHaveAttribute("style", "font-size: 40px;")
 })
