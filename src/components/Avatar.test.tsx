@@ -49,6 +49,14 @@ it("Should render a default user icon if they don't have an avatar", async () =>
   expect(avatarElement).toBeVisible()
 })
 
+it("Should render a default user icon in initial loading state", () => {
+  renderWithQueryProvider(<Avatar username="AlexvW" />)
+  const avatarElement = screen.getByRole("img")
+  expect(avatarElement.tagName).toBe("svg")
+  expect(avatarElement).toHaveAttribute("data-icon", "user")
+  expect(avatarElement).toBeVisible()
+})
+
 it("Should render a default user icon for an invalid username", async () => {
   renderWithQueryProvider(<Avatar username="invalidUsername" />)
   const avatarElement = await screen.findByRole("img")

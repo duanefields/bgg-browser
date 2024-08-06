@@ -20,7 +20,7 @@ const Avatar = ({ username }: AvatarProps) => {
   })
 
   // if the user doesn't have an avatar or there is an error, render a default icon
-  if ((query.isSuccess && query.data?.avatar === null) || query.isError) {
+  if ((query.isSuccess && query.data?.avatar === null) || query.isError || query.isLoading) {
     return (
       <FontAwesomeIcon
         icon={faUser}
@@ -28,7 +28,7 @@ const Avatar = ({ username }: AvatarProps) => {
         height={64}
         size="4x"
         title={username}
-        titleId="1000"
+        titleId="1000" // this is to ensure snapshots are consistent
         className={classes.avatar}
       />
     )
@@ -41,6 +41,7 @@ const Avatar = ({ username }: AvatarProps) => {
           className={classes.avatar}
           src={query.data?.avatar}
           alt={username}
+          title={username}
           width={64}
           height={64}
         />
