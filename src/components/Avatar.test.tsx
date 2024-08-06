@@ -123,7 +123,7 @@ it("Should render the user's avatar image at the specified size", async () => {
   expect(avatarElement).toHaveAttribute("width", "40")
 })
 
-it("Should render the user's avatar icon at the specified size", async () => {
+it("Should render the user's avatar icon at the specified size", () => {
   renderWithQueryProvider(<Avatar username="AlexvW" size={40} />)
   const avatarElement = screen.getByRole("img")
   expect(avatarElement.tagName).toBe("svg")
