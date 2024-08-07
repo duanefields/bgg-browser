@@ -64,11 +64,9 @@ it("Should render a default user icon if they don't have an avatar", async () =>
   expect(avatarElement).toBeVisible()
 })
 
-it("Should render a default user icon in initial loading state", () => {
+it("Should render a skeleton while loading", () => {
   renderWithQueryProvider(<Avatar username="AlexvW" />)
-  const avatarElement = screen.getByRole("img")
-  expect(avatarElement.tagName).toBe("svg")
-  expect(avatarElement).toHaveAttribute("data-icon", "user")
+  const avatarElement = screen.getByTestId("skeleton")
   expect(avatarElement).toBeVisible()
 })
 
@@ -123,9 +121,9 @@ it("Should render the user's avatar image at the specified size", async () => {
   expect(avatarElement).toHaveAttribute("width", "40")
 })
 
-it("Should render the user's avatar icon at the specified size", () => {
+it("Should render the user's avatar icon at the specified size", async () => {
   renderWithQueryProvider(<Avatar username="AlexvW" size={40} />)
-  const avatarElement = screen.getByRole("img")
+  const avatarElement = await screen.findByRole("img")
   expect(avatarElement.tagName).toBe("svg")
   expect(avatarElement).toHaveAttribute("height", "40")
   expect(avatarElement).toHaveAttribute("width", "40")

@@ -1,7 +1,8 @@
+import { faUser } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Skeleton } from "@mui/material"
 import { useQuery } from "@tanstack/react-query"
 import { getUser } from "../lib/api"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faUser } from "@fortawesome/free-solid-svg-icons"
 import classes from "./Avatar.module.css"
 
 interface AvatarProps {
@@ -26,8 +27,13 @@ const Avatar = ({ username, size = 40 }: AvatarProps) => {
     title = `${query.data.firstName} ${query.data.lastName}`
   }
 
+  // show a skeleton while loading
+  if (query.isLoading) {
+    return <Skeleton variant="circular" width={size} height={size} data-testid="skeleton" />
+  }
+
   // if the user doesn't have an avatar or there is an error, render a default icon
-  if ((query.isSuccess && query.data?.avatar === null) || query.isError || query.isLoading) {
+  if ((query.isSuccess && query.data?.avatar === null) || query.isError) {
     return (
       <FontAwesomeIcon
         icon={faUser}
