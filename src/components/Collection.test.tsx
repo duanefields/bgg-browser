@@ -31,7 +31,9 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 it("Should render a loading state", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" sort="name" players={0} playtime={0} />)
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="name" players={0} playtime={0} searchText="" />,
+  )
   expect(await screen.findByText("Loading...")).toBeVisible()
 })
 
@@ -43,7 +45,9 @@ it("Should render an error state", async () => {
 })
 
 it("Should render the full collection", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" sort="name" players={0} playtime={0} />)
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="name" players={0} playtime={0} searchText="" />,
+  )
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   expect(screen.getByText("Forbidden Island")).toBeVisible()
   expect(screen.getByText("Dixit")).toBeVisible()
@@ -72,7 +76,9 @@ it("Should fuzzy match when searching by name", async () => {
 })
 
 it("Should render a sorted collection by name", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" sort="name" players={0} playtime={0} />)
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="name" players={0} playtime={0} searchText="" />,
+  )
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   const games = screen.getAllByTestId("game")
   expect(games[0]).toHaveTextContent("Dixit")
@@ -80,7 +86,7 @@ it("Should render a sorted collection by name", async () => {
 
 it("Should render a sorted collection by rating", async () => {
   renderWithQueryProvider(
-    <Collection username="pandyandy" sort="rating" players={0} playtime={0} />,
+    <Collection username="pandyandy" sort="rating" players={0} playtime={0} searchText="" />,
   )
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   const games = screen.getAllByTestId("game")
@@ -89,7 +95,7 @@ it("Should render a sorted collection by rating", async () => {
 
 it("Should render a sorted collection by myRating", async () => {
   renderWithQueryProvider(
-    <Collection username="pandyandy" sort="myRating" players={0} playtime={0} />,
+    <Collection username="pandyandy" sort="myRating" players={0} playtime={0} searchText="" />,
   )
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   const games = screen.getAllByTestId("game")
@@ -97,14 +103,18 @@ it("Should render a sorted collection by myRating", async () => {
 })
 
 it("Should render a sorted collection by plays", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" sort="plays" players={0} playtime={0} />)
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="plays" players={0} playtime={0} searchText="" />,
+  )
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   const games = screen.getAllByTestId("game")
   expect(games[0]).toHaveTextContent("Skull")
 })
 
 it("Should render a sorted collection by rank", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" sort="rank" players={0} playtime={0} />)
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="rank" players={0} playtime={0} searchText="" />,
+  )
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   const games = screen.getAllByTestId("game")
   expect(games[0]).toHaveTextContent("Pandemic")
@@ -113,7 +123,7 @@ it("Should render a sorted collection by rank", async () => {
 it("Should render a sorted collection by random", async () => {
   vi.spyOn(Math, "random").mockReturnValue(0.5)
   renderWithQueryProvider(
-    <Collection username="pandyandy" sort="random" players={0} playtime={0} />,
+    <Collection username="pandyandy" sort="random" players={0} playtime={0} searchText="" />,
   )
   expect(await screen.findByText("Showing 7 of 7 games")).toBeVisible()
   const games = screen.getAllByTestId("game")
@@ -122,7 +132,9 @@ it("Should render a sorted collection by random", async () => {
 })
 
 it("Should render a collection filtered by player count", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" sort="rank" players={10} playtime={0} />)
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="rank" players={10} playtime={0} searchText="" />,
+  )
   expect(await screen.findByText("Showing 1 of 7 games")).toBeVisible()
   const games = screen.getAllByTestId("game")
   expect(games.length).toBe(1)
@@ -130,7 +142,9 @@ it("Should render a collection filtered by player count", async () => {
 })
 
 it("Should render a collection filtered by playtime", async () => {
-  renderWithQueryProvider(<Collection username="pandyandy" sort="rank" players={0} playtime={30} />)
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="rank" players={0} playtime={30} searchText="" />,
+  )
   expect(await screen.findByText("Showing 4 of 7 games")).toBeVisible()
   const games = screen.getAllByTestId("game")
   expect(games.length).toBe(4)
@@ -157,7 +171,9 @@ it("Should render the collection count as a localized string", async () => {
   }))
 
   const spy = vi.spyOn(api, "getCollection").mockResolvedValue(games)
-  renderWithQueryProvider(<Collection username="pandyandy" sort="name" players={0} playtime={0} />)
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="name" players={0} playtime={0} searchText="" />,
+  )
   expect(await screen.findByText("Showing 1,001 of 1,001 games")).toBeVisible()
   expect(spy).toHaveBeenCalledOnce()
   expect(spy).toHaveResolvedWith(games)
@@ -176,13 +192,22 @@ it("Should retry fetching the collection on accepted error", async () => {
     ),
   )
 
-  renderWithQueryProvider(<Collection username="pandyandy" sort="name" players={0} playtime={0} />)
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="name" players={0} playtime={0} searchText="" />,
+  )
   expect(await screen.findByText("Showing 7 of 7 games", {}, { timeout: 2000 })).toBeVisible()
 })
 
 it("Should not retry fetching the collection on invalid user error", async () => {
   renderWithQueryProvider(
-    <Collection username="invalidUser" sort="name" players={0} playtime={0} />,
+    <Collection username="invalidUser" sort="name" players={0} playtime={0} searchText="" />,
   )
   expect(await screen.findByText("Error: Invalid username specified")).toBeVisible()
+})
+
+it("Should show skeletons while loading", () => {
+  renderWithQueryProvider(
+    <Collection username="pandyandy" sort="name" players={0} playtime={0} searchText="" />,
+  )
+  expect(screen.getAllByTestId("skeleton")).toHaveLength(4)
 })
