@@ -17,7 +17,7 @@ const SortMenu = ({ onChange, sort }: SortMenuProps) => {
 
   return (
     <TextField
-      sx={{ m: 1, minWidth: 130, maxWidth: 130 }}
+      sx={{ minWidth: 100, maxWidth: 100 }}
       select
       value={sortOrder}
       label="Sort By"

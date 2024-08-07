@@ -27,7 +27,6 @@ const queryClient = new QueryClient({
 const Root = () => (
   <QueryClientProvider client={queryClient}>
     <NavBar />
-    <hr />
     <Outlet />
     <Suspense>
       <TanStackRouterDevtools />

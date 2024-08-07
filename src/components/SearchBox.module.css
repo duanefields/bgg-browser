@@ -1,5 +1,7 @@
 .searchBox {
-  font-size: x-large;
+  font-size: large;
   width: 100%;
   border-radius: 5px;
+  padding: 0.5rem;
+  box-sizing: border-box;
 }

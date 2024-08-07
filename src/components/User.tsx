@@ -1,7 +1,6 @@
 import { useState } from "react"
 import useDebounce from "../hooks/useDebounce"
 import { PlayerCount, Playtime, SortOrder } from "../shared.types"
-import Avatar from "./Avatar"
 import Collection from "./Collection"
 import PlayersMenu from "./PlayersMenu"
 import PlaytimeMenu from "./PlaytimeMenu"
@@ -39,15 +38,12 @@ const User = ({ username }: UserProps) => {
   return (
     <>
       <div className={classes.toolbar}>
-        <Avatar username={username} />
-
         <SortMenu sort={sort} onChange={onSortChange} />
         <PlayersMenu players={players} onChange={onPlayerChange} />
         <PlaytimeMenu playtime={playtime} onChange={onPlaytimeChange} />
       </div>
 
       <div className={classes.header}>
-        <h1>BGG Collection Browser</h1>
         <SearchBox searchText={searchText} onChange={onSearchTextChange} />
       </div>
 

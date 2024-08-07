@@ -26,7 +26,7 @@ const PlayersMenu = ({ onChange, players }: PlayersMenuProps) => {
 
   return (
     <TextField
-      sx={{ m: 1, minWidth: 130, maxWidth: 130 }}
+      sx={{ minWidth: 100, maxWidth: 100 }}
       select
       value={playerCount}
       label="Players"

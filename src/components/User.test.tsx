@@ -35,6 +35,5 @@ afterAll(() => server.close())
 
 it("Should render the User component at all", async () => {
   renderWithQueryProvider(<User username="pandyandy" />)
-  expect(screen.getByText("BGG Collection Browser")).toBeVisible()
   expect(await screen.findByText("pandyandy's Collection")).toBeVisible()
 })
