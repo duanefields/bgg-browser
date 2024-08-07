@@ -7,6 +7,9 @@ import PlaytimeMenu from "./PlaytimeMenu"
 import SearchBox from "./SearchBox"
 import SortMenu from "./SortMenu"
 import classes from "./User.module.css"
+import { IconButton } from "@mui/material"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSync } from "@fortawesome/free-solid-svg-icons"
 
 interface UserProps {
   username: string
@@ -41,6 +44,7 @@ const User = ({ username }: UserProps) => {
         <SortMenu sort={sort} onChange={onSortChange} />
         <PlayersMenu players={players} onChange={onPlayerChange} />
         <PlaytimeMenu playtime={playtime} onChange={onPlaytimeChange} />
+        <RefreshButton />
       </div>
 
       <div className={classes.header}>
@@ -55,6 +59,14 @@ const User = ({ username }: UserProps) => {
         playtime={playtime}
       />
     </>
+  )
+}
+
+const RefreshButton = () => {
+  return (
+    <IconButton aria-label="refresh">
+      <FontAwesomeIcon icon={faSync} />
+    </IconButton>
   )
 }
 
