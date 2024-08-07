@@ -54,13 +54,13 @@ const GameCell = ({ game }: GameCellProps) => {
           <FontAwesomeIcon fixedWidth icon={faStar} title="BGG Rating (Your Rating)" titleId="3" />{" "}
           {rating}
         </div>
-        <div data-testid="plays">
-          <FontAwesomeIcon fixedWidth icon={faDice} title="Number of Plays" titleId="4" />{" "}
-          {game.numPlays.toLocaleString()}
-        </div>
         <div data-testid="rank">
           <FontAwesomeIcon fixedWidth icon={faRankingStar} title="BGG Rank" titleId="5" />{" "}
           {game.rank?.toLocaleString()}
+        </div>
+        <div data-testid="plays">
+          <FontAwesomeIcon fixedWidth icon={faDice} title="Number of Plays" titleId="4" />{" "}
+          {game.numPlays.toLocaleString()}
         </div>
       </div>
     </div>
