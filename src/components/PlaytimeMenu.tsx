@@ -20,7 +20,7 @@ const PlaytimeMenu = ({ onChange, playtime }: PlaytimeMenuProps) => {
   optionValues.forEach((i) => {
     options.push(
       <MenuItem key={i} value={i}>
-        {i}m
+        {i} mins
       </MenuItem>,
     )
   })

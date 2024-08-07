@@ -30,7 +30,7 @@ exports[`Should match snapshot 1`] = `
             tabindex="0"
           >
             30
-            m
+             mins
           </div>
           <input
             aria-hidden="true"
@@ -92,7 +92,7 @@ exports[`Should match snapshot 1`] = `
           tabindex="0"
         >
           30
-          m
+           mins
         </div>
         <input
           aria-hidden="true"
