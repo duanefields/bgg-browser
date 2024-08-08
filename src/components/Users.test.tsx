@@ -1,32 +1,9 @@
 import { screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { http, HttpResponse } from "msw"
-import { setupServer } from "msw/node"
-import { afterAll, afterEach, beforeAll, expect, it } from "vitest"
-import { BGG_PROXY } from "../lib/api"
+import { expect, it } from "vitest"
 import { renderWithProviders } from "../lib/testUtils"
 
-import dkf2112 from "../test/users/dkf2112.json"
-import pandyandy from "../test/users/pandyandy.json"
-
 import Users from "./Users"
-
-const server = setupServer(
-  http.get(`${BGG_PROXY}/user`, ({ request }) => {
-    const url = new URL(request.url)
-    const username = url.searchParams.get("name")
-    switch (username) {
-      case "pandyandy":
-        return HttpResponse.json(pandyandy)
-      case "dkf2112":
-        return HttpResponse.json(dkf2112)
-    }
-  }),
-)
-
-beforeAll(() => server.listen({ onUnhandledRequest: "error" }))
-afterEach(() => server.resetHandlers())
-afterAll(() => server.close())
 
 it("Should render the users with avatars and links, sorted by name", async () => {
   renderWithProviders(<Users usernames={["pandyandy", "dkf2112"]} />)

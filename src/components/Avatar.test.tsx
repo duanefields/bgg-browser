@@ -1,37 +1,13 @@
 import { screen } from "@testing-library/react"
 import { http, HttpResponse } from "msw"
-import { setupServer } from "msw/node"
-import { afterAll, afterEach, beforeAll, expect, it } from "vitest"
+import { expect, it } from "vitest"
 import { BGG_PROXY } from "../lib/api"
 import { renderWithQueryProvider } from "../lib/testUtils"
+import server from "../mockServer"
 
-import AlexvW from "../test/users/AlexvW.json"
 import invalidUsername from "../test/users/invalidUsername.json"
-import pandyandy from "../test/users/pandyandy.json"
-import dkf2112 from "../test/users/dkf2112.json"
 
 import Avatar from "./Avatar"
-
-const server = setupServer(
-  http.get(`${BGG_PROXY}/user`, ({ request }) => {
-    const url = new URL(request.url)
-    const username = url.searchParams.get("name")
-    switch (username) {
-      case "pandyandy":
-        return HttpResponse.json(pandyandy)
-      case "AlexvW":
-        return HttpResponse.json(AlexvW)
-      case "dkf2112":
-        return HttpResponse.json(dkf2112)
-      case "invalidUsername":
-        return HttpResponse.json(invalidUsername)
-    }
-  }),
-)
-
-beforeAll(() => server.listen({ onUnhandledRequest: "error" }))
-afterEach(() => server.resetHandlers())
-afterAll(() => server.close())
 
 it("Should match snapshot for image", async () => {
   const view = renderWithQueryProvider(<Avatar username="dkf2112" size={64} />)

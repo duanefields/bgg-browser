@@ -1,34 +1,15 @@
 import { screen } from "@testing-library/react"
 import { http, HttpResponse } from "msw"
-import { setupServer } from "msw/node"
-import { afterAll, afterEach, beforeAll, expect, it, vi } from "vitest"
+import { expect, it, vi } from "vitest"
+import * as api from "../lib/api"
 import { BGG_PROXY } from "../lib/api"
 import { renderWithQueryProvider } from "../lib/testUtils"
-import * as api from "../lib/api"
+import server from "../mockServer"
+import { Game } from "../shared.types"
 
-import invalidUsername from "../test/collections/invalidUsername.json"
-import pandyandy from "../test/collections/pandyandy.json"
 import accepted from "../test/collections/accepted.json"
 
 import Collection from "./Collection"
-import { Game } from "../shared.types"
-
-const server = setupServer(
-  http.get(`${BGG_PROXY}/collection`, ({ request }) => {
-    const url = new URL(request.url)
-    const username = url.searchParams.get("username")
-    switch (username) {
-      case "pandyandy":
-        return HttpResponse.json(pandyandy)
-      case "invalidUser":
-        return HttpResponse.json(invalidUsername)
-    }
-  }),
-)
-
-beforeAll(() => server.listen({ onUnhandledRequest: "error" }))
-afterEach(() => server.resetHandlers())
-afterAll(() => server.close())
 
 it("Should render a loading state", async () => {
   renderWithQueryProvider(
@@ -39,7 +20,7 @@ it("Should render a loading state", async () => {
 
 it("Should render an error state", async () => {
   renderWithQueryProvider(
-    <Collection username="invalidUser" sort="name" players={0} playtime={0} />,
+    <Collection username="invalidUser" sort="name" players={0} playtime={0} searchText="" />,
   )
   expect(await screen.findByText("Error: Invalid username specified")).toBeVisible()
 })
