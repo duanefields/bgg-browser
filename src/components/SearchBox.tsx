@@ -1,4 +1,7 @@
+import { InputAdornment, TextField } from "@mui/material"
 import classes from "./SearchBox.module.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
 
 interface SearchBoxProps {
   searchText: string
@@ -7,17 +10,26 @@ interface SearchBoxProps {
 
 const SearchBox = ({ searchText, onChange }: SearchBoxProps) => {
   return (
-    <input
+    <TextField
       type="text"
+      label="Filter by name"
       className={classes.searchBox}
-      autoFocus={false}
-      autoCapitalize="none"
-      autoComplete="off"
-      autoCorrect="off"
-      spellCheck="false"
-      placeholder="Search by name..."
       onChange={onChange}
       value={searchText}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <FontAwesomeIcon icon={faSearch} />
+          </InputAdornment>
+        ),
+      }}
+      inputProps={{
+        autoFocus: false,
+        autoCapitalize: "none",
+        autoComplete: "off",
+        autoCorrect: "off",
+        spellCheck: "false",
+      }}
     />
   )
 }
