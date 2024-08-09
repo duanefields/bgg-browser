@@ -20,9 +20,9 @@ it("Should match display search text", () => {
   expect(screen.getByDisplayValue("test")).toBeVisible()
 })
 
-it("Should match display placeholder text", () => {
+it("Should display label text", () => {
   render(<SearchBox searchText="" onChange={onChange} />)
-  expect(screen.getByPlaceholderText("Search by name...")).toBeVisible()
+  expect(screen.getByLabelText("Filter by name")).toBeVisible()
 })
 
 it("Should call the onChange handler on text input", async () => {
