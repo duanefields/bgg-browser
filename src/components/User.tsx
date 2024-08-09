@@ -1,6 +1,3 @@
-import { faSync } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { IconButton } from "@mui/material"
 import { useIsFetching, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 import useDebounce from "../hooks/useDebounce"
@@ -11,6 +8,7 @@ import PlaytimeMenu from "./PlaytimeMenu"
 import SearchBox from "./SearchBox"
 import SortMenu from "./SortMenu"
 import classes from "./User.module.css"
+import RefreshButton from "./RefreshButton"
 
 type UserProps = {
   username: string
@@ -66,19 +64,6 @@ const User = ({ username }: UserProps) => {
         playtime={playtime}
       />
     </>
-  )
-}
-
-type RefreshButtonProps = {
-  spin: boolean
-  onClick: () => void
-}
-
-const RefreshButton = ({ spin, onClick }: RefreshButtonProps) => {
-  return (
-    <IconButton aria-label="refresh" onClick={onClick}>
-      <FontAwesomeIcon icon={faSync} spin={spin} />
-    </IconButton>
   )
 }
 
