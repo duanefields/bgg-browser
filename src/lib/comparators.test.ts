@@ -242,6 +242,8 @@ describe("playtimeComparator", () => {
       { name: "Game 6", maxPlaytime: 90 },
       { name: "Game 7", maxPlaytime: 180 },
       { name: "Game 8", maxPlaytime: 60 },
+      { name: "Game 9", maxPlaytime: null },
+      { name: "Game A", maxPlaytime: null },
     ]
 
     const games: Game[] = data.map((game) => ({
@@ -267,6 +269,8 @@ describe("playtimeComparator", () => {
     }))
 
     expect(sorted).toEqual([
+      { name: "Game 9", maxPlaytime: null },
+      { name: "Game A", maxPlaytime: null },
       { name: "Game 4", maxPlaytime: 60 },
       { name: "Game 8", maxPlaytime: 60 },
       { name: "Game 2", maxPlaytime: 90 },
