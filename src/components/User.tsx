@@ -23,11 +23,11 @@ const User = ({ username }: UserProps) => {
   const [playtime, setPlaytime] = useState<Playtime>(0)
   const queryClient = useQueryClient()
   const isFetching = useIsFetching()
+  const debouncedSearchText = useDebounce(searchText)
 
   const onSearchTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value)
   }
-  const debouncedSearchText = useDebounce(searchText)
 
   const onSortChange = (value: SortOrder) => {
     setSort(value)
