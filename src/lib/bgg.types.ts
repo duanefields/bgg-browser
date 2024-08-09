@@ -1,4 +1,4 @@
-export interface RankResponse {
+export type RankResponse = {
   _type: string
   _id: string
   _name: string
@@ -7,7 +7,7 @@ export interface RankResponse {
   _bayesaverage: string
 }
 
-export interface ItemResponse {
+export type ItemResponse = {
   _objectid: number
   name: {
     _sortindex: string
@@ -63,7 +63,7 @@ export interface ItemResponse {
   _collid: string
 }
 
-export interface CollectionResponse {
+export type CollectionResponse = {
   items: {
     item?: ItemResponse[]
   }
@@ -72,7 +72,7 @@ export interface CollectionResponse {
   _pubdate: string
 }
 
-export interface UserResponse {
+export type UserResponse = {
   user: {
     firstname: { _value: string }
     lastname: { _value: string }
@@ -94,7 +94,7 @@ export interface UserResponse {
   }
 }
 
-export interface InvalidUsernameResponse {
+export type InvalidUsernameResponse = {
   errors: {
     error: {
       message: string
@@ -102,6 +102,6 @@ export interface InvalidUsernameResponse {
   }
 }
 
-export interface CollectionProcessingResponse {
+export type CollectionProcessingResponse = {
   message: string
 }

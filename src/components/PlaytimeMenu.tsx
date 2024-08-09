@@ -2,7 +2,7 @@ import { MenuItem, TextField } from "@mui/material"
 import { useState } from "react"
 import { Playtime } from "../shared.types"
 
-interface PlaytimeMenuProps {
+type PlaytimeMenuProps = {
   playtime: Playtime
   onChange: (value: Playtime) => void
 }

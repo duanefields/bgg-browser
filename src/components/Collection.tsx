@@ -16,7 +16,7 @@ import { shuffle } from "../lib/utils"
 import { Skeleton } from "@mui/material"
 import classes from "./Collection.module.css"
 
-interface CollectionProps {
+type CollectionProps = {
   /** The username of the collection you want to load */
   username: string
   /** The search text to filter the collection */

@@ -22,6 +22,7 @@ module.exports = {
   plugins: ["react-refresh", "testing-library"],
   rules: {
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "testing-library/await-async-queries": "error",
     "testing-library/no-await-sync-queries": "error",
     "testing-library/no-debugging-utils": "warn",

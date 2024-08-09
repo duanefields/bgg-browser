@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query"
 import { getUser } from "../lib/api"
 import classes from "./Avatar.module.css"
 
-interface AvatarProps {
+type AvatarProps = {
   /** The username of the avatar you want to load */
   username: string
   size?: number

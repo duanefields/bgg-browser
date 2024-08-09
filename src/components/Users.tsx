@@ -5,7 +5,7 @@ import React from "react"
 import { useMutation } from "@tanstack/react-query"
 import { getUser } from "../lib/api"
 
-interface UsersProps {
+type UsersProps = {
   usernames: string[]
 }
 
@@ -53,7 +53,7 @@ const Users = ({ usernames }: UsersProps) => {
   )
 }
 
-interface UsernameBoxProps {
+type UsernameBoxProps = {
   username: string
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
@@ -76,7 +76,7 @@ const UsernameBox = ({ username, handleChange }: UsernameBoxProps) => {
   )
 }
 
-interface UserRowProps {
+type UserRowProps = {
   username: string
 }
 const UserRow = ({ username }: UserRowProps) => {

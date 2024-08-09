@@ -2,7 +2,7 @@ import { MenuItem, TextField } from "@mui/material"
 import { useState } from "react"
 import { SortOrder } from "../shared.types"
 
-interface SortMenuProps {
+type SortMenuProps = {
   sort: SortOrder
   onChange: (value: SortOrder) => void
 }

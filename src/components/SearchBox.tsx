@@ -3,7 +3,7 @@ import classes from "./SearchBox.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 
-interface SearchBoxProps {
+type SearchBoxProps = {
   searchText: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }

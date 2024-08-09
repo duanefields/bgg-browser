@@ -12,7 +12,7 @@ import SearchBox from "./SearchBox"
 import SortMenu from "./SortMenu"
 import classes from "./User.module.css"
 
-interface UserProps {
+type UserProps = {
   username: string
 }
 
@@ -69,7 +69,7 @@ const User = ({ username }: UserProps) => {
   )
 }
 
-interface RefreshButtonProps {
+type RefreshButtonProps = {
   spin: boolean
   onClick: () => void
 }

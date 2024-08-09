@@ -3,7 +3,7 @@ import classes from "./GameCell.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUsers, faClock, faDice, faStar, faRankingStar } from "@fortawesome/free-solid-svg-icons"
 
-interface GameCellProps {
+type GameCellProps = {
   game: Game
 }
 

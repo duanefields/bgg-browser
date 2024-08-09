@@ -2,7 +2,7 @@ import { MenuItem, TextField } from "@mui/material"
 import { useState } from "react"
 import { PlayerCount } from "../shared.types"
 
-interface PlayersMenuProps {
+type PlayersMenuProps = {
   players: PlayerCount
   onChange: (value: PlayerCount) => void
 }
