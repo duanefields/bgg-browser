@@ -1,14 +1,13 @@
-import { useIsFetching, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 import useDebounce from "../hooks/useDebounce"
 import { PlayerCount, Playtime, SortOrder } from "../shared.types"
 import Collection from "./Collection"
 import PlayersMenu from "./PlayersMenu"
 import PlaytimeMenu from "./PlaytimeMenu"
+import RefreshButton from "./RefreshButton"
 import SearchBox from "./SearchBox"
 import SortMenu from "./SortMenu"
 import classes from "./User.module.css"
-import RefreshButton from "./RefreshButton"
 
 type UserProps = {
   username: string
@@ -19,8 +18,6 @@ const User = ({ username }: UserProps) => {
   const [sort, setSort] = useState<SortOrder>("name")
   const [players, setPlayers] = useState<PlayerCount>(0)
   const [playtime, setPlaytime] = useState<Playtime>(0)
-  const queryClient = useQueryClient()
-  const isFetching = useIsFetching()
   const debouncedSearchText = useDebounce(searchText)
 
   const onSearchTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,17 +36,13 @@ const User = ({ username }: UserProps) => {
     setPlaytime(value)
   }
 
-  const onRefreshClick = () => {
-    void queryClient.invalidateQueries({ queryKey: ["collection", username] })
-  }
-
   return (
     <>
       <div className={classes.toolbar}>
         <SortMenu sort={sort} onChange={onSortChange} />
         <PlayersMenu players={players} onChange={onPlayerChange} />
         <PlaytimeMenu playtime={playtime} onChange={onPlaytimeChange} />
-        <RefreshButton onClick={onRefreshClick} spin={isFetching > 0} />
+        <RefreshButton username={username} />
       </div>
 
       <div className={classes.header}>

@@ -1,16 +1,23 @@
 import { faSync } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconButton } from "@mui/material"
+import { useIsFetching, useQueryClient } from "@tanstack/react-query"
 
 type RefreshButtonProps = {
-  spin: boolean
-  onClick: () => void
+  username: string
 }
 
-const RefreshButton = ({ spin, onClick }: RefreshButtonProps) => {
+const RefreshButton = ({ username }: RefreshButtonProps) => {
+  const queryClient = useQueryClient()
+  const isFetching = useIsFetching()
+
+  const onClick = () => {
+    void queryClient.invalidateQueries({ queryKey: ["collection", username] })
+  }
+
   return (
     <IconButton aria-label="refresh" onClick={onClick}>
-      <FontAwesomeIcon icon={faSync} spin={spin} />
+      <FontAwesomeIcon icon={faSync} spin={isFetching > 0} />
     </IconButton>
   )
 }
