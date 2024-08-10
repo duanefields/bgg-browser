@@ -3,6 +3,8 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { createRootRoute, Outlet } from "@tanstack/react-router"
 import React, { Suspense } from "react"
 import NavBar from "../components/NavBar"
+import { persistQueryClient } from "@tanstack/react-query-persist-client"
+import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister"
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
@@ -16,12 +18,24 @@ const TanStackRouterDevtools =
         })),
       )
 
+const cacheTime = 1000 * 60 * 60 * 24 // 24 hours
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 10,
+      gcTime: cacheTime,
+      staleTime: cacheTime,
     },
   },
+})
+
+const localStoragePersister = createSyncStoragePersister({
+  storage: window.localStorage,
+})
+
+void persistQueryClient({
+  queryClient,
+  persister: localStoragePersister,
 })
 
 const Root = () => (
