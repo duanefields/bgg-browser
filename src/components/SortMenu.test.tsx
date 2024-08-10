@@ -1,5 +1,7 @@
+import { render, screen, within } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { expect, it, vi } from "vitest"
-import { fireEvent, render, screen, within } from "@testing-library/react"
+
 import SortMenu from "./SortMenu"
 
 it("Should match snapshot", () => {
@@ -15,11 +17,12 @@ it("Should render the label and the sort order", () => {
   expect(screen.getByText("BGG Rating")).toBeVisible()
 })
 
-it("Should call the onChange function when the sort order changes", () => {
+it("Should call the onChange function when the sort order changes", async () => {
   const onChange = vi.fn()
   render(<SortMenu sort="rating" onChange={onChange} />)
-  fireEvent.mouseDown(screen.getByRole("combobox"))
+  const user = userEvent.setup()
+  await user.click(screen.getByRole("combobox"))
   const listbox = within(screen.getByRole("listbox"))
-  fireEvent.click(listbox.getByText("Name"))
+  await user.click(listbox.getByText("Name"))
   expect(onChange).toHaveBeenCalledWith("name")
 })
