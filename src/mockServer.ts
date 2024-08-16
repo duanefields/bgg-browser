@@ -35,7 +35,7 @@ const server = setupServer(
       case "tommy":
         return HttpResponse.json(tommyCollection)
       default:
-        return HttpResponse.json(invalidUsernameCollection, { status: 200 })
+        return HttpResponse.json(invalidUsernameCollection)
     }
   }),
 
