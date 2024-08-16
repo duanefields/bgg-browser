@@ -10,9 +10,16 @@ import {
 /** Root URL of the BGG Proxy Server */
 export const BGG_PROXY: string = import.meta.env.VITE_BGG_PROXY as string
 
+/**
+ * Fetch a user by their username
+ * @param username user to fetch
+ * @returns User object
+ */
 export const getUser = async (username: string): Promise<User> => {
   console.debug(`Fetching user ${username}`)
-  const response = await fetch(`${BGG_PROXY}/user/?name=${username}`)
+  const response = await fetch(
+    `${BGG_PROXY}/user?` + new URLSearchParams({ name: username }).toString(),
+  )
   const json = (await response.json()) as object
 
   // If the user does not exist, the server responds with a 200 OK and an HTML error page
@@ -36,10 +43,22 @@ export const getUser = async (username: string): Promise<User> => {
   }
 }
 
+/**
+ * Fetch a user's collection by their username
+ * @param username user to fetch collection for
+ * @returns Array of Game objects
+ */
 export const getCollection = async (username: string): Promise<Game[]> => {
   console.debug(`Fetching collection for ${username}`)
   const response = await fetch(
-    `${BGG_PROXY}/collection/?username=${username}&stats=1&own=1&version=1&excludesubtype=boardgameexpansion`,
+    `${BGG_PROXY}/collection?` +
+      new URLSearchParams({
+        username: username,
+        stats: "1",
+        own: "1",
+        version: "1",
+        excludesubtype: "boardgameexpansion",
+      }).toString(),
   )
   const json = (await response.json()) as BGGCollectionResponse
 
