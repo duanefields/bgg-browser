@@ -1,5 +1,11 @@
 import { Game, User } from "../shared.types"
-import { CollectionResponse, ItemResponse, UserResponse } from "./bgg.types"
+import {
+  BGGCollectionResponse,
+  CollectionProcessingResponse,
+  InvalidUsernameResponse,
+  ItemResponse,
+  UserResponse,
+} from "./bgg.types"
 
 /** Root URL of the BGG Proxy Server */
 export const BGG_PROXY: string = import.meta.env.VITE_BGG_PROXY as string
@@ -35,30 +41,24 @@ export const getCollection = async (username: string): Promise<Game[]> => {
   const response = await fetch(
     `${BGG_PROXY}/collection/?username=${username}&stats=1&own=1&version=1&excludesubtype=boardgameexpansion`,
   )
+  const json = (await response.json()) as BGGCollectionResponse
 
-  // todo: make this fetching type safe
   // Check for invalid user, the server responds with a 200 OK even if there is an error
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const json = await response.json()
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  if (json.errors) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+  if (isInvalidUsername(json)) {
     throw new Error(json.errors.error.message)
   }
 
   // The server responds with a 202 Accepted if the collection is being processed
-  if (response.status === 202) {
+  if (isCollectionProcessing(json)) {
     throw new Error("Collection is being processed, try again later")
   }
 
-  const data = json as CollectionResponse
-
-  // If the user has no games in their collection
-  if (!data.items.item) {
+  // If the user has no games in their collection, it does not return an empty array
+  if (!json.items.item) {
     return []
   }
 
-  return data.items.item.map((item) => ({
+  return json.items.item.map((item) => ({
     objectId: Number(item._objectid),
     collectionId: Number(item._collid),
     name: item.name.__text,
@@ -75,6 +75,18 @@ export const getCollection = async (username: string): Promise<Game[]> => {
     numPlays: Number(item.numplays),
     url: `https://boardgamegeek.com/${item._subtype}/${item._objectid}/`,
   }))
+}
+
+const isInvalidUsername = (
+  response: BGGCollectionResponse,
+): response is InvalidUsernameResponse => {
+  return "errors" in response
+}
+
+const isCollectionProcessing = (
+  response: BGGCollectionResponse,
+): response is CollectionProcessingResponse => {
+  return "message" in response
 }
 
 // Helper function to get the rank for an item, because the data is inconsistent

@@ -105,3 +105,8 @@ export type InvalidUsernameResponse = {
 export type CollectionProcessingResponse = {
   message: string
 }
+
+export type BGGCollectionResponse =
+  | InvalidUsernameResponse
+  | CollectionProcessingResponse
+  | CollectionResponse
