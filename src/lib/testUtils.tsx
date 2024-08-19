@@ -24,6 +24,7 @@ export const renderWithProviders = (children: React.ReactNode) => {
     routeTree: rootRoute.addChildren([indexRoute]),
   })
 
+  // @ts-expect-error no way to specify the type of the router inside this function
   return render(<RouterProvider router={router} />)
 }
 
