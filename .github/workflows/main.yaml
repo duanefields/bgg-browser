@@ -7,8 +7,8 @@ on:
     branches:
       - main
     paths-ignore:
-      - README.md
-      - .vscode/**
+      - "README.md"
+      - ".vscode/**"
 
 jobs:
   build:
