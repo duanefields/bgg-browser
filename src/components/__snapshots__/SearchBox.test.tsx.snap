@@ -24,10 +24,11 @@ exports[`Should match snapshot 1`] = `
             autocapitalize="none"
             autocomplete="off"
             autocorrect="off"
-            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedEnd css-1j5luls-MuiInputBase-input-MuiOutlinedInput-input"
             id=":r0:"
+            name="search"
             spellcheck="false"
-            type="text"
+            type="search"
             value="test"
           />
           <div
@@ -85,10 +86,11 @@ exports[`Should match snapshot 1`] = `
           autocapitalize="none"
           autocomplete="off"
           autocorrect="off"
-          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedEnd css-1j5luls-MuiInputBase-input-MuiOutlinedInput-input"
           id=":r0:"
+          name="search"
           spellcheck="false"
-          type="text"
+          type="search"
           value="test"
         />
         <div

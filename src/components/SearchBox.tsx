@@ -11,7 +11,8 @@ type SearchBoxProps = {
 const SearchBox = ({ searchText, onChange }: SearchBoxProps) => {
   return (
     <TextField
-      type="text"
+      type="search"
+      name="search"
       label="Filter by name"
       className={classes.searchBox}
       onChange={onChange}
