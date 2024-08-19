@@ -1,57 +1,33 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Should match snapshot for icon 1`] = `
+exports[`Avatar > Should match snapshot for image 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <svg
-        aria-labelledby="svg-inline--fa-title-1000"
-        class="svg-inline--fa fa-user _avatar_65174a"
-        data-icon="user"
-        data-prefix="fas"
-        height="64"
-        role="img"
-        style="font-size: 64px;"
-        viewBox="0 0 448 512"
-        width="64"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="MuiAvatar-root MuiAvatar-circular _avatar_65174a css-7pbt6e-MuiAvatar-root"
+        title="Duane Fields"
       >
-        <title
-          id="svg-inline--fa-title-1000"
-        >
-          Alex van Wijngaarden
-        </title>
-        <path
-          d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-          fill="currentColor"
+        <img
+          alt="dkf2112"
+          class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+          src="https://cf.geekdo-static.com/avatars/avatar_id95740.jpg"
         />
-      </svg>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <svg
-      aria-labelledby="svg-inline--fa-title-1000"
-      class="svg-inline--fa fa-user _avatar_65174a"
-      data-icon="user"
-      data-prefix="fas"
-      height="64"
-      role="img"
-      style="font-size: 64px;"
-      viewBox="0 0 448 512"
-      width="64"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="MuiAvatar-root MuiAvatar-circular _avatar_65174a css-7pbt6e-MuiAvatar-root"
+      title="Duane Fields"
     >
-      <title
-        id="svg-inline--fa-title-1000"
-      >
-        Alex van Wijngaarden
-      </title>
-      <path
-        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-        fill="currentColor"
+      <img
+        alt="dkf2112"
+        class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+        src="https://cf.geekdo-static.com/avatars/avatar_id95740.jpg"
       />
-    </svg>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -107,33 +83,25 @@ exports[`Should match snapshot for icon 1`] = `
 }
 `;
 
-exports[`Should match snapshot for image 1`] = `
+exports[`Avatar > Should match snapshot for initials 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div>
-        <img
-          alt="dkf2112"
-          class="_avatar_65174a"
-          height="64"
-          src="https://cf.geekdo-static.com/avatars/avatar_id95740.jpg"
-          title="Duane Fields"
-          width="64"
-        />
+      <div
+        class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault _avatar_65174a css-wheijw-MuiAvatar-root"
+        title="Alex van Wijngaarden"
+      >
+        AV
       </div>
     </div>
   </body>,
   "container": <div>
-    <div>
-      <img
-        alt="dkf2112"
-        class="_avatar_65174a"
-        height="64"
-        src="https://cf.geekdo-static.com/avatars/avatar_id95740.jpg"
-        title="Duane Fields"
-        width="64"
-      />
+    <div
+      class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault _avatar_65174a css-wheijw-MuiAvatar-root"
+      title="Alex van Wijngaarden"
+    >
+      AV
     </div>
   </div>,
   "debug": [Function],
