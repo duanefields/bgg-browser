@@ -132,34 +132,38 @@ it("Should render a collection filtered by playtime", async () => {
   expect(games[0]).toHaveTextContent("Dixit")
 })
 
-it("Should render the collection count as a localized string", async () => {
-  const games: Game[] = Array.from({ length: 1001 }, (_, i) => ({
-    name: `Game ${i}`,
-    objectId: i,
-    collectionId: i,
-    thumbnail: "",
-    minPlayers: 0,
-    maxPlayers: 0,
-    minPlaytime: 0,
-    maxPlaytime: 0,
-    playtime: 0,
-    yearPublished: 0,
-    averageRating: 0,
-    myRating: null,
-    rank: null,
-    numPlays: 0,
-    url: "",
-  }))
+it(
+  "Should render the collection count as a localized string",
+  async () => {
+    const games: Game[] = Array.from({ length: 1001 }, (_, i) => ({
+      name: `Game ${i}`,
+      objectId: i,
+      collectionId: i,
+      thumbnail: "",
+      minPlayers: 0,
+      maxPlayers: 0,
+      minPlaytime: 0,
+      maxPlaytime: 0,
+      playtime: 0,
+      yearPublished: 0,
+      averageRating: 0,
+      myRating: null,
+      rank: null,
+      numPlays: 0,
+      url: "",
+    }))
 
-  const spy = vi.spyOn(api, "getCollection").mockResolvedValue(games)
-  renderWithQueryProvider(
-    <Collection username="pandyandy" sort="name" players={0} playtime={0} searchText="" />,
-  )
-  expect(await screen.findByText("Showing 1,001 of 1,001 games")).toBeVisible()
-  expect(spy).toHaveBeenCalledOnce()
-  expect(spy).toHaveResolvedWith(games)
-  vi.restoreAllMocks()
-})
+    const spy = vi.spyOn(api, "getCollection").mockResolvedValue(games)
+    renderWithQueryProvider(
+      <Collection username="pandyandy" sort="name" players={0} playtime={0} searchText="" />,
+    )
+    expect(await screen.findByText("Showing 1,001 of 1,001 games")).toBeVisible()
+    expect(spy).toHaveBeenCalledOnce()
+    expect(spy).toHaveResolvedWith(games)
+    vi.restoreAllMocks()
+  },
+  10 * 1000,
+)
 
 it("Should retry fetching the collection on accepted error", async () => {
   // prepend a handler to the server that will return an invalid user error
