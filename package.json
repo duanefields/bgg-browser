@@ -29,7 +29,8 @@
     "@tanstack/react-router": "^1.47.1",
     "fuse.js": "^7.0.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.51.15",

@@ -1,17 +1,17 @@
-import { Link, useNavigate } from "@tanstack/react-router"
-import Avatar from "../components/Avatar"
-import { Button, TextField } from "@mui/material"
-import React from "react"
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Button, IconButton, TextField } from "@mui/material"
 import { useMutation } from "@tanstack/react-query"
+import { Link, useNavigate } from "@tanstack/react-router"
+import React from "react"
+import { useLocalStorage } from "usehooks-ts"
+import Avatar from "../components/Avatar"
 import { getUser } from "../lib/api"
 
-type UsersProps = {
-  usernames: string[]
-}
-
-const Users = ({ usernames }: UsersProps) => {
+const Users = () => {
   const [username, setUsername] = React.useState("")
   const navigate = useNavigate()
+  const [usernames, setUsernames] = useLocalStorage<string[]>("usernames", [])
 
   const mutation = useMutation({
     mutationKey: ["user", username],
@@ -27,15 +27,24 @@ const Users = ({ usernames }: UsersProps) => {
     setUsername(event.target.value)
   }
 
+  const handleDelete = (username: string) => {
+    setUsernames(usernames.filter((u) => u !== username))
+  }
+
   if (mutation.isSuccess) {
-    void navigate({ to: "/user/$username", params: { username } })
+    if (!usernames.includes(username)) {
+      setUsernames([...usernames, username])
+    }
+    window.setTimeout(() => {
+      void navigate({ to: "/user/$username", params: { username } })
+    })
     return null
   }
 
   return (
     <>
       {usernames.sort().map((username) => (
-        <UserRow key={username} username={username} />
+        <UserRow key={username} username={username} onDelete={handleDelete} />
       ))}
 
       <h2>Add a User</h2>
@@ -43,9 +52,13 @@ const Users = ({ usernames }: UsersProps) => {
       {mutation.isError && <div>{mutation.error.message}</div>}
 
       <form onSubmit={handleSubmission}>
-        <UsernameBox username={username} handleChange={handleChange} />
+        <UsernameBox
+          username={username}
+          handleChange={handleChange}
+          disabled={mutation.isPending}
+        />
         &nbsp;
-        <Button type="submit" variant="contained">
+        <Button type="submit" variant="contained" disabled={mutation.isPending}>
           Browse Collection
         </Button>
       </form>
@@ -55,10 +68,11 @@ const Users = ({ usernames }: UsersProps) => {
 
 type UsernameBoxProps = {
   username: string
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  disabled: boolean
+  handleChange: React.ChangeEventHandler<HTMLInputElement>
 }
 
-const UsernameBox = ({ username, handleChange }: UsernameBoxProps) => {
+const UsernameBox = ({ username, handleChange, disabled }: UsernameBoxProps) => {
   return (
     <TextField
       type="text"
@@ -66,6 +80,7 @@ const UsernameBox = ({ username, handleChange }: UsernameBoxProps) => {
       placeholder="BGG Username"
       variant="standard"
       onChange={handleChange}
+      disabled={disabled}
       inputProps={{
         "data-1p-ignore": true,
         "data-lpignore": true,
@@ -78,14 +93,25 @@ const UsernameBox = ({ username, handleChange }: UsernameBoxProps) => {
 
 type UserRowProps = {
   username: string
+  onDelete: (username: string) => void
 }
-const UserRow = ({ username }: UserRowProps) => {
+const UserRow = ({ username, onDelete }: UserRowProps) => {
   return (
     <div data-testid="user">
       <Link to="/user/$username" params={{ username }}>
         <Avatar username={username} size={64} />
-        {username}
       </Link>
+      {username}
+
+      <IconButton
+        aria-label="delete"
+        size="small"
+        onClick={() => {
+          onDelete(username)
+        }}
+      >
+        <FontAwesomeIcon icon={faTrashCan} />
+      </IconButton>
     </div>
   )
 }
