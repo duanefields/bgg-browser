@@ -18,7 +18,7 @@ const TanStackRouterDevtools =
         })),
       )
 
-const cacheTime = 1000 * 60 * 60 * 24 // 24 hours
+const cacheTime = 1000 * 60 * 60 * 24 * 7 // 7 days
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
