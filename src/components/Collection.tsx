@@ -13,8 +13,7 @@ import {
   playtimeComparator,
 } from "../lib/comparators"
 import { shuffle } from "../lib/utils"
-import { Skeleton } from "@mui/material"
-import classes from "./Collection.module.css"
+import SkeletonGameCell from "./SkeletonGameCell"
 
 type CollectionProps = {
   /** The username of the collection you want to load */
@@ -106,17 +105,9 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
   const collectionName = <h2>{username}&apos;s Collection</h2>
 
   // show skeletons while loading
-  const skeletons = Array.from({ length: 4 }, (_, i) => (
-    <Skeleton
-      key={i}
-      variant="rounded"
-      height={155}
-      className={classes.skeleton}
-      data-testid="skeleton"
-    />
-  ))
-
   if (query.isLoading) {
+    const skeletons = Array.from({ length: 10 }, (_, i) => <SkeletonGameCell key={i} />)
+
     return (
       <div>
         {collectionName}

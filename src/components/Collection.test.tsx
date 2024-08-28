@@ -194,5 +194,5 @@ it("Should show skeletons while loading", () => {
   renderWithQueryProvider(
     <Collection username="pandyandy" sort="name" players={0} playtime={0} searchText="" />,
   )
-  expect(screen.getAllByTestId("skeleton")).toHaveLength(4)
+  expect(screen.getAllByTestId("skeleton")).toHaveLength(10)
 })
