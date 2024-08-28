@@ -10,6 +10,7 @@ module.exports = {
     "plugin:testing-library/react",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
+    "plugin:jest-dom/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",

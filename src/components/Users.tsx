@@ -2,15 +2,18 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button, IconButton, TextField } from "@mui/material"
 import { useMutation } from "@tanstack/react-query"
-import { Link, useNavigate } from "@tanstack/react-router"
+import { Link } from "@tanstack/react-router"
 import React from "react"
 import { useLocalStorage } from "usehooks-ts"
 import Avatar from "../components/Avatar"
 import { getUser } from "../lib/api"
 
-const Users = () => {
+type UsersProps = {
+  onUserAdded?: (username: string) => void
+}
+
+const Users = ({ onUserAdded }: UsersProps) => {
   const [username, setUsername] = React.useState("")
-  const navigate = useNavigate()
   const [usernames, setUsernames] = useLocalStorage<string[]>("usernames", [])
 
   const mutation = useMutation({
@@ -35,10 +38,9 @@ const Users = () => {
     if (!usernames.includes(username)) {
       setUsernames([...usernames, username])
     }
-    window.setTimeout(() => {
-      void navigate({ to: "/user/$username", params: { username } })
-    })
-    return null
+    if (onUserAdded) {
+      onUserAdded(username)
+    }
   }
 
   return (

@@ -27,6 +27,7 @@ it("Should display label text", () => {
 
 it("Should call the onChange handler on text input", async () => {
   render(<SearchBox searchText="" onChange={onChange} />)
-  await userEvent.type(screen.getByRole("searchbox"), "test")
+  const user = userEvent.setup()
+  await user.type(screen.getByRole("searchbox"), "test")
   expect(onChange).toHaveBeenCalledTimes(4)
 })
