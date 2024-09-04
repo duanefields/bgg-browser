@@ -5,7 +5,7 @@ const SkeletonGameCell = () => {
   return (
     <div className={classes.gridContainer} data-testid="skeleton">
       <Skeleton className={classes.thumbnail} variant="rectangular" width={90} height={90} />
-      <Skeleton className={classes.headerArea} variant="text" width={400} height={30} />
+      <Skeleton className={classes.headerArea} variant="text" width={250} height={30} />
       <div className={classes.infoArea}>
         <Skeleton variant="text" width={60} height={19} />
         <Skeleton variant="text" width={120} height={19} />
