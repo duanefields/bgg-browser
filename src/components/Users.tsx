@@ -1,7 +1,7 @@
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button, IconButton, TextField } from "@mui/material"
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { Link } from "@tanstack/react-router"
 import React from "react"
 import { useLocalStorage } from "usehooks-ts"
@@ -15,6 +15,7 @@ type UsersProps = {
 const Users = ({ onUserAdded }: UsersProps) => {
   const [username, setUsername] = React.useState("")
   const [usernames, setUsernames] = useLocalStorage<string[]>("usernames", [])
+  const queryClient = useQueryClient()
 
   const mutation = useMutation({
     mutationKey: ["user", username],
@@ -32,6 +33,8 @@ const Users = ({ onUserAdded }: UsersProps) => {
 
   const handleDelete = (username: string) => {
     setUsernames(usernames.filter((u) => u !== username))
+    queryClient.removeQueries({ queryKey: ["collection", username] })
+    queryClient.removeQueries({ queryKey: ["user", username] })
   }
 
   if (mutation.isSuccess) {
