@@ -51,8 +51,10 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
     return fuse
   }, [games])
 
+  // make a copy of the games list because we are going to be filtering and sorting it
+  let results = [...games]
+
   // filter the list by the fuzzy search text
-  let results = games
   if (searchText) {
     results = index.search(searchText).map((result) => result.item)
   }
@@ -80,25 +82,28 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
   // sort the list by the selected sort order
   console.debug(`Sorting ${results.length} games by ${sort}`)
   console.time("sort")
-  if (sort === "random") {
-    results = shuffle(results)
-  } else {
-    results.sort((a, b) => {
-      switch (sort) {
-        case "name":
-          return titleComparator(a, b)
-        case "rating":
-          return ratingComparator(a, b)
-        case "myRating":
-          return myRatingComparator(a, b)
-        case "plays":
-          return playsComparator(a, b)
-        case "rank":
-          return rankComparator(a, b)
-        case "playtime":
-          return playtimeComparator(a, b)
-      }
-    })
+  switch (sort) {
+    case "random":
+      results = shuffle(results)
+      break
+    case "name":
+      results.sort(titleComparator)
+      break
+    case "rating":
+      results.sort(ratingComparator)
+      break
+    case "myRating":
+      results.sort(myRatingComparator)
+      break
+    case "plays":
+      results.sort(playsComparator)
+      break
+    case "rank":
+      results.sort(rankComparator)
+      break
+    case "playtime":
+      results.sort(playtimeComparator)
+      break
   }
   console.timeEnd("sort")
 
