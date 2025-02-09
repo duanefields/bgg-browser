@@ -1,18 +1,24 @@
 import { MenuItem, TextField } from "@mui/material"
 import { useState } from "react"
 import { PlayerCount } from "../shared.types"
+import { getRouteApi } from "@tanstack/react-router"
 
 type PlayersMenuProps = {
   players: PlayerCount
   onChange: (value: PlayerCount) => void
 }
 
+const routeApi = getRouteApi("/user/$username")
+
 const PlayersMenu = ({ onChange, players }: PlayersMenuProps) => {
   const [playerCount, setPlayerCount] = useState<PlayerCount>(players)
+  const navigate = routeApi.useNavigate()
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPlayerCount(Number(event.target.value) as PlayerCount)
-    onChange(Number(event.target.value) as PlayerCount)
+    const newPlayerCount = Number(event.target.value) as PlayerCount
+    setPlayerCount(newPlayerCount)
+    onChange(newPlayerCount)
+    void navigate({ search: { players: newPlayerCount } })
   }
 
   const options: React.ReactNode[] = []

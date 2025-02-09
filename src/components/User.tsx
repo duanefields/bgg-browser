@@ -8,15 +8,19 @@ import RefreshButton from "./RefreshButton"
 import SearchBox from "./SearchBox"
 import SortMenu from "./SortMenu"
 import classes from "./User.module.css"
+import { getRouteApi } from "@tanstack/react-router"
 
 type UserProps = {
   username: string
 }
 
+const routeApi = getRouteApi("/user/$username")
+
 const User = ({ username }: UserProps) => {
+  const search = routeApi.useSearch()
   const [searchText, setSearchText] = useState<string>("")
   const [sort, setSort] = useState<SortOrder>("name")
-  const [players, setPlayers] = useState<PlayerCount>(0)
+  const [players, setPlayers] = useState<PlayerCount>(search.players ?? 0)
   const [playtime, setPlaytime] = useState<Playtime>(0)
   const debouncedSearchText = useDebounce(searchText)
 
