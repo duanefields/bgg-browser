@@ -19,7 +19,6 @@ const NavBar = () => {
           <img height="50" src={bggLogo} />
         </a>
       </div>
-      <div className={classes.title}>BGG Collection Browser</div>
     </div>
   )
 }
