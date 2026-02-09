@@ -127,11 +127,11 @@ it("Should open the game URL in a new tab", () => {
 it("Should render no text for the ranking if none is present", async () => {
   render(<GameCell game={game2} />)
   const element = await screen.findByTestId("rank")
-  expect(element.textContent?.trim()).toEqual("BGG Rank")
+  expect(element.textContent?.trim()).toEqual("")
 })
 
 it("Should render no text for the playtime if none is present", async () => {
   render(<GameCell game={game3} />)
   const element = await screen.findByTestId("playtime")
-  expect(element.textContent?.trim()).toEqual("Playtime")
+  expect(element.textContent?.trim()).toEqual("")
 })

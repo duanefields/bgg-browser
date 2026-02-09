@@ -43,23 +43,20 @@ const GameCell = ({ game }: GameCellProps) => {
       />
       <h3 className={classes.headerArea}>{game.name}</h3>
       <div className={classes.infoArea}>
-        <div data-testid="playerCount">
-          <FontAwesomeIcon fixedWidth icon={faUsers} title="Player Count" titleId="1" />{" "}
-          {playerCount}
+        <div data-testid="playerCount" title="Player Count">
+          <FontAwesomeIcon icon={faUsers} /> {playerCount}
         </div>
-        <div data-testid="playtime">
-          <FontAwesomeIcon fixedWidth icon={faClock} title="Playtime" titleId="2" /> {playtime}
+        <div data-testid="playtime" title="Playtime">
+          <FontAwesomeIcon icon={faClock} /> {playtime}
         </div>
-        <div data-testid="rating">
-          <FontAwesomeIcon fixedWidth icon={faStar} title="BGG Rating (Your Rating)" titleId="3" />{" "}
-          {rating}
+        <div data-testid="rating" title="BGG Rating (Your Rating)">
+          <FontAwesomeIcon icon={faStar} /> {rating}
         </div>
-        <div data-testid="rank">
-          <FontAwesomeIcon fixedWidth icon={faRankingStar} title="BGG Rank" titleId="5" />{" "}
-          {game.rank?.toLocaleString()}
+        <div data-testid="rank" title="BGG Rank">
+          <FontAwesomeIcon icon={faRankingStar} /> {game.rank?.toLocaleString()}
         </div>
-        <div data-testid="plays">
-          <FontAwesomeIcon fixedWidth icon={faDice} title="Number of Plays" titleId="4" />{" "}
+        <div data-testid="plays" title="Number of Plays">
+          <FontAwesomeIcon icon={faDice} />{" "}
           {game.numPlays.toLocaleString()}
         </div>
       </div>
