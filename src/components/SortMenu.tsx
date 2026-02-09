@@ -1,5 +1,4 @@
 import { MenuItem, TextField } from "@mui/material"
-import { useState } from "react"
 import { SortOrder } from "../shared.types"
 
 type SortMenuProps = {
@@ -8,10 +7,7 @@ type SortMenuProps = {
 }
 
 const SortMenu = ({ onChange, sort }: SortMenuProps) => {
-  const [sortOrder, setSortOrder] = useState<SortOrder>(sort)
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSortOrder(event.target.value as SortOrder)
     onChange(event.target.value as SortOrder)
   }
 
@@ -19,7 +15,7 @@ const SortMenu = ({ onChange, sort }: SortMenuProps) => {
     <TextField
       sx={{ minWidth: 100, maxWidth: 100 }}
       select
-      value={sortOrder}
+      value={sort}
       label="Sort By"
       onChange={handleChange}
       size="small"

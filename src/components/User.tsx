@@ -1,6 +1,6 @@
 import { useState } from "react"
 import useDebounce from "../hooks/useDebounce"
-import { PlayerCount, Playtime, SortOrder } from "../shared.types"
+import { PlayerCount, Playtime, SortOrder, UserSearch } from "../shared.types"
 import Collection from "./Collection"
 import PlayersMenu from "./PlayersMenu"
 import PlaytimeMenu from "./PlaytimeMenu"
@@ -17,11 +17,9 @@ type UserProps = {
 const routeApi = getRouteApi("/user/$username")
 
 const User = ({ username }: UserProps) => {
-  const search = routeApi.useSearch()
+  const { sort = "name", players = 0, playtime = 0 } = routeApi.useSearch()
+  const navigate = routeApi.useNavigate()
   const [searchText, setSearchText] = useState<string>("")
-  const [sort, setSort] = useState<SortOrder>("name")
-  const [players, setPlayers] = useState<PlayerCount>(search.players ?? 0)
-  const [playtime, setPlaytime] = useState<Playtime>(0)
   const debouncedSearchText = useDebounce(searchText)
 
   const onSearchTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,15 +27,15 @@ const User = ({ username }: UserProps) => {
   }
 
   const onSortChange = (value: SortOrder) => {
-    setSort(value)
+    void navigate({ search: (prev: UserSearch) => ({ ...prev, sort: value === "name" ? undefined : value }) })
   }
 
   const onPlayerChange = (value: PlayerCount) => {
-    setPlayers(value)
+    void navigate({ search: (prev: UserSearch) => ({ ...prev, players: value === 0 ? undefined : value }) })
   }
 
   const onPlaytimeChange = (value: Playtime) => {
-    setPlaytime(value)
+    void navigate({ search: (prev: UserSearch) => ({ ...prev, playtime: value === 0 ? undefined : value }) })
   }
 
   return (

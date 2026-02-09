@@ -30,7 +30,8 @@ exports[`Should match snapshot 1`] = `
             tabindex="0"
           >
             3
-             Players
+             
+            Players
           </div>
           <input
             aria-hidden="true"
@@ -92,7 +93,8 @@ exports[`Should match snapshot 1`] = `
           tabindex="0"
         >
           3
-           Players
+           
+          Players
         </div>
         <input
           aria-hidden="true"
