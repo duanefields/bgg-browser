@@ -4,6 +4,7 @@ import { useMemo } from "react"
 import { getCollection } from "../lib/api"
 import { Game, PlayerCount, Playtime, SortOrder } from "../shared.types"
 import GameCell from "./GameCell"
+import classes from "./Collection.module.css"
 import {
   titleComparator,
   ratingComparator,
@@ -107,7 +108,7 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
   }
   console.timeEnd("sort")
 
-  const collectionName = <h2>{username}&apos;s Collection</h2>
+  const collectionName = <h2 className={classes.collectionName}>{username}&apos;s Collection</h2>
 
   // show skeletons while loading
   if (query.isLoading) {
@@ -116,8 +117,8 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
     return (
       <div>
         {collectionName}
-        <div>Loading...</div>
-        {skeletons}
+        <div className={classes.loading}>Loading...</div>
+        <div className={classes.gameList}>{skeletons}</div>
       </div>
     )
   }
@@ -125,17 +126,17 @@ const Collection = ({ username, searchText, sort, players, playtime }: Collectio
   return (
     <div>
       {collectionName}
-      {query.isError && <div>Error: {query.error.message}</div>}
+      {query.isError && <div className={classes.error}>Error: {query.error.message}</div>}
       {query.isSuccess && (
         <div>
-          <div>
+          <div className={classes.count}>
             Showing {results.length.toLocaleString()} of {games.length.toLocaleString()} games
           </div>
-          {results?.map((game) => (
-            <div key={game.collectionId}>
-              <GameCell game={game} />
-            </div>
-          ))}
+          <div className={classes.gameList}>
+            {results?.map((game) => (
+              <GameCell key={game.collectionId} game={game} />
+            ))}
+          </div>
         </div>
       )}
     </div>

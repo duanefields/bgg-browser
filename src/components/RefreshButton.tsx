@@ -16,7 +16,11 @@ const RefreshButton = ({ username }: RefreshButtonProps) => {
   }
 
   return (
-    <IconButton aria-label="refresh" onClick={onClick}>
+    <IconButton
+      aria-label="refresh"
+      onClick={onClick}
+      sx={{ color: "var(--color-text-secondary)", "&:hover": { color: "var(--color-accent)" } }}
+    >
       <FontAwesomeIcon icon={faSync} spin={isFetching > 0} />
     </IconButton>
   )

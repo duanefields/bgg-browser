@@ -40,6 +40,18 @@ const FilterDrawer = ({
           onClick={() => setOpen(true)}
           startIcon={<FontAwesomeIcon icon={faSliders} />}
           aria-label="Open filters"
+          sx={{
+            borderColor: "var(--color-border-subtle)",
+            color: "var(--color-text-secondary)",
+            textTransform: "none",
+            fontWeight: 500,
+            borderRadius: "var(--radius-sm)",
+            "&:hover": {
+              borderColor: "var(--color-accent)",
+              color: "var(--color-accent)",
+              backgroundColor: "transparent",
+            },
+          }}
         >
           Filters
         </Button>
@@ -48,10 +60,13 @@ const FilterDrawer = ({
       <Drawer anchor="bottom" open={open} onClose={() => setOpen(false)}>
         <Box
           sx={{
-            p: 2,
+            p: 3,
             display: "flex",
             flexDirection: "column",
-            gap: 2,
+            gap: 2.5,
+            backgroundColor: "var(--color-bg-page)",
+            borderTopLeftRadius: "var(--radius-lg)",
+            borderTopRightRadius: "var(--radius-lg)",
             "& .MuiTextField-root": { minWidth: "100%", maxWidth: "100%" },
           }}
         >

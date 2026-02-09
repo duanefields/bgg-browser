@@ -7,7 +7,7 @@ exports[`Should match snapshot 1`] = `
     <div>
       <button
         aria-label="refresh"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1iwwj1k-MuiButtonBase-root-MuiIconButton-root"
         tabindex="0"
         type="button"
       >
@@ -33,7 +33,7 @@ exports[`Should match snapshot 1`] = `
   "container": <div>
     <button
       aria-label="refresh"
-      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1iwwj1k-MuiButtonBase-root-MuiIconButton-root"
       tabindex="0"
       type="button"
     >

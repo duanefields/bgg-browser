@@ -1,0 +1,49 @@
+.userList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease;
+}
+
+.userRow:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.username {
+  flex: 1;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.addSection {
+  margin-top: var(--space-xl);
+}
+
+.addHeading {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-md);
+}
+
+.form {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-md);
+}
+
+.error {
+  color: #D32F2F;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-sm);
+}

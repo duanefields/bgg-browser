@@ -7,6 +7,7 @@ import React from "react"
 import { useLocalStorage } from "usehooks-ts"
 import Avatar from "../components/Avatar"
 import { getUser } from "../lib/api"
+import classes from "./Users.module.css"
 
 type UsersProps = {
   onUserAdded?: (username: string) => void
@@ -48,25 +49,28 @@ const Users = ({ onUserAdded }: UsersProps) => {
 
   return (
     <>
-      {usernames.sort().map((username) => (
-        <UserRow key={username} username={username} onDelete={handleDelete} />
-      ))}
+      <div className={classes.userList}>
+        {usernames.sort().map((username) => (
+          <UserRow key={username} username={username} onDelete={handleDelete} />
+        ))}
+      </div>
 
-      <h2>Add a User</h2>
+      <div className={classes.addSection}>
+        <h2 className={classes.addHeading}>Add a User</h2>
 
-      {mutation.isError && <div>{mutation.error.message}</div>}
+        {mutation.isError && <div className={classes.error}>{mutation.error.message}</div>}
 
-      <form onSubmit={handleSubmission}>
-        <UsernameBox
-          username={username}
-          handleChange={handleChange}
-          disabled={mutation.isPending}
-        />
-        &nbsp;
-        <Button type="submit" variant="contained" disabled={mutation.isPending}>
-          Browse Collection
-        </Button>
-      </form>
+        <form className={classes.form} onSubmit={handleSubmission}>
+          <UsernameBox
+            username={username}
+            handleChange={handleChange}
+            disabled={mutation.isPending}
+          />
+          <Button type="submit" variant="contained" disabled={mutation.isPending} sx={{ textTransform: "none" }}>
+            Browse Collection
+          </Button>
+        </form>
+      </div>
     </>
   )
 }
@@ -102,11 +106,11 @@ type UserRowProps = {
 }
 const UserRow = ({ username, onDelete }: UserRowProps) => {
   return (
-    <div data-testid="user">
+    <div data-testid="user" className={classes.userRow}>
       <Link to="/user/$username" params={{ username }}>
-        <Avatar username={username} size={64} />
+        <Avatar username={username} size={48} />
       </Link>
-      {username}
+      <span className={classes.username}>{username}</span>
 
       <IconButton
         aria-label="delete"
@@ -114,6 +118,7 @@ const UserRow = ({ username, onDelete }: UserRowProps) => {
         onClick={() => {
           onDelete(username)
         }}
+        sx={{ color: "var(--color-text-tertiary)", "&:hover": { color: "#D32F2F" } }}
       >
         <FontAwesomeIcon icon={faTrashCan} />
       </IconButton>

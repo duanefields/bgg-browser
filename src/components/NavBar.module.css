@@ -1,17 +1,29 @@
-.active {
-  font-weight: bold;
-}
-
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  border-bottom: solid 1px #eaeaea;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
 }
 
-.title {
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0;
+.links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.link {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--color-text-primary);
+}
+
+.active {
+  color: var(--color-accent);
+  font-weight: 600;
 }

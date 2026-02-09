@@ -1,0 +1,10 @@
+.container {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.version {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}

@@ -1,4 +1,5 @@
 import { Button } from "@mui/material"
+import classes from "./About.module.css"
 
 const VERSION = (import.meta.env.VITE_APP_VERSION as string).trim()
 
@@ -8,10 +9,15 @@ const About = () => {
   }
 
   return (
-    <div>
-      <div>About this Application ({VERSION})</div>
+    <div className={classes.container}>
+      <div className={classes.version}>About this Application ({VERSION})</div>
       <div>
-        <Button onClick={reload}>Reload</Button>
+        <Button
+          onClick={reload}
+          sx={{ color: "var(--color-accent)", textTransform: "none", fontWeight: 500 }}
+        >
+          Reload
+        </Button>
       </div>
     </div>
   )

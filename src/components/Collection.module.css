@@ -1,0 +1,30 @@
+.collectionName {
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.count {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.gameList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.loading {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-md);
+}
+
+.error {
+  color: #D32F2F;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-md);
+}

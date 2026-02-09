@@ -6,93 +6,22 @@ exports[`Should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="MuiFormControl-root MuiTextField-root _searchBox_e9a1ab css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-      >
-        <label
-          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1jy569b-MuiFormLabel-root-MuiInputLabel-root"
-          data-shrink="true"
-          for=":r0:"
-          id=":r0:-label"
-        >
-          Filter by name
-        </label>
-        <div
-          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
-        >
-          <input
-            aria-invalid="false"
-            autocapitalize="none"
-            autocomplete="off"
-            autocorrect="off"
-            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedEnd css-1j5luls-MuiInputBase-input-MuiOutlinedInput-input"
-            id=":r0:"
-            name="search"
-            spellcheck="false"
-            type="search"
-            value="test"
-          />
-          <div
-            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
-          >
-            <svg
-              aria-hidden="true"
-              class="svg-inline--fa fa-magnifying-glass"
-              data-icon="magnifying-glass"
-              data-prefix="fas"
-              role="img"
-              viewBox="0 0 512 512"
-            >
-              <path
-                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          <fieldset
-            aria-hidden="true"
-            class="MuiOutlinedInput-notchedOutline css-r01yff-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-          >
-            <legend
-              class="css-sl37lx-MuiNotchedOutlined-root"
-            >
-              <span>
-                Filter by name
-              </span>
-            </legend>
-          </fieldset>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="MuiFormControl-root MuiTextField-root _searchBox_e9a1ab css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1jy569b-MuiFormLabel-root-MuiInputLabel-root"
-        data-shrink="true"
-        for=":r0:"
-        id=":r0:-label"
-      >
-        Filter by name
-      </label>
-      <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
+        class="_wrapper_e9a1ab"
       >
         <input
-          aria-invalid="false"
+          aria-label="Filter by name"
           autocapitalize="none"
           autocomplete="off"
           autocorrect="off"
-          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedEnd css-1j5luls-MuiInputBase-input-MuiOutlinedInput-input"
-          id=":r0:"
+          class="_searchBox_e9a1ab"
           name="search"
+          placeholder="Filter by name"
           spellcheck="false"
           type="search"
           value="test"
         />
-        <div
-          class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+        <span
+          class="_icon_e9a1ab"
         >
           <svg
             aria-hidden="true"
@@ -107,20 +36,43 @@ exports[`Should match snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-        </div>
-        <fieldset
-          aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-r01yff-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-        >
-          <legend
-            class="css-sl37lx-MuiNotchedOutlined-root"
-          >
-            <span>
-              Filter by name
-            </span>
-          </legend>
-        </fieldset>
+        </span>
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="_wrapper_e9a1ab"
+    >
+      <input
+        aria-label="Filter by name"
+        autocapitalize="none"
+        autocomplete="off"
+        autocorrect="off"
+        class="_searchBox_e9a1ab"
+        name="search"
+        placeholder="Filter by name"
+        spellcheck="false"
+        type="search"
+        value="test"
+      />
+      <span
+        class="_icon_e9a1ab"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-magnifying-glass"
+          data-icon="magnifying-glass"
+          data-prefix="fas"
+          role="img"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
     </div>
   </div>,
   "debug": [Function],

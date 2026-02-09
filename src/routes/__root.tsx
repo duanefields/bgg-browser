@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { createRootRoute, Outlet } from "@tanstack/react-router"
+import { createTheme, ThemeProvider } from "@mui/material/styles"
 import React, { Suspense } from "react"
 import NavBar from "../components/NavBar"
 import { persistQueryClient } from "@tanstack/react-query-persist-client"
@@ -38,15 +39,29 @@ void persistQueryClient({
   persister: localStoragePersister,
 })
 
+const theme = createTheme({
+  palette: {
+    primary: { main: "#4478FF" },
+  },
+  typography: {
+    fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif',
+  },
+  shape: {
+    borderRadius: 8,
+  },
+})
+
 const Root = () => (
-  <QueryClientProvider client={queryClient}>
-    <NavBar />
-    <Outlet />
-    <Suspense>
-      <TanStackRouterDevtools />
-    </Suspense>
-    <ReactQueryDevtools initialIsOpen={false} />
-  </QueryClientProvider>
+  <ThemeProvider theme={theme}>
+    <QueryClientProvider client={queryClient}>
+      <NavBar />
+      <Outlet />
+      <Suspense>
+        <TanStackRouterDevtools />
+      </Suspense>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  </ThemeProvider>
 )
 
 export const Route = createRootRoute({
