@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { createRootRoute, createRoute, createRouter, RouterProvider } from "@tanstack/react-router"
+import { createRootRoute, createRoute, createRouter, RouterProvider, stripSearchParams } from "@tanstack/react-router"
 import { render, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { describe, expect, it } from "vitest"
@@ -17,6 +17,9 @@ const renderUserWithRouter = (username: string, search?: UserSearch) => {
     getParentRoute: () => rootRoute,
     path: "/user/$username",
     validateSearch,
+    search: {
+      middlewares: [stripSearchParams({ sort: "name", players: 0, playtime: 0 })],
+    },
     component: () => (
       <QueryClientProvider client={queryClient}>
         <User username={username} />
@@ -30,7 +33,6 @@ const renderUserWithRouter = (username: string, search?: UserSearch) => {
 
   void router.navigate({ to: "/user/$username", params: { username }, search })
 
-  // @ts-expect-error no way to specify the type of the router inside this function
   return { ...render(<RouterProvider router={router} />), router }
 }
 

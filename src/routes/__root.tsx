@@ -7,7 +7,7 @@ import { persistQueryClient } from "@tanstack/react-query-persist-client"
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister"
 
 const TanStackRouterDevtools =
-  process.env.NODE_ENV === "production"
+  import.meta.env.PROD
     ? () => null // Render nothing in production
     : React.lazy(() =>
         // Lazy load in development
