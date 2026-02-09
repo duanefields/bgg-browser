@@ -6,23 +6,23 @@ exports[`Should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="_gridContainer_71303f"
+        class="_gridContainer_929017"
         data-testid="game"
       >
         <img
           alt="Forbidden Island"
-          class="_thumbnail_71303f"
+          class="_thumbnail_929017"
           height="90"
           src="https://example.com/forbidden-island.jpg"
           width="90"
         />
         <h3
-          class="_headerArea_71303f"
+          class="_headerArea_929017"
         >
           Forbidden Island
         </h3>
         <div
-          class="_infoArea_71303f"
+          class="_infoArea_929017"
         >
           <div
             data-testid="playerCount"
@@ -155,23 +155,23 @@ exports[`Should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="_gridContainer_71303f"
+      class="_gridContainer_929017"
       data-testid="game"
     >
       <img
         alt="Forbidden Island"
-        class="_thumbnail_71303f"
+        class="_thumbnail_929017"
         height="90"
         src="https://example.com/forbidden-island.jpg"
         width="90"
       />
       <h3
-        class="_headerArea_71303f"
+        class="_headerArea_929017"
       >
         Forbidden Island
       </h3>
       <div
-        class="_infoArea_71303f"
+        class="_infoArea_929017"
       >
         <div
           data-testid="playerCount"

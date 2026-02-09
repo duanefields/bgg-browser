@@ -6,7 +6,7 @@ exports[`Avatar > Should match snapshot for image 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="MuiAvatar-root MuiAvatar-circular _avatar_65174a css-7pbt6e-MuiAvatar-root"
+        class="MuiAvatar-root MuiAvatar-circular _avatar_f8115d css-7pbt6e-MuiAvatar-root"
         title="Duane Fields"
       >
         <img
@@ -19,7 +19,7 @@ exports[`Avatar > Should match snapshot for image 1`] = `
   </body>,
   "container": <div>
     <div
-      class="MuiAvatar-root MuiAvatar-circular _avatar_65174a css-7pbt6e-MuiAvatar-root"
+      class="MuiAvatar-root MuiAvatar-circular _avatar_f8115d css-7pbt6e-MuiAvatar-root"
       title="Duane Fields"
     >
       <img
@@ -89,7 +89,7 @@ exports[`Avatar > Should match snapshot for initials 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault _avatar_65174a css-wheijw-MuiAvatar-root"
+        class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault _avatar_f8115d css-wheijw-MuiAvatar-root"
         title="Alex van Wijngaarden"
       >
         AV
@@ -98,7 +98,7 @@ exports[`Avatar > Should match snapshot for initials 1`] = `
   </body>,
   "container": <div>
     <div
-      class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault _avatar_65174a css-wheijw-MuiAvatar-root"
+      class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault _avatar_f8115d css-wheijw-MuiAvatar-root"
       title="Alex van Wijngaarden"
     >
       AV
