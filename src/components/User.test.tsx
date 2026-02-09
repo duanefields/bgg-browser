@@ -2,10 +2,30 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { createRootRoute, createRoute, createRouter, RouterProvider, stripSearchParams } from "@tanstack/react-router"
 import { render, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { describe, expect, it } from "vitest"
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 import { UserSearch, validateSearch } from "../shared.types"
 
 import User from "./User"
+
+const mockMatchMedia = (matches: boolean) => {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: vi.fn().mockImplementation((query: string) => ({
+      matches,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    })),
+  })
+}
+
+// Default to desktop so inline filters render for existing tests
+beforeEach(() => mockMatchMedia(true))
+afterEach(() => vi.restoreAllMocks())
 
 const renderUserWithRouter = (username: string, search?: UserSearch) => {
   const queryClient = new QueryClient({
@@ -117,5 +137,23 @@ describe("query string state", () => {
     await user.click(listbox.getByText("60 mins"))
 
     expect(router.state.location.search).toMatchObject({ sort: "rating", players: 4, playtime: 60 })
+  })
+})
+
+describe("responsive layout", () => {
+  it("Should show inline filters on desktop", async () => {
+    mockMatchMedia(true)
+    renderUserWithRouter("pandyandy")
+    await screen.findByText("pandyandy's Collection")
+    expect(screen.getByLabelText("Sort By")).toBeVisible()
+    expect(screen.queryByRole("button", { name: /open filters/i })).not.toBeInTheDocument()
+  })
+
+  it("Should show filter button on mobile", async () => {
+    mockMatchMedia(false)
+    renderUserWithRouter("pandyandy")
+    await screen.findByText("pandyandy's Collection")
+    expect(screen.getByRole("button", { name: /open filters/i })).toBeVisible()
+    expect(screen.queryByLabelText("Sort By")).not.toBeInTheDocument()
   })
 })

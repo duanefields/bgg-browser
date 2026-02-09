@@ -6,7 +6,7 @@ exports[`Should match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="MuiFormControl-root MuiTextField-root css-1ueegym-MuiFormControl-root-MuiTextField-root"
+        class="MuiFormControl-root MuiTextField-root css-8swvuk-MuiFormControl-root-MuiTextField-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined css-1jy569b-MuiFormLabel-root-MuiInputLabel-root"
@@ -67,7 +67,7 @@ exports[`Should match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="MuiFormControl-root MuiTextField-root css-1ueegym-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-8swvuk-MuiFormControl-root-MuiTextField-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined css-1jy569b-MuiFormLabel-root-MuiInputLabel-root"

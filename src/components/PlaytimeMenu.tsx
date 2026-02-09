@@ -19,7 +19,7 @@ const PlaytimeMenu = ({ onChange, playtime }: PlaytimeMenuProps) => {
 
   return (
     <TextField
-      sx={{ minWidth: 100, maxWidth: 100 }}
+      sx={{ minWidth: 120 }}
       select
       value={playtime}
       label="Playtime"
