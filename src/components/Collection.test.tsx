@@ -205,4 +205,12 @@ describe("Collection", () => {
     )
     expect(screen.getAllByTestId("skeleton")).toHaveLength(10)
   })
+
+  it("Should render an error state on network failure", async () => {
+    server.use(http.get(`${BGG_PROXY}/collection`, () => HttpResponse.error()))
+    renderWithQueryProvider(
+      <Collection username="dkf2112" sort="name" players={0} playtime={0} searchText="" />,
+    )
+    expect(await screen.findByText(/^Error:/)).toBeVisible()
+  })
 })

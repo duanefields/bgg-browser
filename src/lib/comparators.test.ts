@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { Game } from "../shared.types"
+import makeGame from "./makeGame"
 import {
   myRatingComparator,
   playsComparator,
@@ -11,7 +11,7 @@ import {
 
 describe("titleComparator", () => {
   it("Should sort titles ascending ignoring leading articles", () => {
-    const titles = [
+    const games = [
       "The Great Gatsby",
       "To Kill a Mockingbird",
       "1984",
@@ -19,25 +19,7 @@ describe("titleComparator", () => {
       "Brave New World",
       "The Catcher in the Rye",
       "A Tale of Two Cities",
-    ]
-
-    const games: Game[] = titles.map((title) => ({
-      name: title,
-      objectId: 0,
-      collectionId: 0,
-      thumbnail: "",
-      minPlayers: 0,
-      maxPlayers: 0,
-      minPlaytime: 0,
-      maxPlaytime: 0,
-      playtime: 0,
-      yearPublished: 0,
-      averageRating: 0,
-      myRating: null,
-      rank: null,
-      numPlays: 0,
-      url: "",
-    }))
+    ].map((name) => makeGame({ name }))
 
     const sorted = games.sort(titleComparator).map((game) => game.name)
 
@@ -51,38 +33,67 @@ describe("titleComparator", () => {
       "To Kill a Mockingbird",
     ])
   })
+
+  it("Should handle case-insensitive article stripping", () => {
+    const games = [
+      "the castles of burgundy",
+      "THE GAME",
+      "a feast for odin",
+      "AN UNEXPECTED JOURNEY",
+    ].map((name) => makeGame({ name }))
+
+    const sorted = games.sort(titleComparator).map((game) => game.name)
+
+    expect(sorted).toEqual([
+      "the castles of burgundy",
+      "a feast for odin",
+      "THE GAME",
+      "AN UNEXPECTED JOURNEY",
+    ])
+  })
+
+  it("Should not strip articles that are part of the first word", () => {
+    const games = [
+      "Ark Nova",
+      "Anthem",
+      "Thebes",
+      "Anaconda",
+    ].map((name) => makeGame({ name }))
+
+    const sorted = games.sort(titleComparator).map((game) => game.name)
+
+    // "A" in "Ark" and "Anthem" should NOT be stripped because they aren't
+    // a standalone article followed by a space
+    expect(sorted).toEqual(["Anaconda", "Anthem", "Ark Nova", "Thebes"])
+  })
+
+  it("Should not strip 'a' when it is the entire title", () => {
+    const games = [
+      "B",
+      "A",
+      "C",
+    ].map((name) => makeGame({ name }))
+
+    const sorted = games.sort(titleComparator).map((game) => game.name)
+
+    // "A" has no trailing space so the regex /^a /i should not match
+    expect(sorted).toEqual(["A", "B", "C"])
+  })
 })
 
 describe("ratingComparator", () => {
   it("Should sort by averageRating descending then title", () => {
-    const data = [
-      { name: "Game 1", averageRating: 7 },
-      { name: "Game 2", averageRating: 8 },
-      { name: "Game 3", averageRating: 6 },
-      { name: "Game 4", averageRating: 8 },
-      { name: "Game 5", averageRating: 7 },
+    const games = [
+      makeGame({ name: "Game 1", averageRating: 7 }),
+      makeGame({ name: "Game 2", averageRating: 8 }),
+      makeGame({ name: "Game 3", averageRating: 6 }),
+      makeGame({ name: "Game 4", averageRating: 8 }),
+      makeGame({ name: "Game 5", averageRating: 7 }),
     ]
 
-    const games: Game[] = data.map((game) => ({
-      ...game,
-      objectId: 0,
-      collectionId: 0,
-      thumbnail: "",
-      minPlayers: 0,
-      maxPlayers: 0,
-      minPlaytime: 0,
-      maxPlaytime: 0,
-      playtime: 0,
-      yearPublished: 0,
-      myRating: null,
-      rank: null,
-      numPlays: 0,
-      url: "",
-    }))
-
-    const sorted = games.sort(ratingComparator).map((game) => ({
-      name: game.name,
-      averageRating: game.averageRating,
+    const sorted = games.sort(ratingComparator).map((g) => ({
+      name: g.name,
+      averageRating: g.averageRating,
     }))
 
     expect(sorted).toEqual([
@@ -96,37 +107,20 @@ describe("ratingComparator", () => {
 })
 
 describe("myRatingComparator", () => {
-  it("Should should correctly sort by myRating descending then title", () => {
-    const data = [
-      { name: "Game 1", myRating: 7 },
-      { name: "Game 2", myRating: 8 },
-      { name: "Game 3", myRating: 6 },
-      { name: "Game 4", myRating: 8 },
-      { name: "Game 5", myRating: 7 },
-      { name: "Game 6", myRating: null },
-      { name: "Game 7", myRating: 5 },
+  it("Should correctly sort by myRating descending then title", () => {
+    const games = [
+      makeGame({ name: "Game 1", myRating: 7 }),
+      makeGame({ name: "Game 2", myRating: 8 }),
+      makeGame({ name: "Game 3", myRating: 6 }),
+      makeGame({ name: "Game 4", myRating: 8 }),
+      makeGame({ name: "Game 5", myRating: 7 }),
+      makeGame({ name: "Game 6", myRating: null }),
+      makeGame({ name: "Game 7", myRating: 5 }),
     ]
 
-    const games: Game[] = data.map((game) => ({
-      ...game,
-      objectId: 0,
-      collectionId: 0,
-      thumbnail: "",
-      minPlayers: 0,
-      maxPlayers: 0,
-      minPlaytime: 0,
-      maxPlaytime: 0,
-      playtime: 0,
-      yearPublished: 0,
-      averageRating: 0,
-      rank: null,
-      numPlays: 0,
-      url: "",
-    }))
-
-    const sorted = games.sort(myRatingComparator).map((game) => ({
-      name: game.name,
-      myRating: game.myRating,
+    const sorted = games.sort(myRatingComparator).map((g) => ({
+      name: g.name,
+      myRating: g.myRating,
     }))
 
     expect(sorted).toEqual([
@@ -143,34 +137,17 @@ describe("myRatingComparator", () => {
 
 describe("playsComparator", () => {
   it("Should correctly sort by numPlays descending then title", () => {
-    const data = [
-      { name: "Game 1", numPlays: 7 },
-      { name: "Game 2", numPlays: 8 },
-      { name: "Game 3", numPlays: 6 },
-      { name: "Game 4", numPlays: 8 },
-      { name: "Game 5", numPlays: 7 },
+    const games = [
+      makeGame({ name: "Game 1", numPlays: 7 }),
+      makeGame({ name: "Game 2", numPlays: 8 }),
+      makeGame({ name: "Game 3", numPlays: 6 }),
+      makeGame({ name: "Game 4", numPlays: 8 }),
+      makeGame({ name: "Game 5", numPlays: 7 }),
     ]
 
-    const games: Game[] = data.map((game) => ({
-      ...game,
-      objectId: 0,
-      collectionId: 0,
-      thumbnail: "",
-      minPlayers: 0,
-      maxPlayers: 0,
-      minPlaytime: 0,
-      maxPlaytime: 0,
-      playtime: 0,
-      yearPublished: 0,
-      averageRating: 0,
-      myRating: null,
-      rank: null,
-      url: "",
-    }))
-
-    const sorted = games.sort(playsComparator).map((game) => ({
-      name: game.name,
-      numPlays: game.numPlays,
+    const sorted = games.sort(playsComparator).map((g) => ({
+      name: g.name,
+      numPlays: g.numPlays,
     }))
 
     expect(sorted).toEqual([
@@ -185,37 +162,20 @@ describe("playsComparator", () => {
 
 describe("rankComparator", () => {
   it("Should correctly sort by rank ascending then title", () => {
-    const data = [
-      { name: "Game 1", rank: 7 },
-      { name: "Game 2", rank: 8 },
-      { name: "Game 3", rank: 6 },
-      { name: "Game 4", rank: 8 },
-      { name: "Game 5", rank: 7 },
-      { name: "Game 6", rank: null },
-      { name: "Game 7", rank: 5 },
-      { name: "Game 8", rank: null },
+    const games = [
+      makeGame({ name: "Game 1", rank: 7 }),
+      makeGame({ name: "Game 2", rank: 8 }),
+      makeGame({ name: "Game 3", rank: 6 }),
+      makeGame({ name: "Game 4", rank: 8 }),
+      makeGame({ name: "Game 5", rank: 7 }),
+      makeGame({ name: "Game 6", rank: null }),
+      makeGame({ name: "Game 7", rank: 5 }),
+      makeGame({ name: "Game 8", rank: null }),
     ]
 
-    const games: Game[] = data.map((game) => ({
-      ...game,
-      objectId: 0,
-      collectionId: 0,
-      thumbnail: "",
-      minPlayers: 0,
-      maxPlayers: 0,
-      minPlaytime: 0,
-      maxPlaytime: 0,
-      playtime: 0,
-      yearPublished: 0,
-      averageRating: 0,
-      myRating: null,
-      numPlays: 0,
-      url: "",
-    }))
-
-    const sorted = games.sort(rankComparator).map((game) => ({
-      name: game.name,
-      rank: game.rank,
+    const sorted = games.sort(rankComparator).map((g) => ({
+      name: g.name,
+      rank: g.rank,
     }))
 
     expect(sorted).toEqual([
@@ -233,39 +193,22 @@ describe("rankComparator", () => {
 
 describe("playtimeComparator", () => {
   it("Should sort by playtime ascending then title", () => {
-    const data = [
-      { name: "Game 1", maxPlaytime: 120 },
-      { name: "Game 2", maxPlaytime: 90 },
-      { name: "Game 3", maxPlaytime: 180 },
-      { name: "Game 4", maxPlaytime: 60 },
-      { name: "Game 5", maxPlaytime: 120 },
-      { name: "Game 6", maxPlaytime: 90 },
-      { name: "Game 7", maxPlaytime: 180 },
-      { name: "Game 8", maxPlaytime: 60 },
-      { name: "Game 9", maxPlaytime: null },
-      { name: "Game A", maxPlaytime: null },
+    const games = [
+      makeGame({ name: "Game 1", maxPlaytime: 120 }),
+      makeGame({ name: "Game 2", maxPlaytime: 90 }),
+      makeGame({ name: "Game 3", maxPlaytime: 180 }),
+      makeGame({ name: "Game 4", maxPlaytime: 60 }),
+      makeGame({ name: "Game 5", maxPlaytime: 120 }),
+      makeGame({ name: "Game 6", maxPlaytime: 90 }),
+      makeGame({ name: "Game 7", maxPlaytime: 180 }),
+      makeGame({ name: "Game 8", maxPlaytime: 60 }),
+      makeGame({ name: "Game 9", maxPlaytime: null }),
+      makeGame({ name: "Game A", maxPlaytime: null }),
     ]
 
-    const games: Game[] = data.map((game) => ({
-      ...game,
-      objectId: 0,
-      collectionId: 0,
-      thumbnail: "",
-      minPlayers: 0,
-      maxPlayers: 0,
-      minPlaytime: 0,
-      playtime: 0,
-      yearPublished: 0,
-      averageRating: 0,
-      myRating: null,
-      rank: null,
-      numPlays: 0,
-      url: "",
-    }))
-
-    const sorted = games.sort(playtimeComparator).map((game) => ({
-      name: game.name,
-      maxPlaytime: game.maxPlaytime,
+    const sorted = games.sort(playtimeComparator).map((g) => ({
+      name: g.name,
+      maxPlaytime: g.maxPlaytime,
     }))
 
     expect(sorted).toEqual([

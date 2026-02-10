@@ -1,5 +1,7 @@
+import { http, HttpResponse } from "msw"
 import { expect, it, describe } from "vitest"
-import { getCollection, getUser } from "./api"
+import server from "../mockServer"
+import { getCollection, getUser, BGG_PROXY } from "./api"
 
 describe("getUser", () => {
   it("Should return a user object", async () => {
@@ -24,6 +26,18 @@ describe("getUser", () => {
 
   it("Should return an error for an invalid username", async () => {
     await expect(getUser("nonexistent")).rejects.toThrow("Invalid username specified")
+  })
+
+  it("Should throw on network error", async () => {
+    server.use(http.get(`${BGG_PROXY}/user`, () => HttpResponse.error()))
+    await expect(getUser("dkf2112")).rejects.toThrow()
+  })
+
+  it("Should throw when server returns non-JSON response", async () => {
+    server.use(
+      http.get(`${BGG_PROXY}/user`, () => new HttpResponse("Internal Server Error", { status: 500 })),
+    )
+    await expect(getUser("dkf2112")).rejects.toThrow()
   })
 })
 
@@ -97,5 +111,20 @@ describe("getCollection", () => {
   it("Should return an empty array for a user with no games in their collection", async () => {
     const collection = await getCollection("tommy")
     expect(collection).toEqual([])
+  })
+
+  it("Should throw on network error", async () => {
+    server.use(http.get(`${BGG_PROXY}/collection`, () => HttpResponse.error()))
+    await expect(getCollection("dkf2112")).rejects.toThrow()
+  })
+
+  it("Should throw when server returns non-JSON response", async () => {
+    server.use(
+      http.get(
+        `${BGG_PROXY}/collection`,
+        () => new HttpResponse("Internal Server Error", { status: 500 }),
+      ),
+    )
+    await expect(getCollection("dkf2112")).rejects.toThrow()
   })
 })
